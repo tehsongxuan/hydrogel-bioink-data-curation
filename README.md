@@ -1,165 +1,324 @@
-# hydrogel-bioink-data-curation
-Reproducible curation and linkage assessment of open hydrogel bioink formulation, rheology, and 3D-printing data.
-# Open-Data Curation and Integration of Hydrogel Bioink Formulation, Rheology and Printing Records
+# Open Materials Data Pipeline for Hydrogel Bioink Design
 
-[![Zenodo dataset](https://zenodo.org/badge/DOI/10.5281/zenodo.19602891.svg)](https://doi.org/10.5281/zenodo.19602891)
+A reproducible materials-informatics project for curating hydrogel bioink data, preserving experimental context, and deciding whether open records support reliable analysis or machine learning.
 
-## Project status
-
-**Proposed project — source-data feasibility review is the first step.**
-
-This README describes the planned scope. The dataset files have not yet been audited in this project, so the final schema, joins, analyses and deliverables will depend on what the source records actually support. No results are claimed here.
+**Status:** Proposed. Source feasibility and data audit come first. No analysis or model results are claimed until the source records have been inspected and the planned checks have been completed.
 
 ## Project overview
 
-This project will assess whether an openly available hydrogel bioink dataset can be organised into a traceable workflow connecting **formulation and printing-related metadata** with **rheological characterisation** and **construct/image records**, where the source files provide evidence for those links.
+Materials research creates records at several levels: ingredients, formulations, processing steps, physical samples, measurements, printing runs, constructs, and images. Those records may live in different tables, instrument exports, archives, and image folders. They are scientifically useful together only when their meanings, units, and relationships are clear.
 
-The selected Zenodo record accompanies research on generative AI-guided optimisation of deposition morphology for 3D bioprinting. It describes alginate-phenol and hyaluronic-acid-phenol conjugated inks, rheology data, image metadata, and image files. The image index is described as containing image identifiers and fields such as ink type and concentration, shape, irradiation intensity and sodium persulfate presence. The actual file contents and the meaning of each field will be checked before analysis. [Zenodo dataset record](https://zenodo.org/records/19602891)
+This project uses an open hydrogel bioink dataset as its experimental case study and uses three complementary materials-informatics resources to practise computational data ingestion, model evaluation, and schema design. The central question is:
+
+> Can open materials records be organized into a traceable workflow that connects documented bioink formulations and processing conditions with rheological measurements and printed-construct information, while preserving the limits of the source data?
+
+The workflow is deliberately data-first: verify sources; audit files; define the data model; validate and standardize values; examine comparable observations; then decide whether prediction is justified. Machine learning is a possible final step, not an assumption made at the beginning.
 
 ## Problem statement
 
-Materials-development data are often split across files that describe different parts of an experiment. A rheology curve, a formulation label and a printed-construct image are useful together only when their meanings, units and relationships are clear.
+The primary experimental source concerns phenol-modified alginate (ALG-Ph) and hyaluronic-acid (HA-Ph) hydrogel inks used in 3D bioprinting. The Zenodo record describes shear-dependent viscosity, storage modulus (`G′`), loss modulus (`G″`), printing metadata, indexed construct images, and files associated with the source authors’ analyses. The planned version is `v0.0.2`, to be checked again before processing. [Zenodo record](https://zenodo.org/records/19602891) · [Dataset DOI](https://doi.org/10.5281/zenodo.19602891)
 
-Before investigating how a hydrogel bioink behaves during printing, the records need to answer basic questions:
+A rheology file may contain many points from one experiment. Those points are repeated observations, not separate formulations. An image index may describe an image or construct, not an independent material sample. A formulation label may not uniquely identify a physical sample. A successful software join between two tables does not prove they describe the same experiment.
 
-- What does each row or file represent: a formulation, a measurement point, a printing run or an image?
-- Which formulation and printing fields are actually recorded, and how are they encoded?
-- Are rheology variables and units consistent and scientifically interpretable?
-- Can a rheology record be linked to a specific formulation or construct using documented identifiers?
-- Which values are missing, and are they structurally absent, unreported or uncertain?
-- Is there a well-defined application outcome suitable for comparison or modelling?
+The project therefore asks what each row and file represents, which material and process it describes, and whether a link is supported by source identifiers or documentation. Unexplained rows, missing information, and unmatched records will be recorded rather than silently removed, filled with zero, or forced into a relationship. Keeping these records traceable preserves evidence for review and prevents the curated dataset from appearing more complete or certain than its source.
 
-If these questions are not answered first, an analysis can join unrelated records, mistake missing values for measured zeroes, or claim a formulation–performance relationship that the data cannot establish.
+## Polymer and hydrogel context
 
-## Research question
+A hydrogel is a water-rich polymer network. A bioink is a formulation intended for bioprinting; it may be hydrogel-based and may contain cells, but the word alone does not prove that a dataset includes cells or measures biological performance. The Zenodo case study describes acellular hydrogel printing, so this project will not infer cell viability or tissue response from its rheology or images.
 
-**Can the published records be curated into a reproducible dataset that links hydrogel bioink formulation and printing conditions with rheological and construct information, and what limitations remain before reliable formulation-to-performance modelling is possible?**
+Polymer behaviour depends on more than polymer identity. Concentration, molecular characteristics, chemical modification, additives, crosslinking, processing history, temperature, and test conditions can matter. The source may not report every factor. The project will preserve this incompleteness rather than inventing chemical descriptors or sample conditions.
 
-## Polymer chemistry and materials-informatics context
+Rheology describes flow and deformation. Viscosity measures resistance to flow. If viscosity decreases as shear rate increases, the material exhibits shear-thinning behaviour. This can be relevant to extrusion through a printing nozzle, but shear thinning alone does not prove printability. Recovery after extrusion, crosslinking kinetics, nozzle geometry, speed, pressure, and other processing conditions may also matter.
 
-A hydrogel is a water-rich polymer network. A bioink is a material prepared for bioprinting; bioinks may be hydrogel-based, but the terms are not interchangeable. The selected dataset specifically concerns hydrogel printing and reports alginate-phenol and hyaluronic-acid-phenol conjugated inks.
+Hydrogels are viscoelastic: their response can include elastic energy storage and viscous energy dissipation. `G′` describes the elastic contribution and `G″` the viscous contribution under the specified oscillatory test conditions. These values should be interpreted alongside information such as frequency, strain, temperature, and sample history. A difference between formulations cannot be attributed to chemistry alone if test conditions or sample identity are uncertain.
 
-The polymer formulation and the printing or curing conditions can influence how an ink flows during deposition and how it behaves after printing. Rheological quantities provide different views of this response:
+The scientific chain of interest is:
 
-- **Shear-rate-dependent viscosity** describes resistance to flow at different imposed shear rates and can inform print-process behaviour.
-- **Storage modulus, G′**, describes the elastic component of the measured viscoelastic response.
-- **Loss modulus, G″**, describes the viscous component of that response.
+**ingredients and polymer chemistry → formulation → processing or crosslinking → measured rheology → printing conditions → construct or documented outcome**
 
-These measurements must be interpreted alongside the test conditions and source definitions. A rheology value alone does not prove printability, construct quality, biological performance or a causal effect of one formulation variable.
+Each connection must be supported by the source. If an identifier or documented convention does not establish a link, it remains unresolved.
 
-From a polymer-informatics perspective, the intended data chain is:
+## Resources and their roles
 
-**polymer/ink formulation → processing or printing conditions → measured rheology → construct-level information**
+The platforms provide different evidence types. They will share data-management and provenance principles, but they will not be merged into one artificial training dataset.
 
-The project will test whether the source records support each link. It will not invent sample identities, infer undocumented chemistry or assume that similarly named records belong together.
+| Resource | Role in this project | Boundary |
+|---|---|---|
+| [Zenodo bioink dataset](https://zenodo.org/records/19602891) | Primary experimental case study for rheology, printing metadata, and indexed construct images. | Only source-supported links and outcomes will be used. Shape labels and images are not automatically validated print-quality scores. |
+| [Materials Project](https://next-gen.materialsproject.org/) | Practise reproducible API retrieval of selected computational materials records, retaining material IDs, query details, returned fields, and calculation provenance. | Its inorganic computational records are not hydrogel rheology measurements and remain in a separate branch. |
+| [Matbench](https://matbench.materialsproject.org/) | Reproduce a defined materials-property benchmark to practise controlled model evaluation. The proposed `matbench_dielectric` task predicts refractive index from inorganic crystal structure. | It is not a polymer or hydrogel benchmark; its scores cannot validate a hydrogel model. |
+| [Citrine / GEMD](https://citrineinformatics.github.io/gemd-docs/) | Use materials-process-measurement concepts to guide schema design and represent experimental history. | GEMD is a data model, not a hydrogel dataset. Citrination access will be checked before depending on any data there. |
 
-## Objectives
+Materials Project provides a Python API client. API retrieval requires an API key, and a query should specify fields that are actually available and needed. The query, selected fields, and retrieval date form part of the provenance record. [API setup](https://docs.materialsproject.org/downloading-data/using-the-api/getting-started) · [Query guidance](https://docs.materialsproject.org/downloading-data/using-the-api/querying-data)
 
-1. **Audit source files and provenance.** Record filenames, file types, available documentation, source identifiers, row counts and checksums where appropriate.
-2. **Define record-level schemas.** Distinguish formulation or process metadata, rheology observations and image/construct metadata based on the actual files.
-3. **Standardise and validate.** Check variable names, units, data types, identifiers, duplicates, missingness and value coverage; preserve original values and record all transformations.
-4. **Test table relationships.** Measure how many records can be linked using documented identifiers. Report unmatched and ambiguous records instead of forcing a join.
-5. **Explore supported patterns.** Summarise rheological responses and other clearly defined fields at the correct experimental level.
-6. **Assess modelling readiness.** Determine whether the data contain a valid outcome, reliable links and enough independent formulations or constructs for a leakage-safe model.
+Matbench provides curated tasks for materials-property machine learning. Reproducing its task protocol is a separate exercise in controlled evaluation; it does not transfer a model’s validity from inorganic crystals to polymer networks. [Matbench documentation](https://docs.materialsproject.org/services/ml-and-ai-applications/matbench) · [Matbench repository](https://github.com/materialsproject/matbench)
 
-## Planned workflow
+GEMD helps represent ingredients, materials, processes, measurements, conditions, and results as a connected material history. This can guide the experimental schema even if no Citrination dataset is used. Dataset availability and terms will be checked before any Citrination records are treated as a project input. [GEMD overview](https://citrineinformatics.github.io/gemd-docs/high-level-overview/) · [Citrine Python data model](https://citrineinformatics.github.io/citrine-python/getting_started/data_model.html)
 
-### Stage 0 — Feasibility and source review
+## Linked workflow
 
-Read the Zenodo record, dataset documentation and actual files. Verify the dataset-specific reuse terms and citation requirements. Inventory what is available and identify which files are needed for a manageable first analysis.
+Each phase has an input, checks, output, and exit condition. The output from one phase becomes a controlled input to the next. This prevents later plots or models from depending on undocumented joins or guessed unit conversions.
 
-The Zenodo record lists a small image-index table and rheology archive alongside a much larger image collection and model files. The initial review can begin with the documentation, tabular index and rheology data; image processing will be considered only if it is needed to answer a defined question. [Zenodo dataset record](https://zenodo.org/records/19602891)
+### Phase 0 — Define scope and register sources
 
-### Stage 1 — Data audit
+**Question:** What does each source contain, and what conclusions can it support?
 
-Inspect the actual file structures, column names, units, identifiers, row counts and missing values. Check whether documentation explains how records correspond to one another. Record unusual or unclear items in a quality-control log; do not silently delete or correct them.
+Record each source URL or DOI, dataset/API identifier, version, retrieval date, access and reuse terms, source type, citation, and local file details or checksum where practical. Confirm the Zenodo version and files; select a bounded Materials Project query; identify the exact Matbench task and protocol; and distinguish Citrine/GEMD documentation from access to Citrination datasets.
 
-### Stage 2 — Schema and data dictionary
+**Data-science concept:** provenance starts at acquisition. A property value is not fully described without its source, unit, experiment or material identifier, and processing history.
 
-Define a schema only after inspecting the source files. Candidate record levels may include formulation/process records, rheology measurement points and image or construct records, but the final tables and their fields must reflect the dataset as supplied.
+**Output and handoff:** a project-scope note and source manifest. This manifest controls what is audited in Phase 1 and records the project’s non-goals. Exit when each source and version has a defined, limited purpose.
 
-For each retained field, document its source name, standardised name if needed, meaning, unit, applicable record type, missing-value rule and provenance.
+### Phase 1 — Audit the Zenodo source
 
-### Stage 3 — Controlled ingestion and validation
+**Question:** What files, fields, units, identifiers, and relationships are actually present?
 
-Create reproducible, machine-readable tables while keeping each value traceable to its source file and source location. Validate identifiers and candidate joins, and distinguish:
+Inventory archives, filenames, formats, tables, columns, row counts, data types, units, labels, IDs, missing values, duplicates, and image files. Compare image names with the image index and read the source documentation for stated record relationships. Separate facts from assumptions: for example, a `shape` label is not automatically a numerical fidelity score.
 
-- measured zeroes from missing values;
-- structural absence from unknown or unreported values;
-- source-reported quantities from any derived summaries; and
-- a source label from a confirmed physical sample or run identity.
+Log unexpected or unexplained rows, inconsistent labels or units, missing identifiers, and duplicate-looking records. Preserve the original source and record the evidence reviewed. An unusual value is a reason to inspect context, not automatic evidence for deleting or correcting it.
 
-### Stage 4 — Linkage assessment
+**Data-science concept:** profiling exposes structural problems before transformations or modelling. **Polymer concept:** concentration, crosslinking, and measurement conditions can change the meaning of a rheology value, so the audit checks whether these are measured, reported, or absent.
 
-Test only relationships supported by source identifiers or documented metadata. Report match rates, unmatched records, duplicate keys and ambiguous links. Similar text labels alone are not proof that two records describe the same formulation, sample or printing run.
+**Output and handoff:** file and field inventories plus a quality-control issue log. The observed fields and keys—not assumed ones—define Phase 2. Exit when source structure and uncertainty are documented well enough to design the schema.
 
-### Stage 5 — Exploratory analysis
+### Phase 2 — Design the experimental schema
 
-If validated links and compatible measurement conditions are available, describe rheological values across the recorded ink and processing groups. Keep repeated points within a curve or run nested within that experimental record. Use descriptive summaries and avoid causal claims from observational comparisons.
+**Question:** What real-world entity does one row represent in each table?
 
-Any derived quantity will be calculated only when its source variables, units and measurement conditions make the calculation valid and interpretable.
+Separate formulation records, physical samples if identified, rheology experiments, rheology measurement points, printing events, constructs, and images. One experiment may produce many rheology points; one run may have several images. These are different levels of observation. A replicate in a filename is not proof of physical sample identity unless the source says so.
 
-### Stage 6 — Modelling-readiness decision
+Define field names, meanings, types, units, allowed values, missing-value semantics, identifiers, and source mapping. A formulation table might hold composition; an experiment table holds test type and conditions; a measurement table holds point-level values. A printing event and image index should be separate if the source supports them. The schema must not invent fields just because they would be useful for modelling.
 
-A predictive model is optional, not a required outcome. Before modelling, establish a clear target, valid formulation-to-outcome links, enough independent examples and a split strategy that prevents related measurements from appearing in both training and test data.
+GEMD concepts can be used as a reference: ingredients enter processes; processes produce or modify materials; measurements characterize materials under conditions and yield results. Intended specifications should be distinguished from what actually occurred in an experimental run.
 
-The dataset documentation notes that the completeness_sam field has missing data and was not used in the published study. It will not be treated as a model target unless the actual records establish that its definition, completeness and use are suitable. The field named shape will also not be assumed to mean print quality without source documentation. [Zenodo dataset record](https://zenodo.org/records/19602891)
+**Data-science concept:** schema design makes data granularity and relationships explicit. **Polymer concept:** separating material identity, formulation, process, and measurement context keeps the property attached to the conditions that produced it.
 
-## Data-science and polymer-informatics value
+**Output and handoff:** schema map, data dictionary, identifier rules, and source-to-schema mapping. These become validation rules for Phase 3. Exit when every field has a definition and each relationship is supported or marked unresolved.
 
-This project focuses on **data integration and experimental workflow quality**, rather than building another generic model. It applies data-science concepts to a polymer biomaterial:
+### Phase 3 — Standardize values and run quality checks
 
-- **Relational data modelling:** define what one record represents and how formulation, rheology and construct records relate.
-- **Data provenance:** retain source filenames, identifiers and locations so an analysis can be traced back to the original record.
-- **Unit and label harmonisation:** make equivalent concepts machine-readable without changing values unless a numerical conversion is documented and justified.
-- **Missing-data semantics:** represent why a field is missing rather than filling absent values with zero.
-- **Join validation:** quantify coverage and ambiguity instead of assuming matching labels establish identity.
-- **Experimental hierarchy:** avoid treating repeated measurement points from one curve or run as independent formulations.
-- **Model validation:** assess independence and leakage risks before reporting predictive performance.
+**Question:** Can equivalent information be represented consistently without losing the original evidence?
 
-This complements two related materials-informatics capabilities: polymer structure-to-property modelling, and curation of experimental hydrogel rheology. The proposed third project extends the data story toward formulation, processing and application records.
+Standardize field names, labels, types, and units only where meaning is clear. Keep original values and units alongside standardized values, units, and conversion rules. Do not convert an ambiguous unit by guessing. Distinguish zero from not measured, not reported, not applicable, unknown, and unavailable.
 
-## Relevance to materials research workflows
+Validate required fields, ID uniqueness, foreign keys, duplicate records, numeric types, row counts, unit consistency, and scientifically justified ranges. Treat range checks as flags for review, not automatic correction. Keep a decision trail in the issue log.
 
-The project is designed to demonstrate practical skills that matter in research environments:
+**Data-science concept:** executable checks make assumptions repeatable and expose violations. Passing checks does not prove that a scientific relationship is true. **Polymer concept:** `G′` in pascals and viscosity in pascal-seconds describe different properties; even equal units do not ensure comparability if frequency or temperature differs.
 
-- building a documented data-ingestion workflow;
-- organising materials and characterisation information into usable tables;
-- checking data quality before analytics or machine learning;
-- communicating what the evidence supports and what remains unresolved; and
-- preparing data for future integration into broader experimental or materials databases.
+**Output and handoff:** standardized tables, validation summary, and transformation lineage. Their verified identifiers support Phase 4. Exit when transformations are reproducible and unresolved problems remain visible.
 
-This project cannot demonstrate hands-on polymer synthesis, development of measurement devices, lab automation or robotic experimentation. It focuses on the data and workflow component of materials research.
+### Phase 4 — Assess record linkage
 
-## Planned deliverables
+**Question:** Which formulation, rheology, printing, and image records can genuinely be connected?
 
-Subject to the feasibility review, planned outputs may include:
+For each candidate join, record the key and its source. Check match rates, unmatched rows, duplicated keys, and one-to-one or one-to-many relationships. Some one-to-many links are expected: a rheology experiment can contain many points. A join that runs successfully in software does not prove that the records describe the same physical formulation or run.
 
-- reproducible Jupyter notebooks for audit, schema design, validation and analysis;
-- a source manifest and file inventory;
-- a data dictionary and documented schema;
-- a quality-control issue log and join-coverage report;
-- standardised, derived tables where reuse terms allow publication;
-- exploratory plots and a modelling-readiness assessment; and
-- a GitHub README documenting methods, provenance, limitations and citations.
+Classify links as confirmed by an explicit ID, documented by a source convention, possible, or unresolved. Similar labels alone may suggest a match but do not confirm one. Report ambiguous records rather than forcing them into a combined table.
 
-Original source files will not be republished unless dataset terms permit it. Code and documentation will distinguish source data from derived outputs.
+**Data-science concept:** this is entity resolution and join validation. It also determines the independent experimental unit for later summaries and model splits. **Polymer concept:** formulation-to-rheology linkage is necessary before a measured response can be interpreted as formulation-dependent.
+
+**Output and handoff:** linkage map, join-coverage report, and unresolved-link register. Only supported links move into Phase 5. Exit when each comparison has a defined population and evidence basis.
+
+### Phase 5 — Explore rheology and printing context
+
+**Question:** What patterns occur in validated, comparable measurements?
+
+Plot shear-dependent viscosity against shear rate and describe whether the observed curve is consistent with shear-thinning over the measured range. Plot `G′` and `G″` against the source’s measured variable when test conditions allow comparison. Keep individual experiments visible and group summaries at the correct level; do not treat curve points as independent samples.
+
+A derived value such as `tan δ = G″/G′` should be calculated only when both moduli are available and compatible. Record the formula, retain source values, and leave the result undefined when the denominator is zero. Do not alter a measurement to make a derived column complete.
+
+Explore image and printing metadata only if source-defined identifiers link them to rheology or formulation. Define what each image label represents. A requested shape, image category, and validated print-quality outcome are not interchangeable. Describe associations rather than causal effects; unrecorded conditions may explain observed differences.
+
+**Data-science concept:** exploratory analysis describes distributions, coverage, variation, and possible relationships before inference. **Polymer concept:** viscosity, `G′`, and `G″` describe different aspects of flow and viscoelasticity; their printing relevance depends on test and process conditions.
+
+**Output and handoff:** reproducible figures, tables, and a written interpretation with comparability limits. These inform model readiness in Phase 10. Exit when each plot states the source population, unit, condition, and experimental unit.
+
+### Phase 6 — Ingest a bounded Materials Project extract
+
+**Question:** Can computational materials records be retrieved and traced reproducibly?
+
+Use the official `mp-api` client for a bounded query. Retain material IDs, query parameters, requested fields, retrieval date, and available calculation provenance. Verify actual returned fields rather than assuming every material has every property. Store API credentials outside version control.
+
+**Data-science concept:** a saved query and source ID make API acquisition reproducible and easier to refresh. **Materials concept:** a calculated inorganic property is a different evidence type from an experimental hydrogel measurement; each keeps its method and provenance.
+
+**Output and handoff:** a documented extract and executable query notebook. This is a separate test case for the metadata design in Phase 9, not a feature table for the hydrogel model. Exit when a reviewer can reproduce the query and identify the origin of each returned value.
+
+### Phase 7 — Reproduce a Matbench task
+
+**Question:** Can a materials-property model be evaluated under a defined protocol?
+
+Reproduce the selected `matbench_dielectric` task using the documented data, folds, and metrics. Its target is refractive index from inorganic crystal structure; despite the name, it is not a hydrogel or polymer dielectric task. Start with a transparent baseline and report features, model, evaluation protocol, and error metrics. Do not tune on the benchmark test data and still call the result a faithful reproduction.
+
+**Data-science concept:** baselines, fixed evaluation procedures, metrics, and leakage checks make results comparable. **Materials-informatics concept:** crystal-structure features do not substitute for polymer chemistry or formulation descriptors.
+
+**Output and handoff:** a reproducible benchmark notebook and score interpretation. The evaluation practices inform Phase 10, but benchmark performance is not evidence that the hydrogel data can support prediction. Exit when task identity, target, inputs, protocol, and limitations are explicit.
+
+### Phase 8 — Map the schema to GEMD
+
+**Question:** Can the documented experimental history be represented as materials, ingredients, processes, measurements, and results?
+
+Map source-supported entities to GEMD concepts. An ingredient may enter a formulation process; a process may create or modify a material; a measurement may be performed on that material under specified conditions. Printing and imaging can be separate processes or records if the source documents them.
+
+GEMD distinguishes intended specifications from experimental runs. A planned concentration is not necessarily the concentration of a prepared and measured sample. A more expressive schema cannot fill a missing sample ID or create evidence absent from the dataset.
+
+**Data-science concept:** knowledge representation captures relationships and constraints that would otherwise remain implicit in column names. **Polymer concept:** formulation and process history can be essential to interpreting a hydrogel’s measured behaviour.
+
+**Output and handoff:** source-to-GEMD mapping, a small example representation, and a list of unsupported fields. This informs common metadata in Phase 9. Exit when mappings do not imply unsupported physical relationships.
+
+### Phase 9 — Apply shared provenance rules
+
+**Question:** What metadata must remain attached so records retain their origin and meaning?
+
+Across the separate source-specific tables, retain source platform and ID, version, source type, material system, property name, original value and unit, standardized value and unit if justified, method, conditions, retrieval date, processing history, and QC status. Distinguish source-reported, transformed, derived, calculated, predicted, and benchmark values.
+
+Record code version, environment, API query, and file checksum where practical. A shared provenance layer supports interoperability; it does not make records scientifically equivalent.
+
+**Data-science concept:** lineage supports audit, debugging, reproducibility, and version updates. **Materials-informatics concept:** consistent metadata can support data exchange while preserving differences among polymer experiments, inorganic calculations, and benchmark tasks.
+
+**Output and handoff:** provenance fields and reusable validation logic. These records allow the final readiness review to rely on traceable evidence. Exit when every processed value can be traced to a source and transformation history.
+
+### Phase 10 — Decide whether hydrogel prediction is justified
+
+**Question:** Do the curated experimental records support a meaningful, independent prediction task?
+
+Define the target before training. “Printability” is not a target until an outcome and measurement method are specified. A source-defined completeness label, objectively calculated shape deviation, or measured rheological property might be candidates if available and consistent. A shape category should not be relabelled as quality without evidence.
+
+Count independent formulations, samples, or printing runs—not just measurement points or image files. Group dependent records together during validation. Check whether predictors are available at the intended prediction time: post-print images cannot serve as predictors for a pre-print decision. Look for target-derived features, missingness, class imbalance, and incompatible measurement conditions.
+
+Possible outcomes are: a defined task is supported; only a restricted task is supportable; or the data support curation and exploration but not reliable prediction. The last outcome identifies which identifiers, measurements, or independent experiments a future dataset would need. If modelling is justified, start with a baseline, grouped validation, error analysis, and a stated domain of applicability.
+
+**Data-science concept:** model readiness depends on target definition, sample size, predictors, leakage-safe validation, and coverage. **Polymer concept:** models need formulation, process, and measurement context; they cannot learn unrecorded chemistry or conditions.
+
+**Output:** a model-readiness report and, only if supported, a limited baseline model. Exit with a defensible statement of what the data can and cannot predict.
+
+## Concepts that connect the phases
+
+- **Data granularity:** define whether a row represents a formulation, sample, experiment, point, run, construct, or image. This guides schema design, summaries, joins, and validation splits.
+- **Provenance and lineage:** preserve source identifiers, versions, units, query details, and transformations. This begins in Phase 0 and remains attached through every later output.
+- **Missingness semantics:** distinguish zero from unknown, not measured, not reported, not applicable, or unavailable. This affects QC and model feature selection.
+- **Standardization:** normalize names and units only with documented rules; keep raw source values available for review.
+- **Experimental hierarchy:** points from one curve and images from one run are nested records, not necessarily independent materials. This matters for uncertainty and model evaluation.
+- **Leakage control:** related records must not be split carelessly between training and testing. The split should reflect the intended future prediction and the true independent unit.
+- **Exploration versus causation:** patterns can motivate hypotheses but do not isolate causal effects when formulation, process, and conditions vary together.
+
+## Planned outputs
+
+Subject to feasibility, the repository may contain:
+
+- Versioned source manifest and file inventory
+- Field inventory, data dictionary, and schema map
+- Quality-control issue log and validation summary
+- Standardized tables with source-to-output traceability
+- Record-linkage report with match coverage and unresolved links
+- Reproducible notebooks for audit, validation, and exploratory analysis
+- Figures and summaries based on validated, comparable observations
+- A bounded Materials Project API-ingestion example
+- A Matbench reproduction with documented protocol and metrics
+- A GEMD mapping and example representation
+- A hydrogel model-readiness report and, only if appropriate, a baseline model
+
+Large source archives and API credentials will not be committed by default. The repository will provide source links, retrieval instructions, environment details, and code for reproducing derived outputs, subject to each provider’s terms.
+
+### Proposed repository structure
+
+```text
+open-materials-hydrogel-bioink-pipeline/
+├── README.md
+├── environment.yml
+├── .gitignore
+├── DATA_SOURCES.md
+├── DATA_DICTIONARY.md
+├── PROVENANCE.md
+├── notebooks/
+│   ├── 00_scope_and_source_registry.ipynb
+│   ├── 01_zenodo_source_audit.ipynb
+│   ├── 02_schema_and_quality_control.ipynb
+│   ├── 03_record_linkage.ipynb
+│   ├── 04_hydrogel_rheology_analysis.ipynb
+│   ├── 05_materials_project_api_ingestion.ipynb
+│   ├── 06_matbench_reproduction.ipynb
+│   ├── 07_gemd_mapping.ipynb
+│   └── 08_model_readiness.ipynb
+├── src/
+│   ├── ingestion/
+│   ├── validation/
+│   └── analysis/
+├── data/
+│   └── metadata/
+├── reports/
+│   ├── figures/
+│   └── tables/
+└── docs/
+    ├── schema_design.md
+    ├── quality_control_rules.md
+    └── scientific_boundaries.md
+```
+
+This structure is provisional. It will be updated to reflect work actually implemented; listing a notebook here does not claim that it already exists.
 
 ## Scientific boundaries
 
-- No sample, formulation or run linkage will be invented.
-- No unit conversion or value correction will be made without a documented rule.
-- No missing field will be treated as zero by default.
-- No repeated measurement point will be counted as an independent formulation.
-- No concentration or processing variable will be said to cause an outcome based only on descriptive association.
-- No predictive model will be presented unless the target, links, sample size and validation design support it.
-- The source authors’ generative-AI model will not be represented as work produced by this project.
+- Materials Project records remain computational and separate from hydrogel experimental data.
+- Matbench scores demonstrate benchmark practice, not hydrogel-model validity.
+- GEMD guides representation but cannot supply missing source evidence.
+- No physical sample or experiment link will be invented.
+- Missing values will not be replaced by zero without source justification.
+- Unit conversions and derived variables will be traceable to original values.
+- Repeated rheology points will not be counted as independent formulations.
+- Rheology and images alone will not be used to infer cell viability, tissue function, or clinical performance.
+- Observational patterns will not be described as causal effects of polymer chemistry or concentration.
+- Modelling will proceed only if the target, independent sample size, record linkage, predictors, and evaluation design support it.
+- The project does not claim new polymer synthesis, instrument or sensor development, robotics, or biological testing.
 
-## Dataset and citation
+These boundaries shape the source audit, schema, joins, plots, and modelling decision from the beginning.
 
-- Zenodo dataset: [Dataset for Disentangled Generative AI-Guided Closed-Loop Optimization of Deposition Morphology for 3D Bioprinting Applications](https://doi.org/10.5281/zenodo.19602891)
-- Associated article DOI: [10.1080/17452759.2026.2671497](https://doi.org/10.1080/17452759.2026.2671497)
+## Success criteria
 
-Please consult the dataset record for its current files, version, attribution and reuse conditions before using or sharing data.
+The workflow should be able to answer, with evidence: Where did each value originate? What does each row represent? Which values are experimental, computational, derived, or benchmark data? What material, formulation, process, and measurement conditions are documented? Which records can be linked, and which relationships remain uncertain? Which transformations and QC decisions were applied? Which observations are independent? What comparisons are scientifically appropriate? Is there a meaningful, leakage-safe prediction target? What does the dataset support, and what remains unknown?
+
+A finding that the source data are not yet ready for hydrogel machine learning can still be a useful result. It identifies the data gaps that future experiments or repositories need to address.
+
+## Current status and next step
+
+**Planning and source-feasibility review.** Begin with Phase 0: confirm the Zenodo version and reuse conditions, register the sources, then inspect the primary archive. Finalize the schema, joins, analysis, and any prediction task from the records actually found. Materials Project, Matbench, and GEMD remain separate extensions until the primary audit establishes a manageable scope.
+
+## Sources and technical documentation
+
+### Experimental hydrogel bioink data
+
+- [Zenodo dataset record](https://zenodo.org/records/19602891)
+- [Dataset DOI](https://doi.org/10.5281/zenodo.19602891)
+- [Associated publication](https://doi.org/10.1080/17452759.2026.2671497)
+- [Authors’ source-code repository](https://github.com/KORINZ/generative-ai-bioprinting-framework)
+
+### Materials Project
+
+- [Materials Project home](https://next-gen.materialsproject.org/)
+- [Materials Explorer](https://next-gen.materialsproject.org/materials)
+- [General documentation](https://docs.materialsproject.org/)
+- [API getting started](https://docs.materialsproject.org/downloading-data/using-the-api/getting-started)
+- [API query guidance](https://docs.materialsproject.org/downloading-data/using-the-api/querying-data)
+- [Python API client documentation](https://materialsproject.github.io/api/)
+- [API client source code](https://github.com/materialsproject/api)
+
+### Matbench and matminer
+
+- [Matbench benchmark and leaderboard](https://matbench.materialsproject.org/)
+- [Materials Project Matbench documentation](https://docs.materialsproject.org/services/ml-and-ai-applications/matbench)
+- [Matbench source repository](https://github.com/materialsproject/matbench)
+- [Matbench methodology paper](https://doi.org/10.1038/s41524-020-00406-3)
+- [matminer documentation](https://hackingmaterials.lbl.gov/matminer/)
+- [matminer dataset summary](https://hackingmaterials.lbl.gov/matminer/dataset_summary.html)
+
+### Citrine, GEMD, and Citrination
+
+- [Citrine Informatics](https://citrine.io/)
+- [Citrine DataManager](https://citrine.io/platform/citrine-datamanager/)
+- [GEMD documentation](https://citrineinformatics.github.io/gemd-docs/)
+- [GEMD high-level overview](https://citrineinformatics.github.io/gemd-docs/high-level-overview/)
+- [Citrine Python data-model overview](https://citrineinformatics.github.io/citrine-python/getting_started/data_model.html)
+- [gemd-python source repository](https://github.com/CitrineInformatics/gemd-python)
+- [Citrination](https://citrination.com/) — included as a platform reference; dataset availability and access will be verified before use.
+
 
 
