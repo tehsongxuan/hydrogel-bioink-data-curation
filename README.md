@@ -20,22 +20,22 @@ Phase 1 source-audit execution is complete for the rheology archive and image-in
 ### Phase 0 — Scope and source registry
 
 - [Jupyter notebook — scope and source registry](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/notebooks/00_scope_and_source_registry.ipynb)
-- [HTML export — scope and source registry (GitHub file)](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/00_scope_and_source_registry.html)
-- [View HTML report in browser — scope and source registry (GitHub Pages)](https://tehsongxuan.github.io/hydrogel-bioink-data-curation/reports/00_scope_and_source_registry.html)
+- [HTML export — scope and source registry](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/00_scope_and_source_registry.html)
+- [View HTML report in browser — scope and source registry](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/00_scope_and_source_registry.html)
 - [Phase 0 workflow and methodology](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#phase-0--define-scope-and-register-sources)
 - [Phase 0 publication checkpoint](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#github-publication-phase-0-checkpoint)
 
 ### Phase 1 — Zenodo source audit
 
 - [Jupyter notebook — Zenodo source audit](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/notebooks/01_zenodo_source_audit.ipynb)
-- [HTML export — Zenodo source audit (GitHub file)](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/01_zenodo_source_audit.html)
-- [View HTML report in browser — Zenodo source audit (GitHub Pages)](https://tehsongxuan.github.io/hydrogel-bioink-data-curation/reports/01_zenodo_source_audit.html)
+- [HTML export — Zenodo source audit](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/01_zenodo_source_audit.html)
+- [View HTML report in browser — Zenodo source audit](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/01_zenodo_source_audit.html)
 - [Phase 1 workflow and methodology](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#phase-1--audit-the-zenodo-source)
 - [Phase 1 audit results and scientific interpretation](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#phase-1-audit-results-and-scientific-interpretation)
 - [Phase 1 output inventory](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#phase-1-output-inventory)
 - [Phase 1 files and publication procedure](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#github-publication-phase-1-checkpoint)
 
-The GitHub file links above point to the canonical notebook and HTML files stored in the repository. GitHub may display an HTML file as source text or offer it for download rather than render it as a webpage. The GitHub Pages links provide the corresponding browser-rendered report locations using the repository's Pages URL pattern. They will render after GitHub Pages is configured to publish the branch and folder containing these report files. The Phase 0 and Phase 1 reports therefore retain both the repository-file link and the direct browser-view link.
+The notebook and HTML export links above point to the canonical files stored in the repository. GitHub may display an HTML file as source text or offer it for download rather than render it as a webpage. The separate **View HTML report in browser** links use HTML Preview to render the same repository HTML files directly in a browser.
 
 ## Project overview
 
@@ -402,16 +402,16 @@ A finding that the source data are not yet ready for hydrogel machine learning c
 The first publishable checkpoint consists of the project documentation, the Jupyter notebook that checks the working environment and expected project files, and an optional HTML rendering of that notebook. Add the files to the repository using the paths below so these links work on GitHub.
 
 - **Jupyter notebook (executable Python):** [`00_scope_and_source_registry.ipynb`](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/notebooks/00_scope_and_source_registry.ipynb)
-- **HTML notebook export (GitHub file):** [`00_scope_and_source_registry.html`](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/00_scope_and_source_registry.html)
-- **Browser-rendered HTML report:** [View `00_scope_and_source_registry.html` with GitHub Pages](https://tehsongxuan.github.io/hydrogel-bioink-data-curation/reports/00_scope_and_source_registry.html)
+- **HTML notebook export:** [`00_scope_and_source_registry.html`](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/00_scope_and_source_registry.html)
+- **Browser-rendered HTML report:** [View `00_scope_and_source_registry.html` in browser](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/00_scope_and_source_registry.html)
 
-The notebook is the editable, rerunnable source. The HTML file is the matching read-only export. The GitHub repository link preserves the file in its version-controlled location, while the GitHub Pages link provides a browser-rendered view when Pages is publishing the repository content.
+The notebook is the editable, rerunnable source. The HTML file is the matching read-only export. The repository link preserves the file in its version-controlled location, while the separate browser-view link uses HTML Preview to render the same report directly in a browser.
 
 ### Files for the initial GitHub upload
 
 - `README.md` — this project overview and workflow plan.
 - [`notebooks/00_scope_and_source_registry.ipynb`](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/notebooks/00_scope_and_source_registry.ipynb) — the Phase 0 Jupyter notebook.
-- [`reports/00_scope_and_source_registry.html`](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/00_scope_and_source_registry.html) — optional HTML export of the notebook; [browser-rendered GitHub Pages view](https://tehsongxuan.github.io/hydrogel-bioink-data-curation/reports/00_scope_and_source_registry.html).
+- [`reports/00_scope_and_source_registry.html`](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/00_scope_and_source_registry.html) — optional HTML export of the notebook; [view the rendered HTML report in browser](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/00_scope_and_source_registry.html).
 - `.gitignore` — recommended to keep local datasets, notebook checkpoints, and environment-specific files out of version control.
 
 Do not include the downloaded Zenodo archive or `image_index.csv` in this initial public upload while reuse and redistribution conditions are being checked. Keep those source files in the local project folder. Additional dataset archives are not required for this Phase 0 checkpoint and can be added to the local project later when downloaded and reviewed.
@@ -424,7 +424,7 @@ Do not include the downloaded Zenodo archive or `image_index.csv` in this initia
 |---|---|---|
 | Updated project README | `README.md` at repository root | [Open README](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md) |
 | Executable source-audit notebook | `notebooks/01_zenodo_source_audit.ipynb` | [Open notebook](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/notebooks/01_zenodo_source_audit.ipynb) |
-| Matching HTML report | `reports/01_zenodo_source_audit.html` | [Open HTML file on GitHub](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/01_zenodo_source_audit.html) · [View rendered HTML with GitHub Pages](https://tehsongxuan.github.io/hydrogel-bioink-data-curation/reports/01_zenodo_source_audit.html) |
+| Matching HTML report | `reports/01_zenodo_source_audit.html` | [Open HTML export](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/01_zenodo_source_audit.html) · [View rendered HTML in browser](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/01_zenodo_source_audit.html) |
 
 The existing `reports/` convention is retained for both Phase 0 and Phase 1 HTML files. Existing Phase 0 files remain in place. Download suffixes such as `(1)` or `(2)` are removed from the published notebook and HTML filenames so navigation links resolve consistently. A separate `.py` file is not required: the `.ipynb` contains the executable Python cells and the explanatory Markdown.
 
@@ -445,7 +445,7 @@ The two required source files are stored locally at:
 2. At the repository root, use **Add file → Upload files** to upload the updated file named exactly `README.md`. Review the change and commit it with a descriptive message.
 3. Open `notebooks/`, use **Add file → Upload files**, and choose `01_zenodo_source_audit.ipynb`. Wait until the upload finishes, then commit. Uploading inside this folder avoids placing the notebook at repository root.
 4. Return to the repository root, open `reports/`, and upload `01_zenodo_source_audit.html` in the same way. If the folder is absent, **Add file → Create new file** at the root can create `reports/.gitkeep`; commit it, open `reports/`, then upload the HTML. A placeholder is optional after a real file exists.
-5. Open the README and check the Phase 1 navigation links. The notebook link should open the executable notebook, the GitHub HTML link should open the stored `01_zenodo_source_audit.html` file, and the GitHub Pages link should open the rendered HTML report directly in the browser once Pages is publishing the repository content.
+5. Open the README and check the Phase 1 navigation links. The notebook link should open the executable notebook, the HTML export link should open the stored `01_zenodo_source_audit.html` file, and the separate **View HTML report in browser** link should render the report through HTML Preview.
 6. Supporting audit exports, when reviewed and selected for publication, belong together in `data/metadata/zenodo_source_audit/`. Preserve their generated filenames. Upload the actual exports from the local notebook run, not substitute tables from another execution environment.
 
 Suggested commit messages: `Update README with Phase 1 source-audit results`, `Add Phase 1 Zenodo source-audit notebook`, and `Add Phase 1 source-audit HTML report`.
@@ -489,10 +489,5 @@ Upload reference: [GitHub documentation — adding a file to a repository](https
 - [Citrine Python data-model overview](https://citrineinformatics.github.io/citrine-python/getting_started/data_model.html)
 - [gemd-python source repository](https://github.com/CitrineInformatics/gemd-python)
 - [Citrination](https://citrination.com/) — included as a platform reference; dataset availability and access will be verified before use.
-
-
-
-
-
 
 
