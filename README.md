@@ -114,7 +114,7 @@ Log unexpected or unexplained rows, inconsistent labels or units, missing identi
 
 **Output and handoff:** file and field inventories plus a quality-control issue log. The observed fields and keys—not assumed ones—define Phase 2. Exit when source structure and uncertainty are documented well enough to design the schema.
 
-#### Phase 1 implementation status — 2 October 2026
+#### Phase 1 implementation status
 
 The executable audit now reads all 92 Excel workbooks directly from `ALG-Ph_HA-Ph_rheology_data.zip` and profiles `image_index.csv`. Manual ZIP extraction is unnecessary. The planned image-file comparison above is deferred: this checkpoint records expected image filenames but does not verify actual image files. Filename correspondence remains candidate evidence rather than a confirmed physical sample relationship.
 
