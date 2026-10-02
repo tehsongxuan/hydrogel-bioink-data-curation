@@ -282,6 +282,24 @@ A finding that the source data are not yet ready for hydrogel machine learning c
 
 **Planning and source-feasibility review.** Begin with Phase 0: confirm the Zenodo version and reuse conditions, register the sources, then inspect the primary archive. Finalize the schema, joins, analysis, and any prediction task from the records actually found. Materials Project, Matbench, and GEMD remain separate extensions until the primary audit establishes a manageable scope.
 
+## GitHub publication: Phase 0 checkpoint
+
+The first publishable checkpoint consists of the project documentation, the Jupyter notebook that checks the working environment and expected project files, and an optional HTML rendering of that notebook. Add the files to the repository using the paths below so these links work on GitHub.
+
+- **Jupyter notebook (executable Python):** [`00_scope_and_source_registry.ipynb`](notebooks/00_scope_and_source_registry.ipynb)
+- **HTML notebook export (read-only view):** [`00_scope_and_source_registry.html`](reports/00_scope_and_source_registry.html)
+
+The notebook is the editable, rerunnable source. The HTML file is a convenient browser-readable copy. Keep both links relative to the repository so they continue to work after the repository is renamed or moved.
+
+### Files for the initial GitHub upload
+
+- `README.md` — this project overview and workflow plan.
+- `notebooks/00_scope_and_source_registry.ipynb` — the Phase 0 Jupyter notebook.
+- `reports/00_scope_and_source_registry.html` — optional HTML export of the notebook.
+- `.gitignore` — recommended to keep local datasets, notebook checkpoints, and environment-specific files out of version control.
+
+Do not include the downloaded Zenodo archive or `image_index.csv` in this initial public upload while reuse and redistribution conditions are being checked. Keep those source files in the local project folder. Additional dataset archives are not required for this Phase 0 checkpoint and can be added to the local project later when downloaded and reviewed.
+
 ## Sources and technical documentation
 
 ### Experimental hydrogel bioink data
@@ -319,6 +337,7 @@ A finding that the source data are not yet ready for hydrogel machine learning c
 - [Citrine Python data-model overview](https://citrineinformatics.github.io/citrine-python/getting_started/data_model.html)
 - [gemd-python source repository](https://github.com/CitrineInformatics/gemd-python)
 - [Citrination](https://citrination.com/) — included as a platform reference; dataset availability and access will be verified before use.
+
 
 
 
