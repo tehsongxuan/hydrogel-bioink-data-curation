@@ -1,28 +1,22 @@
 # Open Materials Data Pipeline for Hydrogel Bioink Design
 
 A reproducible materials-informatics project for curating hydrogel bioink data, preserving experimental context, and deciding whether open records support reliable analysis or machine learning.
-
+Phase 4 record-linkage-and-analysis-ready evidence-layer execution is complete for the verified Phase 3 checkpoint. The implemented notebook resolves and verifies 21 controlled inputs, maps browser-suffixed filenames back to canonical roles, preserves 39,100 source measurement-cell records, 4,600 measurement-point records and 1,031 image-index records, exports a conservative linkage layer, retains 25 QC findings and 11 unresolved linkage-review rows, and records 0 critical validation failures. Candidate filename correspondences are preserved separately from confirmed physical-sample relationships; no formulation, replicate, rheology-to-image or model-ready target link is asserted. The next step is Phase 5: exploratory rheology and printing-context analysis using only supported populations and clearly stated comparability limits.
+<details>
+<summary>Previous Phase 3 checkpoint — retained for project history</summary>
 Phase 3 standardisation-and-quality-checks execution is complete for the verified Phase 2 checkpoint. The implemented notebook resolves and verifies the controlled Phase 1/2 inputs by SHA-256, preserves all 39,100 source measurement cells, 4,600 measurement points and 1,031 image-index records, applies only evidence-supported standardisation, retains the unresolved `mPas` viscosity token without conversion, links quality-control findings back to source coordinates, and exports a reproducible Phase 3 handoff. All 674 recorded Phase 3 validation checks passed in the submitted run. Record linkage, rheology interpretation, formulation comparison and modelling remain later work.
-
+</details>
 <details>
 <summary>Previous Phase 2 checkpoint — retained for project history</summary>
-
 Phase 2 schema-and-quality-control execution is complete for the pinned Phase 1 source snapshot. The implemented notebook verifies the Phase 1 handoff, defines source-grounded entities and identifiers, maps all observed rheology and image-index fields, instantiates traceable prototype tables, applies structural and value-level quality checks, previews supported strain conversion, and carries unresolved scientific questions forward without inventing physical sample links. Full production standardization, evidence-led record linkage, curve fitting, formulation comparison and modelling remain later work.
-
 </details>
-
 <details>
 <summary>Previous Phase 1 checkpoint — retained for project history</summary>
-
 Phase 1 source-audit execution is complete for the rheology archive and image-index CSV. The audit produced file and field inventories, source-integrity checks, metadata profiles and a review log. Physical image inspection, experimental sample linkage, unit standardization and modelling remain outside this checkpoint. Phase 2 schema design is the next step.
-
 </details>
-
 <details>
 <summary>Original planning status — retained for project history</summary>
-
 **Status:** Proposed. Source feasibility and data audit come first. No analysis or model results are claimed until the source records have been inspected and the planned checks have been completed.
-
 </details>
 
 ## Quick navigation
@@ -60,7 +54,6 @@ Phase 1 source-audit execution is complete for the rheology archive and image-in
 - [Phase 2 output inventory](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#phase-2-output-inventory)
 - [Phase 2 files and publication procedure](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#github-publication-phase-2-checkpoint)
 
-
 ### Phase 3 — Standardisation and quality checks
 
 - [Jupyter notebook — standardisation and quality checks](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/notebooks/03_standardisation_and_quality_checks.ipynb)
@@ -72,57 +65,53 @@ Phase 1 source-audit execution is complete for the rheology archive and image-in
 - [Phase 3 output inventory](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#phase-3-output-inventory)
 - [Phase 3 files and publication procedure](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#github-publication-phase-3-checkpoint)
 
+### Phase 4 — Record linkage and analysis-ready evidence layer
+
+- [Jupyter notebook — record linkage and analysis-ready evidence layer](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/notebooks/04_record_linkage_and_analysis_ready_evidence_layer.ipynb)
+- [HTML export — record linkage and analysis-ready evidence layer](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/04_record_linkage_and_analysis_ready_evidence_layer.html)
+- [View HTML report in browser — record linkage and analysis-ready evidence layer](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/04_record_linkage_and_analysis_ready_evidence_layer.html)
+- [Phase 4 workflow and methodology](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#phase-4--assess-record-linkage)
+- [Phase 4 implementation status](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#phase-4-implementation-status)
+- [Phase 4 verified results and scientific interpretation](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#phase-4-verified-results-and-scientific-interpretation)
+- [Phase 4 output inventory](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#phase-4-output-inventory)
+- [Phase 4 files and publication procedure](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#github-publication-phase-4-checkpoint)
+
 The notebook and HTML export links above point to the canonical files stored in the repository. GitHub may display an HTML file as source text or offer it for download rather than render it as a webpage. The separate **View HTML report in browser** links use HTML Preview to render the same repository HTML files directly in a browser.
 
 ## Project overview
 
 Materials research creates records at several levels: ingredients, formulations, processing steps, physical samples, measurements, printing runs, constructs, and images. Those records may live in different tables, instrument exports, archives, and image folders. They are scientifically useful together only when their meanings, units, and relationships are clear.
-
 This project uses an open hydrogel bioink dataset as its experimental case study and uses three complementary materials-informatics resources to practise computational data ingestion, model evaluation, and schema design. The central question is:
-
 > Can open materials records be organized into a traceable workflow that connects documented bioink formulations and processing conditions with rheological measurements and printed-construct information, while preserving the limits of the source data?
-
 The workflow is deliberately data-first: verify sources; audit files; define the data model; validate and standardize values; examine comparable observations; then decide whether prediction is justified. Machine learning is a possible final step, not an assumption made at the beginning.
 
 ## Problem statement
 
 The primary experimental source concerns phenol-modified alginate (ALG-Ph) and hyaluronic-acid (HA-Ph) hydrogel inks used in 3D bioprinting. The Zenodo record describes shear-dependent viscosity, storage modulus (`G′`), loss modulus (`G″`), printing metadata, indexed construct images, and files associated with the source authors’ analyses. The planned version is `v0.0.2`, to be checked again before processing. [Zenodo record](https://zenodo.org/records/19602891) · [Dataset DOI](https://doi.org/10.5281/zenodo.19602891)
-
 A rheology file may contain many points from one experiment. Those points are repeated observations, not separate formulations. An image index may describe an image or construct, not an independent material sample. A formulation label may not uniquely identify a physical sample. A successful software join between two tables does not prove they describe the same experiment.
-
 The project therefore asks what each row and file represents, which material and process it describes, and whether a link is supported by source identifiers or documentation. Unexplained rows, missing information, and unmatched records will be recorded rather than silently removed, filled with zero, or forced into a relationship. Keeping these records traceable preserves evidence for review and prevents the curated dataset from appearing more complete or certain than its source.
 
 ## Polymer and hydrogel context
 
 A hydrogel is a water-rich polymer network. A bioink is a formulation intended for bioprinting; it may be hydrogel-based and may contain cells, but the word alone does not prove that a dataset includes cells or measures biological performance. The Zenodo case study describes acellular hydrogel printing, so this project will not infer cell viability or tissue response from its rheology or images.
-
 Polymer behaviour depends on more than polymer identity. Concentration, molecular characteristics, chemical modification, additives, crosslinking, processing history, temperature, and test conditions can matter. The source may not report every factor. The project will preserve this incompleteness rather than inventing chemical descriptors or sample conditions.
-
 Rheology describes flow and deformation. Viscosity measures resistance to flow. If viscosity decreases as shear rate increases, the material exhibits shear-thinning behaviour. This can be relevant to extrusion through a printing nozzle, but shear thinning alone does not prove printability. Recovery after extrusion, crosslinking kinetics, nozzle geometry, speed, pressure, and other processing conditions may also matter.
-
 Hydrogels are viscoelastic: their response can include elastic energy storage and viscous energy dissipation. `G′` describes the elastic contribution and `G″` the viscous contribution under the specified oscillatory test conditions. These values should be interpreted alongside information such as frequency, strain, temperature, and sample history. A difference between formulations cannot be attributed to chemistry alone if test conditions or sample identity are uncertain.
-
 The scientific chain of interest is:
-
 **ingredients and polymer chemistry → formulation → processing or crosslinking → measured rheology → printing conditions → construct or documented outcome**
-
 Each connection must be supported by the source. If an identifier or documented convention does not establish a link, it remains unresolved.
 
 ## Resources and their roles
 
 The platforms provide different evidence types. They will share data-management and provenance principles, but they will not be merged into one artificial training dataset.
-
 | Resource | Role in this project | Boundary |
 |---|---|---|
 | [Zenodo bioink dataset](https://zenodo.org/records/19602891) | Primary experimental case study for rheology, printing metadata, and indexed construct images. | Only source-supported links and outcomes will be used. Shape labels and images are not automatically validated print-quality scores. |
 | [Materials Project](https://next-gen.materialsproject.org/) | Practise reproducible API retrieval of selected computational materials records, retaining material IDs, query details, returned fields, and calculation provenance. | Its inorganic computational records are not hydrogel rheology measurements and remain in a separate branch. |
 | [Matbench](https://matbench.materialsproject.org/) | Reproduce a defined materials-property benchmark to practise controlled model evaluation. The proposed `matbench_dielectric` task predicts refractive index from inorganic crystal structure. | It is not a polymer or hydrogel benchmark; its scores cannot validate a hydrogel model. |
 | [Citrine / GEMD](https://citrineinformatics.github.io/gemd-docs/) | Use materials-process-measurement concepts to guide schema design and represent experimental history. | GEMD is a data model, not a hydrogel dataset. Citrination access will be checked before depending on any data there. |
-
 Materials Project provides a Python API client. API retrieval requires an API key, and a query should specify fields that are actually available and needed. The query, selected fields, and retrieval date form part of the provenance record. [API setup](https://docs.materialsproject.org/downloading-data/using-the-api/getting-started) · [Query guidance](https://docs.materialsproject.org/downloading-data/using-the-api/querying-data)
-
 Matbench provides curated tasks for materials-property machine learning. Reproducing its task protocol is a separate exercise in controlled evaluation; it does not transfer a model’s validity from inorganic crystals to polymer networks. [Matbench documentation](https://docs.materialsproject.org/services/ml-and-ai-applications/matbench) · [Matbench repository](https://github.com/materialsproject/matbench)
-
 GEMD helps represent ingredients, materials, processes, measurements, conditions, and results as a connected material history. This can guide the experimental schema even if no Citrination dataset is used. Dataset availability and terms will be checked before any Citrination records are treated as a project input. [GEMD overview](https://citrineinformatics.github.io/gemd-docs/high-level-overview/) · [Citrine Python data model](https://citrineinformatics.github.io/citrine-python/getting_started/data_model.html)
 
 ## Linked workflow
@@ -132,29 +121,21 @@ Each phase has an input, checks, output, and exit condition. The output from one
 ### Phase 0 — Define scope and register sources
 
 **Question:** What does each source contain, and what conclusions can it support?
-
 Record each source URL or DOI, dataset/API identifier, version, retrieval date, access and reuse terms, source type, citation, and local file details or checksum where practical. Confirm the Zenodo version and files; select a bounded Materials Project query; identify the exact Matbench task and protocol; and distinguish Citrine/GEMD documentation from access to Citrination datasets.
-
 **Data-science concept:** provenance starts at acquisition. A property value is not fully described without its source, unit, experiment or material identifier, and processing history.
-
 **Output and handoff:** a project-scope note and source manifest. This manifest controls what is audited in Phase 1 and records the project’s non-goals. Exit when each source and version has a defined, limited purpose.
 
 ### Phase 1 — Audit the Zenodo source
 
 **Question:** What files, fields, units, identifiers, and relationships are actually present?
-
 Inventory archives, filenames, formats, tables, columns, row counts, data types, units, labels, IDs, missing values, duplicates, and image files. Compare image names with the image index and read the source documentation for stated record relationships. Separate facts from assumptions: for example, a `shape` label is not automatically a numerical fidelity score.
-
 Log unexpected or unexplained rows, inconsistent labels or units, missing identifiers, and duplicate-looking records. Preserve the original source and record the evidence reviewed. An unusual value is a reason to inspect context, not automatic evidence for deleting or correcting it.
-
 **Data-science concept:** profiling exposes structural problems before transformations or modelling. **Polymer concept:** concentration, crosslinking, and measurement conditions can change the meaning of a rheology value, so the audit checks whether these are measured, reported, or absent.
-
 **Output and handoff:** file and field inventories plus a quality-control issue log. The observed fields and keys—not assumed ones—define Phase 2. Exit when source structure and uncertainty are documented well enough to design the schema.
 
 #### Phase 1 implementation status — 2 October 2026
 
 The executable audit now reads all 92 Excel workbooks directly from `ALG-Ph_HA-Ph_rheology_data.zip` and profiles `image_index.csv`. Manual ZIP extraction is unnecessary. The planned image-file comparison above is deferred: this checkpoint records expected image filenames but does not verify actual image files. Filename correspondence remains candidate evidence rather than a confirmed physical sample relationship.
-
 The original Phase 1 scope above is retained in full. The following results describe only the work implemented and observed in the submitted notebook and HTML export.
 
 ## Phase 1 audit results and scientific interpretation
@@ -174,25 +155,17 @@ The original Phase 1 scope above is retained in full. The following results desc
 ### Data-science rationale
 
 **Provenance and integrity.** File checksums, archive member paths, workbook sheets and original column headers preserve the origin of observations. A checksum match establishes byte-level agreement with a reference; it does not validate the experimental method or prove that a proposed scientific interpretation is correct.
-
 **Profiling before transformation.** Column profiles describe missing values, numeric content, distinct values and numerical ranges before conversion, imputation or aggregation. The audit preserves unknown information instead of replacing blank metadata with zero or an assumed outcome. It records potential problems so later decisions can cite explicit evidence.
-
 **Granularity and independence.** The 4,600 rows are measurement points nested within rheology workbooks. Treating each point as an independent material would overstate the available evidence and could produce pseudoreplication. Later model evaluation must keep dependent observations together once the source-supported experimental hierarchy is established.
-
 **Record linkage.** Matching workbook stems can suggest a correspondence between viscosity and modulus exports. A matching string does not establish that measurements were made on the same physical sample, batch or replicate. Similarly, an image-index identifier is not automatically a formulation or sample identifier. These distinctions constrain joins and prevent unsupported many-to-many relationships.
-
 **Reproducibility.** The notebook initializes its imports, configuration and audit objects in execution order. It reports the running package versions, reads the two source files and regenerates named outputs instead of appending duplicate results. The submitted export contains completed outputs for all nine code cells and no Python error traceback. Its execution labels are `4, 6, 8, …, 20`; that export alone does not independently verify a fresh-kernel execution sequence.
 
 ### Materials-science context
 
 **Strain representation and oscillatory rheology.** Strain is dimensionless, but fraction and percentage are different numerical representations: a strain fraction of 0.01 corresponds to 1%. Source values and headers are retained during the audit. Any later conversion must record its rule and preserve the original unit representation. Comparing unconverted numerical values could introduce a factor-of-100 error.
-
 **Measurement conditions.** Storage modulus `G′` describes elastic energy storage and loss modulus `G″` describes viscous energy dissipation under the specified oscillatory conditions. Their interpretation depends on strain, frequency, temperature and material history. A modulus file must not be called a frequency sweep merely because it contains a frequency column; varying strain at fixed frequency suggests an amplitude-sweep protocol, subject to documentation review. The linear viscoelastic region must be assessed before treating moduli as independent of deformation amplitude.
-
 **Viscosity and complex viscosity.** Steady-shear viscosity and oscillatory complex viscosity describe different measurement modes. Identical-looking units do not establish interchangeability. The source token `mPas` is retained; conversion to Pa·s requires confirmation that it denotes mPa·s. Any correspondence between steady and oscillatory responses requires scientific justification rather than a column-name match.
-
 **Unusual measurements.** Nonpositive rheology values are flagged for review, not automatically deleted, replaced or transformed for plotting. Possible explanations include the measurement range, signal limits or acquisition context, but this audit does not establish their cause. The eight findings are issue-log entries, not a claim that exactly eight individual measurement points are affected.
-
 **Formulation and printing context.** Polymer identity, concentration, chemical modification, crosslinking and processing conditions can affect flow and network response. Missing formulation or irradiation metadata limit interpretation. Blank completeness or reagent annotations remain unknown; they do not prove successful printing, reagent absence or a biological outcome. This checkpoint does not establish causal chemistry–property relationships or cell viability.
 
 ### Review findings carried forward
@@ -210,7 +183,6 @@ The original Phase 1 scope above is retained in full. The following results desc
 ### Phase 1 output inventory
 
 All files below are generated locally in `data/metadata/zenodo_source_audit/`. This inventory describes generated outputs; it does not imply that every output has already been committed to GitHub.
-
 | Generated filename | Purpose |
 |---|---|
 | `source_manifest.csv` | Source identity, selected filenames, reference checksums and input hashes. |
@@ -229,23 +201,16 @@ All files below are generated locally in `data/metadata/zenodo_source_audit/`. T
 ### Phase 2 — Design the experimental schema
 
 **Question:** What real-world entity does one row represent in each table?
-
 Separate formulation records, physical samples if identified, rheology experiments, rheology measurement points, printing events, constructs, and images. One experiment may produce many rheology points; one run may have several images. These are different levels of observation. A replicate in a filename is not proof of physical sample identity unless the source says so.
-
 Define field names, meanings, types, units, allowed values, missing-value semantics, identifiers, and source mapping. A formulation table might hold composition; an experiment table holds test type and conditions; a measurement table holds point-level values. A printing event and image index should be separate if the source supports them. The schema must not invent fields just because they would be useful for modelling.
-
 GEMD concepts can be used as a reference: ingredients enter processes; processes produce or modify materials; measurements characterize materials under conditions and yield results. Intended specifications should be distinguished from what actually occurred in an experimental run.
-
 **Data-science concept:** schema design makes data granularity and relationships explicit. **Polymer concept:** separating material identity, formulation, process, and measurement context keeps the property attached to the conditions that produced it.
-
 **Output and handoff:** schema map, data dictionary, identifier rules, and source-to-schema mapping. These become validation rules for Phase 3. Exit when every field has a definition and each relationship is supported or marked unresolved.
 
 #### Phase 2 implementation status
 
 The original Phase 2 scope above is retained in full. The executed `02_schema_and_quality_control.ipynb` implements a source-preserving schema-validation prototype using the verified Phase 1 checkpoint and the supplied literature context. It does not replace the Phase 1 audit and does not claim that worksheet, filename, image, formulation or printing labels identify independent physical samples.
-
 The implemented scope includes:
-
 - checkpoint integrity verification against the completed Phase 1 manifest;
 - an evidence register separating source-reported statements, derived values, interpretation and unresolved questions;
 - explicit row granularity and source-coordinate identifier rules;
@@ -296,37 +261,25 @@ This implementation deliberately exercises selected validation concepts describe
 ### Data-science rationale
 
 **Granularity and keys.** The schema distinguishes a source worksheet, a nonblank measurement row, a single source cell and an image-index record. Primary and foreign keys therefore identify digital source coordinates, not physical hydrogel specimens. This prevents the 4,600 curve points from being misrepresented as 4,600 independent materials.
-
 **Source-preserving representation.** Measurement values are retained with their archive member, worksheet, Excel row, source column position, exact source header, source unit and parsing status. A numeric interpretation is added without replacing the original source scalar. This keeps transformation lineage auditable.
-
 **Schema drift and field mapping.** The two observed strain header conventions (`ɣ in -` and `ɣ in %`) are mapped explicitly rather than collapsed silently. All thirteen rheology headers and seven image-index fields must be accounted for, so an unexpected source representation cannot disappear from processing unnoticed.
-
 **Missingness semantics.** Blank image-index values are represented as observed unknowns. The schema does not infer why they are blank and does not convert missing annotations into negative or positive experimental outcomes.
-
 **Referential integrity and reconciliation.** Primary-key, parent-child, row-count, source-coverage, dictionary-coverage and source-header checks validate the internal structure of the prototype. Passing these tests establishes consistency with the reviewed snapshot; it does not prove experimental equivalence or independence.
-
 **QC without silent cleaning.** A warning records a source value or semantic question for review; it does not automatically delete, replace or repair the observation. The 20 nonpositive viscosity values and two negative shear-rate values remain in the data with their source coordinates.
-
 **Traceable transformation.** The strain-conversion preview retains the source scalar and unit, the numerical input, the standardised result, target unit and conversion rule. It demonstrates arithmetic traceability without claiming that all rheology values have been fully standardised.
 
 ### Polymer, hydrogel and rheology interpretation
 
 **Oscillatory moduli.** Storage modulus `G′` describes elastic energy storage and loss modulus `G″` describes viscous dissipation under the recorded oscillatory conditions. Because the modulus worksheets show fixed 1 Hz frequency with varying strain, the observed axes are consistent with an amplitude-sweep context rather than a frequency sweep. The notebook does not assign a linear viscoelastic region from the column names alone.
-
 **Strain representation.** Strain is dimensionless, but a percentage and a fraction use different numerical scales. The preview applies `strain_fraction = strain_percent / 100` only where the source explicitly labels the value as percent, while retaining the original representation. Source-labelled fraction values are not clipped merely because their range appears unusual.
-
 **Viscosity.** Steady-shear apparent viscosity and oscillatory complex viscosity are kept distinct. The source token `mPas` is retained because the notebook does not yet establish the instrument notation strongly enough to approve production conversion to Pa·s.
-
 **Measurement context.** Recorded temperature, strain, frequency, shear rate and other acquisition coordinates remain attached to their source measurements. A nominal method statement from the publication does not overwrite an observed workbook value.
-
 **Physical identity and record linkage.** Matching filename stems can support a naming correspondence but do not demonstrate that two files describe the same aliquot, batch, physical sample, rheology specimen, printing run or construct. Phase 2 therefore confirms no physical-sample link.
-
 **Model-readiness boundary.** Successful schema validation is not a machine-learning readiness result. Independent experimental units, validated composition relationships, production unit standardization, defensible record linkage and a prediction target are still unresolved.
 
 ### Phase 2 output inventory
 
 The Phase 2 notebook writes its local outputs to `data/metadata/schema_and_quality_control/`. The files below document the executed schema and QC contract. Their existence as local exports does not imply that source-derived tables should all be redistributed publicly.
-
 | Generated filename | Rows | Purpose |
 |---|---:|---|
 | `input_verification.csv` | 13 | Runtime verification of the two raw inputs and eleven Phase 1 audit CSVs |
@@ -360,29 +313,20 @@ The Phase 2 notebook writes its local outputs to `data/metadata/schema_and_quali
 ### Phase 2 handoff
 
 The verified schema and QC contract is the controlled input to the next project stage. The next work should retain the source values, original unit tokens and unresolved-link statuses while implementing only scientifically justified standardization rules. Production viscosity conversion should wait until the source unit notation is established. Any formulation, sample, printing or image linkage should document the proposed key, supporting evidence, cardinality, unmatched records and physical claim being made.
-
 Phase 2 does not remove the unresolved Phase 1 findings. Dataset-specific reuse terms, physical image inspection, image-annotation semantics, intensity calibration and physical sample linkage remain open. The source archive and source-derived local exports should therefore continue to be handled conservatively until redistribution terms are established.
-
 
 ### Phase 3 — Standardize values and run quality checks
 
 **Question:** Can equivalent information be represented consistently without losing the original evidence?
-
 Standardize field names, labels, types, and units only where meaning is clear. Keep original values and units alongside standardized values, units, and conversion rules. Do not convert an ambiguous unit by guessing. Distinguish zero from not measured, not reported, not applicable, unknown, and unavailable.
-
 Validate required fields, ID uniqueness, foreign keys, duplicate records, numeric types, row counts, unit consistency, and scientifically justified ranges. Treat range checks as flags for review, not automatic correction. Keep a decision trail in the issue log.
-
 **Data-science concept:** executable checks make assumptions repeatable and expose violations. Passing checks does not prove that a scientific relationship is true. **Polymer concept:** `G′` in pascals and viscosity in pascal-seconds describe different properties; even equal units do not ensure comparability if frequency or temperature differs.
-
 **Output and handoff:** standardized tables, validation summary, and transformation lineage. Their verified identifiers support Phase 4. Exit when transformations are reproducible and unresolved problems remain visible.
-
 
 #### Phase 3 implementation status
 
 The original Phase 3 scope above is retained in full. The executed `03_standardisation_and_quality_checks.ipynb` implements a production standardisation-and-quality-control layer on top of the verified Phase 2 checkpoint. It does not rebuild Phases 1 or 2, does not infer physical sample identity, and does not treat successful software joins as proof of experimental relationships.
-
 The implemented scope includes:
-
 - content-addressed discovery and SHA-256 verification of the raw source files, Phase 1 checkpoint, Phase 2 manifest and all 26 Phase 2 exports;
 - runtime recording for Python, pandas, NumPy, openpyxl and IPython;
 - exact reconciliation of source coordinates against the original rheology ZIP;
@@ -427,35 +371,24 @@ The notebook is designed for the lifecycle **save → close Jupyter → reopen J
 ### Data-science rationale
 
 **Content-addressed provenance.** Phase 3 accepts controlled inputs by their recorded SHA-256 content rather than trusting a filename alone. This allows a browser-suffixed local copy to be recognised only when it is byte-identical to the expected checkpoint and rejects altered similarly named files.
-
 **Source-preserving transformation.** `measurement_values_standardised.csv` retains every original Phase 2 measurement-value column and adds canonical-field, rule, evidence, standardised-value, standardised-unit and transformation-status fields. A standardised representation therefore does not erase the source scalar, source unit or exact source coordinate.
-
 **Validation versus cleaning.** The workflow tests rules without silently repairing the source. A QC finding remains a review signal. Flagged values are not automatically deleted, clipped, imputed, winsorised or replaced.
-
 **Measurement hierarchy and pseudoreplication.** The 39,100 source cells are nested within 4,600 measurement points and 92 source worksheets. They are not 39,100 independent materials. Preserving this hierarchy is necessary before later summaries, record linkage or model validation.
-
 **Missingness semantics.** Blank image annotations remain observed unknowns. Structural absence, a literal source token, a numeric zero and a deferred transformation are represented differently so later analysis does not manufacture labels from missing metadata.
-
 **Idempotence and reproducibility.** The notebook recreates its named Phase 3 outputs from verified upstream inputs and does not append duplicate records on rerun. The run timestamp may change; the scientific content should remain logically stable for the same controlled inputs.
 
 ### Polymer, hydrogel and rheology interpretation
 
 **Strain.** Strain is dimensionless but may be represented as a fraction or percentage. A 1% strain corresponds to a fraction of 0.01. Phase 3 divides by 100 only where the source explicitly labels strain as `%`, and a round-trip check verifies the arithmetic. The source-labelled `ɣ in -` values are retained rather than reinterpreted solely because some values appear unusual.
-
 **Storage and loss moduli.** `G′` represents the elastic contribution and `G″` the viscous/dissipative contribution under the recorded oscillatory conditions. Standardising their representation does not establish gelation, an LVR, printability or equivalence across experiments.
-
 **Viscosity quantities.** Apparent steady-shear viscosity and oscillatory complex-viscosity magnitude `|η*|` remain separate observables. The source token `mPas` is retained because the reviewed evidence does not define the raw export notation strongly enough to approve production conversion to Pa·s.
-
 **Acquisition conditions.** Temperature, strain, frequency, shear rate, time, segment time and stress remain attached to their source observations where present. The same hydrogel can exhibit different measured behaviour under different deformation and thermal conditions, so those axes are part of the scientific meaning of the measurement.
-
 **QC findings.** Nonpositive rheological values and source values outside a nominal publication range remain evidence to review, not automatic reasons for deletion. Their numerical sign or range does not identify the physical cause.
-
 **Record-linkage boundary.** Source-coordinate provenance is not physical-sample identity. Similar filenames, matching stems or a successful software join cannot establish that two records describe the same formulation, batch, aliquot, rheology specimen, printing run or image. Those questions remain Phase 4.
 
 ### Phase 3 output inventory
 
 The Phase 3 notebook generated the following local outputs in its standardisation-and-quality-checks output folder. The executed portable run used a `phase3_outputs/standardisation_and_quality_checks/` folder beside the resolved Phase 2 checkpoint because a canonical repository root was not detected. When the canonical repository structure is available, the notebook supports `data/processed/standardisation_and_quality_checks/`. This inventory describes reproducible local outputs; it does not imply that all source-derived tables should be redistributed publicly.
-
 | Generated filename | Rows | Purpose |
 |---|---:|---|
 | `input_verification.csv` | 41 | Canonical logical paths, resolved local filenames, hashes and verification notes for protected dependencies |
@@ -476,94 +409,188 @@ The Phase 3 notebook generated the following local outputs in its standardisatio
 ### Phase 3 handoff
 
 The verified Phase 3 outputs form the controlled computational handoff to conceptual Phase 4. In this project, a **handoff** means that the next workflow stage receives documented, validated outputs together with provenance, transformation rules, QC status and unresolved issues. It does not mean that uncertainty has disappeared or that physical relationships have been proven.
-
 The long standardised measurement table remains traceable to the original archive member, worksheet, Excel row, column position, source header, source scalar and source unit. The point view is a convenience representation, not a replacement for the source-preserving long table. The image table preserves original tokens and missingness states. An empty standardised viscosity value means conversion was deliberately deferred; it does not mean that the source measurement is missing.
-
-The next project stage is evidence-led record linkage in `04_record_linkage.ipynb`. It should use the verified identifiers and provenance produced here to assess which formulation, rheology, printing and image records can genuinely be connected. Curve fitting, formulation comparison and machine learning should not begin merely because the Phase 3 software checks passed.
-
+The next project stage is evidence-led record linkage in `04_record_linkage_and_analysis_ready_evidence_layer.ipynb`. It should use the verified identifiers and provenance produced here to assess which formulation, rheology, printing and image records can genuinely be connected. Curve fitting, formulation comparison and machine learning should not begin merely because the Phase 3 software checks passed.
 
 ### Phase 4 — Assess record linkage
 
-**Question:** Which formulation, rheology, printing, and image records can genuinely be connected?
+**Question:** Can the curated rheology, image metadata, acquisition context and QC evidence be linked into an analysis-ready materials-informatics evidence layer without inventing physical sample relationships?
 
-For each candidate join, record the key and its source. Check match rates, unmatched rows, duplicated keys, and one-to-one or one-to-many relationships. Some one-to-many links are expected: a rheology experiment can contain many points. A join that runs successfully in software does not prove that the records describe the same physical formulation or run.
+Phase 4 evaluates the joinability of the project’s curated records. It connects standardised rheology values, measurement-point records, worksheet provenance, image metadata, QC findings, unresolved review items and Phase 2 filename-candidate evidence while preserving the distinction between a computational key and a scientifically confirmed relationship.
 
-Classify links as confirmed by an explicit ID, documented by a source convention, possible, or unresolved. Similar labels alone may suggest a match but do not confirm one. Report ambiguous records rather than forcing them into a combined table.
+For each candidate relationship, the notebook records the join basis, source evidence, match coverage, unresolved cases and scientific boundary. A successful merge is treated as software evidence only. It does not prove that two records describe the same formulation, prepared sample, aliquot, rheology specimen, printing run or image unless the source data explicitly support that interpretation.
 
-**Data-science concept:** this is entity resolution and join validation. It also determines the independent experimental unit for later summaries and model splits. **Polymer concept:** formulation-to-rheology linkage is necessary before a measured response can be interpreted as formulation-dependent.
+**Data-science concept:** this is record linkage, entity-resolution auditing and join validation. The output defines which fields are safe for descriptive analysis, which are candidate-only evidence, and which must remain excluded from modelling-readiness decisions. **Polymer concept:** formulation-to-rheology or rheology-to-image interpretation requires source-supported material and process identity, not only similar filenames or labels.
 
-**Output and handoff:** linkage map, join-coverage report, and unresolved-link register. Only supported links move into Phase 5. Exit when each comparison has a defined population and evidence basis.
+**Output and handoff:** a conservative linkage layer, measurement-point linkage view, image-metadata linkage view, candidate linkage table, QC linkage summary, analysis-readiness summary, unresolved-linkage register and validation ledger. Only evidence-supported populations move into Phase 5 exploratory analysis. Exit when each retained relationship has a stated evidence basis and each unsupported relationship remains visibly unresolved.
+
+#### Phase 4 implementation status
+
+The original Phase 4 scope above is retained. The submitted notebook and matching HTML report implement the phase as a reproducible checkpoint named `04_record_linkage_and_analysis_ready_evidence_layer.ipynb`.
+
+The implemented scope includes:
+- controlled input resolution for canonical and browser-suffixed filenames, including files such as `input_verification(1).csv`, `validation_summary(2).csv`, `filename_candidates_unconfirmed(2).csv`, `worksheet_register(3).csv`, `ALG-Ph_HA-Ph_rheology_data(5).zip` and `image_index(6).csv`;
+- verification of the exact Phase 3 checkpoint and Phase 2 evidence files used for linkage;
+- raw-source verification for the rheology archive and `image_index.csv` where available;
+- stable source-coordinate keys for worksheet, point and source-cell provenance;
+- one row per source measurement point in the measurement-point linkage layer;
+- source-cell-level linked measurement evidence with transformation, QC and candidate-linkage context;
+- image metadata linkage back to the raw image-index identifiers;
+- candidate-only rheology filename correspondences, separated from any physical-sample claim;
+- propagation of QC findings and unresolved review items into the Phase 4 evidence layer;
+- an analysis-readiness summary that states which fields are safe for Phase 5 descriptive analysis and which remain candidate-only or excluded;
+- a run manifest, data dictionary, validation ledger and README summary for reproducible handoff.
+
+## Phase 4 verified results and scientific interpretation
+
+| Phase 4 item | Verified result | Interpretation |
+|---|---:|---|
+| Controlled input roles resolved | 21 | Required raw, Phase 2 and Phase 3 inputs were located, hashed and mapped to canonical roles. Browser suffixes were recorded instead of ignored. |
+| Raw rheology workbook coverage | 92 workbook members | The archive coverage matches the worksheet register used for linkage. |
+| Raw image-index coverage | 1,031 image records | Image metadata remained source-grounded; image pixels were not audited in Phase 4. |
+| Linked measurement evidence layer | 39,100 rows | Source-cell-level evidence was preserved with provenance, transformation status, QC context and candidate linkage information. These rows are not independent material samples. |
+| Measurement-point linkage layer | 4,600 rows | The notebook created one row per verified source measurement point, suitable for Phase 5 descriptive summaries at the correct hierarchy. |
+| Image metadata linkage layer | 1,031 rows | Standardised image records were matched back to raw image-index identifiers and source metadata. |
+| Candidate rheology-image linkage table | 62 rows | Filename-stem correspondences were retained as candidate evidence only; they are not confirmed rheology-image physical-sample links. |
+| QC findings retained | 25 | Phase 4 carried forward the quality-control evidence rather than hiding it during linkage. |
+| Unresolved linkage-review rows | 11 | Open and deferred linkage issues remain visible for scientific review. |
+| Phase 4 validation checks | 26 | The run created an explicit validation ledger for input resolution, row counts, linkage outputs and boundary conditions. |
+| Critical validation failures | 0 | The submitted run completed its declared validation checks without critical failures. |
+| Confirmed physical sample linkage | Not asserted | Phase 4 does not claim formulation, replicate, physical-sample, printing-run or rheology-to-image identity where the source does not prove it. |
+| Model readiness | Not established | The outputs support Phase 5 exploration and later modelling-readiness review, not immediate prediction. |
+
+### Data-science rationale
+
+**Record linkage is not the same as relationship proof.** Phase 4 separates computational joinability from scientific identity. A shared filename stem, compatible source coordinate or successful table merge can support a candidate relationship, but it does not prove that two records refer to the same physical material or experiment.
+
+**Source-coordinate keys protect provenance.** The linkage layer retains archive member paths, worksheet names, row positions, source headers, source values, units, transformation status and QC context. This allows later plots and summaries to be traced back to source evidence rather than to an unexplained derived table.
+
+**Granularity controls interpretation.** The 39,100 linked measurement rows are source-cell observations nested within worksheets and measurement points. The 4,600 measurement-point rows are a more appropriate level for many descriptive checks, but they still should not be treated as independent formulations or replicate experiments unless later evidence supports that grouping.
+
+**Candidate-only tables reduce overclaiming.** Phase 4 keeps filename-candidate evidence available because it may be useful in Phase 5 review. It also labels that evidence as candidate-only so later analysis does not accidentally turn a naming pattern into a confirmed experimental relationship.
+
+**Analysis readiness is narrower than modelling readiness.** A table can be useful for descriptive analysis while remaining unsuitable for supervised learning. Modelling still requires a defined target, independent experimental units, leakage-safe splits, adequate sample counts and predictors available at the intended prediction time.
+
+### Polymer, hydrogel, rheology and image-metadata interpretation
+
+**Rheology hierarchy.** A rheology workbook may contain many curve points from one acquisition. Viscosity, `G′` and `G″` describe material response under specific test conditions, but each point is not a separate bioink formulation. Phase 4 therefore preserves the nested measurement structure before Phase 5 plots or summaries are attempted.
+
+**Formulation and sample identity remain unresolved.** Polymer identity, concentration, modification, crosslinking and processing history influence hydrogel behaviour. Phase 4 does not create a physical sample ID where the source records do not provide one. This protects later interpretation from attributing measurement differences to formulation variables that may not be uniquely linked.
+
+**Image metadata is not image evidence.** The image-index records include metadata such as image identifier, date, ink type or concentration, shape, irradiation intensity and SPS status where reported. Phase 4 checks metadata linkage only. It does not inspect image files, quantify construct geometry, judge print quality or use images as labels.
+
+**QC context remains part of the science.** Missing annotations, unresolved units, publication-range discrepancies and candidate-only relationships are scientifically meaningful limitations. Keeping them in the evidence layer makes the later analysis more honest and easier to review.
+
+### Phase 4 output inventory
+
+| Output file | Rows | Purpose |
+|---|---:|---|
+| `phase4_input_file_resolution.csv` | 21 | Maps required canonical inputs to the actual uploaded filenames, file hashes, roles and resolution notes. |
+| `linked_measurement_evidence_layer.csv` | 39,100 | Long source-cell-level rheology evidence table with provenance, transformation status, QC context and candidate worksheet linkage. |
+| `measurement_point_linkage_layer.csv` | 4,600 | One row per source measurement point with worksheet context and candidate linkage status. |
+| `image_metadata_linkage_layer.csv` | 1,031 | Image metadata linked back to raw `image_index.csv` identifiers without auditing image pixels. |
+| `candidate_rheology_image_linkage.csv` | 62 | Candidate naming correspondences between rheology and image-related records; no confirmed physical link is asserted. |
+| `unresolved_linkage_review_items.csv` | 11 | Open or deferred scientific and linkage questions carried into later review. |
+| `qc_linkage_summary.csv` | 25 | Quality-control findings propagated into the Phase 4 linkage context. |
+| `analysis_readiness_summary.csv` | 8 | Field- and population-level guidance for Phase 5 descriptive analysis and modelling-readiness boundaries. |
+| `phase4_validation_summary.csv` | 26 | Validation ledger for input resolution, output row counts, linkage checks and scientific boundary checks. |
+| `phase4_data_dictionary.csv` | 138 | Column-level description of the generated Phase 4 outputs. |
+| `phase4_readme_summary.md` | — | Short generated handoff summary, including the optional image-audit note. |
+| `phase4_run_manifest.json` | — | Runtime metadata, input-resolution records, output paths, row counts, hashes and validation summary. |
+
+### Phase 4 handoff
+
+The verified Phase 4 outputs form the controlled computational handoff to Phase 5. Phase 5 can use the measurement-point and linked-evidence layers to describe rheology distributions, acquisition coverage and candidate formulation or printing context. It should state the population behind each plot and avoid treating source-cell rows as independent materials.
+
+Candidate filename links may be reviewed and visualised as candidate evidence, but they should not be used as confirmed labels, training targets or ground-truth rheology-image relationships. Image metadata can support coverage and grouping checks; it should not be interpreted as image quality or construct geometry until the actual image files are audited.
+
+### Optional bioink-specific Phase 6 and Phase 7 extensions
+
+The Phase 4 outputs also make two later bioink-specific extensions realistic, provided they remain explicitly optional and source-bounded.
+
+| Optional phase | Extension | What it would do | Required source file |
+|---|---|---|---|
+| Optional Phase 6 | Image-file audit | Count image files, check the expected `resized_IMG_{image_id}.png` filename pattern, match images to `image_index.csv`, inspect dimensions, colour mode and corruption, review label balance, and optionally compute simple exploratory image features such as area, brightness or edge density. | `images.zip` |
+| Optional Phase 7 | Authors’ model and generation-workflow audit | Inventory the authors’ trained model artefacts and fitted rheology-parameter files, compare them with the curated evidence layer, and assess whether beta-CVAE generation or model reproduction is feasible without treating authors’ artefacts as new experimental ground truth. | `models.zip` and `csv_data_files_generation.zip` |
+
+For Optional Phase 6, the image audit would be scoped as:
+
+| Phase 6 section | What it does |
+|---|---|
+| Image archive audit | Count image files, check filename pattern, and match `resized_IMG_{image_id}.png` to `image_index.csv`. |
+| Image metadata QC | Check missing labels, duplicate image IDs, shape distribution and ink formulation distribution. |
+| Linkage to curated metadata | Connect image records to Phase 4/5 formulation and printing-condition records where the source evidence supports the link. |
+| Basic image inspection | Read dimensions, file integrity, colour mode and corrupted-file status. |
+| Optional simple CV features | Calculate area, brightness and edge-density style features for exploratory analysis, not deep learning yet. |
+
+For Optional Phase 7, model comparison remains a reproduction and audit exercise, not proof that the curated Phase 4 tables are ready for supervised hydrogel prediction.
 
 ### Phase 5 — Explore rheology and printing context
 
 **Question:** What patterns occur in validated, comparable measurements?
-
 Plot shear-dependent viscosity against shear rate and describe whether the observed curve is consistent with shear-thinning over the measured range. Plot `G′` and `G″` against the source’s measured variable when test conditions allow comparison. Keep individual experiments visible and group summaries at the correct level; do not treat curve points as independent samples.
-
 A derived value such as `tan δ = G″/G′` should be calculated only when both moduli are available and compatible. Record the formula, retain source values, and leave the result undefined when the denominator is zero. Do not alter a measurement to make a derived column complete.
-
 Explore image and printing metadata only if source-defined identifiers link them to rheology or formulation. Define what each image label represents. A requested shape, image category, and validated print-quality outcome are not interchangeable. Describe associations rather than causal effects; unrecorded conditions may explain observed differences.
-
 **Data-science concept:** exploratory analysis describes distributions, coverage, variation, and possible relationships before inference. **Polymer concept:** viscosity, `G′`, and `G″` describe different aspects of flow and viscoelasticity; their printing relevance depends on test and process conditions.
+**Output and handoff:** reproducible figures, tables, and a written interpretation with comparability limits. These inform model readiness in Phase 12. Exit when each plot states the source population, unit, condition, and experimental unit.
 
-**Output and handoff:** reproducible figures, tables, and a written interpretation with comparability limits. These inform model readiness in Phase 10. Exit when each plot states the source population, unit, condition, and experimental unit.
+### Phase 6 — Audit image files as a bioink-specific extension
 
-### Phase 6 — Ingest a bounded Materials Project extract
+**Question:** Do the physical image files match the curated `image_index.csv` metadata, and are they suitable for later exploratory image analysis?
+
+This optional phase uses `images.zip`, which contains resized 800 x 800 printed-construct images. It checks whether expected files such as `resized_IMG_{image_id}.png` are present, whether filenames match image-index identifiers, whether files are readable, and whether metadata labels such as shape, ink type, concentration, irradiation intensity and SPS status have usable coverage.
+
+**Data-science concept:** file-level audit and image-metadata validation must precede computer vision. **Bioink concept:** construct images may support morphology or print-context exploration, but they do not automatically provide print-quality labels or rheology outcomes.
+
+**Output and handoff:** image-file inventory, image-index match report, integrity checks, label-distribution summary and optional simple image features. Exit when image files and metadata can be traced without inventing image-to-rheology identity.
+
+### Phase 7 — Audit authors’ models and generation workflow as a bioink-specific extension
+
+**Question:** Can the authors’ trained models, fitted rheology-parameter files and generation workflow be inventoried or compared reproducibly without treating them as new experimental evidence?
+
+This optional phase uses `models.zip`, `csv_data_files_generation.zip` and the authors’ source-code repository as reference artefacts. It can inspect file structure, model metadata, fitted-parameter tables, expected inputs and reproducibility requirements. It can compare authors’ artefacts with the curated evidence layer only where identifiers and source documentation support the comparison.
+
+**Data-science concept:** model reproduction separates trained artefact inventory, input-data compatibility, environment requirements and evaluation claims. **Materials-informatics concept:** generated images or fitted parameters are derived artefacts; they must not replace source experimental records or create unsupported material labels.
+
+**Output and handoff:** model-artefact inventory, generation-workflow feasibility note, fitted-parameter audit and comparison boundary. Exit when the project can state what is reproducible, what is only partially comparable, and what remains outside the curated experimental evidence layer.
+
+### Phase 8 — Ingest a bounded Materials Project extract
 
 **Question:** Can computational materials records be retrieved and traced reproducibly?
-
 Use the official `mp-api` client for a bounded query. Retain material IDs, query parameters, requested fields, retrieval date, and available calculation provenance. Verify actual returned fields rather than assuming every material has every property. Store API credentials outside version control.
-
 **Data-science concept:** a saved query and source ID make API acquisition reproducible and easier to refresh. **Materials concept:** a calculated inorganic property is a different evidence type from an experimental hydrogel measurement; each keeps its method and provenance.
+**Output and handoff:** a documented extract and executable query notebook. This is a separate test case for the metadata design in Phase 11, not a feature table for the hydrogel model. Exit when a reviewer can reproduce the query and identify the origin of each returned value.
 
-**Output and handoff:** a documented extract and executable query notebook. This is a separate test case for the metadata design in Phase 9, not a feature table for the hydrogel model. Exit when a reviewer can reproduce the query and identify the origin of each returned value.
-
-### Phase 7 — Reproduce a Matbench task
+### Phase 9 — Reproduce a Matbench task
 
 **Question:** Can a materials-property model be evaluated under a defined protocol?
-
 Reproduce the selected `matbench_dielectric` task using the documented data, folds, and metrics. Its target is refractive index from inorganic crystal structure; despite the name, it is not a hydrogel or polymer dielectric task. Start with a transparent baseline and report features, model, evaluation protocol, and error metrics. Do not tune on the benchmark test data and still call the result a faithful reproduction.
-
 **Data-science concept:** baselines, fixed evaluation procedures, metrics, and leakage checks make results comparable. **Materials-informatics concept:** crystal-structure features do not substitute for polymer chemistry or formulation descriptors.
+**Output and handoff:** a reproducible benchmark notebook and score interpretation. The evaluation practices inform Phase 12, but benchmark performance is not evidence that the hydrogel data can support prediction. Exit when task identity, target, inputs, protocol, and limitations are explicit.
 
-**Output and handoff:** a reproducible benchmark notebook and score interpretation. The evaluation practices inform Phase 10, but benchmark performance is not evidence that the hydrogel data can support prediction. Exit when task identity, target, inputs, protocol, and limitations are explicit.
-
-### Phase 8 — Map the schema to GEMD
+### Phase 10 — Map the schema to GEMD
 
 **Question:** Can the documented experimental history be represented as materials, ingredients, processes, measurements, and results?
-
 Map source-supported entities to GEMD concepts. An ingredient may enter a formulation process; a process may create or modify a material; a measurement may be performed on that material under specified conditions. Printing and imaging can be separate processes or records if the source documents them.
-
 GEMD distinguishes intended specifications from experimental runs. A planned concentration is not necessarily the concentration of a prepared and measured sample. A more expressive schema cannot fill a missing sample ID or create evidence absent from the dataset.
-
 **Data-science concept:** knowledge representation captures relationships and constraints that would otherwise remain implicit in column names. **Polymer concept:** formulation and process history can be essential to interpreting a hydrogel’s measured behaviour.
+**Output and handoff:** source-to-GEMD mapping, a small example representation, and a list of unsupported fields. This informs common metadata in Phase 11. Exit when mappings do not imply unsupported physical relationships.
 
-**Output and handoff:** source-to-GEMD mapping, a small example representation, and a list of unsupported fields. This informs common metadata in Phase 9. Exit when mappings do not imply unsupported physical relationships.
-
-### Phase 9 — Apply shared provenance rules
+### Phase 11 — Apply shared provenance rules
 
 **Question:** What metadata must remain attached so records retain their origin and meaning?
-
 Across the separate source-specific tables, retain source platform and ID, version, source type, material system, property name, original value and unit, standardized value and unit if justified, method, conditions, retrieval date, processing history, and QC status. Distinguish source-reported, transformed, derived, calculated, predicted, and benchmark values.
-
 Record code version, environment, API query, and file checksum where practical. A shared provenance layer supports interoperability; it does not make records scientifically equivalent.
-
 **Data-science concept:** lineage supports audit, debugging, reproducibility, and version updates. **Materials-informatics concept:** consistent metadata can support data exchange while preserving differences among polymer experiments, inorganic calculations, and benchmark tasks.
-
 **Output and handoff:** provenance fields and reusable validation logic. These records allow the final readiness review to rely on traceable evidence. Exit when every processed value can be traced to a source and transformation history.
 
-### Phase 10 — Decide whether hydrogel prediction is justified
+### Phase 12 — Decide whether hydrogel prediction is justified
 
 **Question:** Do the curated experimental records support a meaningful, independent prediction task?
-
 Define the target before training. “Printability” is not a target until an outcome and measurement method are specified. A source-defined completeness label, objectively calculated shape deviation, or measured rheological property might be candidates if available and consistent. A shape category should not be relabelled as quality without evidence.
-
 Count independent formulations, samples, or printing runs—not just measurement points or image files. Group dependent records together during validation. Check whether predictors are available at the intended prediction time: post-print images cannot serve as predictors for a pre-print decision. Look for target-derived features, missingness, class imbalance, and incompatible measurement conditions.
-
 Possible outcomes are: a defined task is supported; only a restricted task is supportable; or the data support curation and exploration but not reliable prediction. The last outcome identifies which identifiers, measurements, or independent experiments a future dataset would need. If modelling is justified, start with a baseline, grouped validation, error analysis, and a stated domain of applicability.
-
 **Data-science concept:** model readiness depends on target definition, sample size, predictors, leakage-safe validation, and coverage. **Polymer concept:** models need formulation, process, and measurement context; they cannot learn unrecorded chemistry or conditions.
-
 **Output:** a model-readiness report and, only if supported, a limited baseline model. Exit with a defensible statement of what the data can and cannot predict.
 
 ## Concepts that connect the phases
@@ -579,7 +606,6 @@ Possible outcomes are: a defined task is supported; only a restricted task is su
 ## Planned outputs
 
 Subject to feasibility, the repository may contain:
-
 - Versioned source manifest and file inventory
 - Field inventory, data dictionary, and schema map
 - Quality-control issue log and validation summary
@@ -587,6 +613,8 @@ Subject to feasibility, the repository may contain:
 - Record-linkage report with match coverage and unresolved links
 - Reproducible notebooks for audit, validation, and exploratory analysis
 - Figures and summaries based on validated, comparable observations
+- A bioink image-file audit using `images.zip`, if Optional Phase 6 is adopted
+- An authors’ model and beta-CVAE workflow audit using `models.zip` and `csv_data_files_generation.zip`, if Optional Phase 7 is adopted
 - A bounded Materials Project API-ingestion example
 - A Matbench reproduction with documented protocol and metrics
 - A GEMD mapping and example representation
@@ -608,12 +636,16 @@ open-materials-hydrogel-bioink-pipeline/
 │   ├── 00_scope_and_source_registry.ipynb
 │   ├── 01_zenodo_source_audit.ipynb
 │   ├── 02_schema_and_quality_control.ipynb
-│   ├── 03_record_linkage.ipynb
-│   ├── 04_hydrogel_rheology_analysis.ipynb
-│   ├── 05_materials_project_api_ingestion.ipynb
-│   ├── 06_matbench_reproduction.ipynb
-│   ├── 07_gemd_mapping.ipynb
-│   └── 08_model_readiness.ipynb
+│   ├── 03_standardisation_and_quality_checks.ipynb
+│   ├── 04_record_linkage_and_analysis_ready_evidence_layer.ipynb
+│   ├── 05_hydrogel_rheology_and_printing_context_analysis.ipynb
+│   ├── 06_image_file_audit_optional.ipynb
+│   ├── 07_authors_model_and_generation_workflow_audit_optional.ipynb
+│   ├── 08_materials_project_api_ingestion.ipynb
+│   ├── 09_matbench_reproduction.ipynb
+│   ├── 10_gemd_mapping.ipynb
+│   ├── 11_shared_provenance.ipynb
+│   └── 12_model_readiness.ipynb
 ├── src/
 │   ├── ingestion/
 │   ├── validation/
@@ -628,31 +660,28 @@ open-materials-hydrogel-bioink-pipeline/
     ├── quality_control_rules.md
     └── scientific_boundaries.md
 ```
-
 This structure is provisional. It will be updated to reflect work actually implemented; listing a notebook here does not claim that it already exists.
 
+### Revised notebook numbering after the implemented Phase 4 checkpoint
 
-### Revised notebook numbering after the implemented Phase 3 checkpoint
-
-The original provisional structure above is retained for project history. The implemented Phase 3 notebook now occupies notebook number `03`, so the later notebook numbers should follow the revised sequence below when those phases are created:
-
+The original provisional structure above is retained for project history. The implemented Phase 4 notebook now occupies notebook number `04`, so the later notebook numbers should follow the revised sequence below when those phases are created:
 ```text
 notebooks/
 ├── 00_scope_and_source_registry.ipynb
 ├── 01_zenodo_source_audit.ipynb
 ├── 02_schema_and_quality_control.ipynb
 ├── 03_standardisation_and_quality_checks.ipynb
-├── 04_record_linkage.ipynb
-├── 05_hydrogel_rheology_analysis.ipynb
-├── 06_materials_project_api_ingestion.ipynb
-├── 07_matbench_reproduction.ipynb
-├── 08_gemd_mapping.ipynb
-├── 09_shared_provenance.ipynb
-└── 10_model_readiness.ipynb
+├── 04_record_linkage_and_analysis_ready_evidence_layer.ipynb
+├── 05_hydrogel_rheology_and_printing_context_analysis.ipynb
+├── 06_image_file_audit_optional.ipynb
+├── 07_authors_model_and_generation_workflow_audit_optional.ipynb
+├── 08_materials_project_api_ingestion.ipynb
+├── 09_matbench_reproduction.ipynb
+├── 10_gemd_mapping.ipynb
+├── 11_shared_provenance.ipynb
+└── 12_model_readiness.ipynb
 ```
-
-This numbering aligns the executable notebook sequence with the conceptual phases already described in the linked workflow.
-
+This numbering aligns the executable notebook sequence with the implemented Phase 4 checkpoint and the optional bioink-specific image/model extensions. The external Materials Project, Matbench and GEMD work remains separate from the curated hydrogel experimental evidence layer.
 
 ## Scientific boundaries
 
@@ -673,38 +702,33 @@ These boundaries shape the source audit, schema, joins, plots, and modelling dec
 ## Success criteria
 
 The workflow should be able to answer, with evidence: Where did each value originate? What does each row represent? Which values are experimental, computational, derived, or benchmark data? What material, formulation, process, and measurement conditions are documented? Which records can be linked, and which relationships remain uncertain? Which transformations and QC decisions were applied? Which observations are independent? What comparisons are scientifically appropriate? Is there a meaningful, leakage-safe prediction target? What does the dataset support, and what remains unknown?
-
 A finding that the source data are not yet ready for hydrogel machine learning can still be a useful result. It identifies the data gaps that future experiments or repositories need to address.
 
 ## Current status and next step
 
-**Current checkpoint:** Phase 3 standardisation-and-quality-checks execution is complete for the verified Phase 2 checkpoint. The run preserved 92 worksheets, 4,600 measurement points, 39,100 source measurement cells and 1,031 image-index records; all 674 recorded Phase 3 validation checks passed. Thirteen source-header transformation rules were applied conservatively, explicit percentage strain was converted to fraction with round-trip validation, `mPas` viscosity conversion remained deferred, all 24 inherited Phase 2 QC findings remained visible, one document-range review finding was added, and no physical-sample, formulation, replicate or rheology-to-image link was asserted. The next step is Phase 4: evidence-led record linkage using the verified Phase 3 identifiers, provenance and unresolved-decision trail. Curve fitting, formulation comparison and modelling remain later work.
+**Current checkpoint:** Phase 4 record-linkage-and-analysis-ready evidence-layer execution is complete. The run resolved 21 controlled inputs, preserved 39,100 source measurement-cell records, 4,600 measurement-point records and 1,031 image-index records, created a 62-row candidate rheology-image linkage table, retained 25 QC findings, exported 11 unresolved linkage-review rows and recorded 0 critical validation failures. It does not assert physical-sample, formulation, replicate, printing-run or rheology-to-image links. The next step is Phase 5: exploratory rheology and printing-context analysis using the Phase 4 evidence layer while keeping candidate-only relationships clearly labelled.
 
+Optional Phase 6 can audit the actual image archive in `images.zip`. Optional Phase 7 can inventory or compare the authors’ model and beta-CVAE generation artefacts using `models.zip` and `csv_data_files_generation.zip`. These remain separate from Phase 5 and should not be used to claim model readiness before a target, independent unit and validation design are justified.
+<details>
+<summary>Previous Phase 3 checkpoint — retained for project history</summary>
+**Current checkpoint:** Phase 3 standardisation-and-quality-checks execution is complete for the verified Phase 2 checkpoint. The implemented notebook resolves and verifies the controlled Phase 1/2 inputs by SHA-256, preserves all 39,100 source measurement cells, 4,600 measurement points and 1,031 image-index records, applies only evidence-supported standardisation, retains the unresolved `mPas` viscosity token without conversion, links quality-control findings back to source coordinates, and exports a reproducible Phase 3 handoff. All 674 recorded Phase 3 validation checks passed in the submitted run. Record linkage, rheology interpretation, formulation comparison and modelling remain later work.
+</details>
 <details>
 <summary>Previous Phase 2 checkpoint — retained for project history</summary>
-
 **Current checkpoint:** Phase 2 schema-and-quality-control execution is complete for the pinned Phase 1 snapshot. The source-coordinate schema covers all 92 worksheets, 4,600 measurement points, 39,100 source cells and 1,031 image-index records; all 43 recorded validation checks passed. All 15 Phase 1 findings remain traceable, four additional review topics are recorded, and no physical-sample link has been asserted. The next step is Phase 3: implement production standardization and validation only where unit meaning and transformation rules are justified, while preserving unresolved viscosity notation, sample identity, image semantics and publication-range differences. Evidence-led record linkage remains the subsequent Phase 4 task. Physical image review and the Materials Project, Matbench and GEMD extensions remain deferred.
-
 </details>
-
 <details>
 <summary>Previous Phase 1 checkpoint — retained for project history</summary>
-
 **Current checkpoint:** Phase 1 execution is complete for the rheology ZIP and image-index CSV, with 15 review findings retained. The next step is Phase 2: define the experimental entities, source-to-schema mappings, original and standardized unit fields, missing-value semantics and evidence requirements for record linkage. Schema design can proceed while unresolved matters remain explicitly recorded. Physical image review and the Materials Project, Matbench and GEMD extensions remain deferred.
-
 </details>
-
 <details>
 <summary>Original planning statement — retained for project history</summary>
-
 **Planning and source-feasibility review.** Begin with Phase 0: confirm the Zenodo version and reuse conditions, register the sources, then inspect the primary archive. Finalize the schema, joins, analysis, and any prediction task from the records actually found. Materials Project, Matbench, and GEMD remain separate extensions until the primary audit establishes a manageable scope.
-
 </details>
 
 ## GitHub publication: Phase 0 checkpoint
 
 The first publishable checkpoint consists of the project documentation, the Jupyter notebook that checks the working environment and expected project files, and an optional HTML rendering of that notebook. Add the files to the repository using the paths below so these links work on GitHub.
-
 - **Jupyter notebook (executable Python):** [`00_scope_and_source_registry.ipynb`](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/notebooks/00_scope_and_source_registry.ipynb)
 - **HTML notebook export:** [`00_scope_and_source_registry.html`](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/00_scope_and_source_registry.html)
 - **Browser-rendered HTML report:** [View `00_scope_and_source_registry.html` in browser](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/00_scope_and_source_registry.html)
@@ -729,17 +753,13 @@ Do not include the downloaded Zenodo archive or `image_index.csv` in this initia
 | Updated project README | `README.md` at repository root | [Open README](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md) |
 | Executable source-audit notebook | `notebooks/01_zenodo_source_audit.ipynb` | [Open notebook](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/notebooks/01_zenodo_source_audit.ipynb) |
 | Matching HTML report | `reports/01_zenodo_source_audit.html` | [Open HTML export](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/01_zenodo_source_audit.html) · [View rendered HTML in browser](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/01_zenodo_source_audit.html) |
-
 The existing `reports/` convention is retained for both Phase 0 and Phase 1 HTML files. Existing Phase 0 files remain in place. Download suffixes such as `(1)` or `(2)` are removed from the published notebook and HTML filenames so navigation links resolve consistently. A separate `.py` file is not required: the `.ipynb` contains the executable Python cells and the explanatory Markdown.
-
 The 12 generated audit files listed above are additional supporting outputs. They can be reproduced locally from the notebook. They are not required for this documentation-and-code checkpoint; publication of source-derived metadata should follow review of its contents and applicable source terms. The raw ZIP, `image_index.csv`, image archives, model archives and installed environment folders remain local for this checkpoint.
 
 ### Execution environment
 
 The submitted run reports Python 3.12.15, NumPy 1.26.4, pandas 2.2.3, openpyxl 3.1.5 and IPython 9.17.1. The selected project kernel is `Python (hydrogel-bioink)`. Its setup excludes user-site package injection to avoid the observed NumPy/pandas binary incompatibility. The notebook includes one-time environment setup and restart instructions. No dependency installation occurs during a routine audit run.
-
 The two required source files are stored locally at:
-
 - `data/raw/zenodo_19602891/ALG-Ph_HA-Ph_rheology_data.zip`
 - `data/raw/zenodo_19602891/image_index.csv`
 
@@ -751,9 +771,7 @@ The two required source files are stored locally at:
 4. Return to the repository root, open `reports/`, and upload `01_zenodo_source_audit.html` in the same way. If the folder is absent, **Add file → Create new file** at the root can create `reports/.gitkeep`; commit it, open `reports/`, then upload the HTML. A placeholder is optional after a real file exists.
 5. Open the README and check the Phase 1 navigation links. The notebook link should open the executable notebook, the HTML export link should open the stored `01_zenodo_source_audit.html` file, and the separate **View HTML report in browser** link should render the report through HTML Preview.
 6. Supporting audit exports, when reviewed and selected for publication, belong together in `data/metadata/zenodo_source_audit/`. Preserve their generated filenames. Upload the actual exports from the local notebook run, not substitute tables from another execution environment.
-
 Suggested commit messages: `Update README with Phase 1 source-audit results`, `Add Phase 1 Zenodo source-audit notebook`, and `Add Phase 1 source-audit HTML report`.
-
 Upload reference: [GitHub documentation — adding a file to a repository](https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).
 
 ## GitHub publication: Phase 2 checkpoint
@@ -765,32 +783,23 @@ Upload reference: [GitHub documentation — adding a file to a repository](https
 | Updated project README | `README.md` at repository root | [Open README](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md) |
 | Executable schema-and-QC notebook | `notebooks/02_schema_and_quality_control.ipynb` | [Open notebook](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/notebooks/02_schema_and_quality_control.ipynb) |
 | Matching HTML report | `reports/02_schema_and_quality_control.html` | [Open HTML export](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/02_schema_and_quality_control.html) · [View rendered HTML in browser](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/02_schema_and_quality_control.html) |
-
 The existing `notebooks/` and `reports/` conventions are retained. Existing Phase 0 and Phase 1 files remain in place. Browser-download suffixes such as `(1)` or `(2)` should be removed from the published Phase 2 notebook and HTML filenames so README links resolve consistently. The canonical public filenames are therefore exactly `02_schema_and_quality_control.ipynb` and `02_schema_and_quality_control.html`.
-
 The notebook is the editable, rerunnable source and contains the executable Python cells together with the scientific and data-science explanation. The HTML report is the matching read-only export. A separate `.py` file is not required for this checkpoint.
-
 The 26 generated CSV files and `schema_qc_run_manifest.json` are reproducible local outputs. Some tables contain source-derived measurement or image-index content. The notebook explicitly treats them as local review products while dataset-specific redistribution terms remain unresolved. They should **not** all be committed automatically merely because they were generated successfully.
-
 The raw rheology ZIP, `image_index.csv`, publication PDF, supplementary document, working prompt, image archives, model archives and installed environment folders remain local unless their redistribution is separately justified. Publication of code and documentation does not imply permission to redistribute third-party source data.
 
 ### Phase 2 execution environment
 
 The actual executed environment table in the submitted Phase 2 notebook reports Python 3.12.15, NumPy 1.26.4, pandas 2.2.3, openpyxl 3.1.5 and IPython 9.17.1. The notebook metadata identifies the selected kernel as `Python (hydrogel-bioink)`. No network connection or API key is required for the Phase 2 runtime.
-
 The notebook is designed to be run with **Restart Kernel and Run All**. It reads the original source files and Phase 1 checkpoint files, writes declared outputs only within `data/metadata/schema_and_quality_control/`, and verifies source/checkpoint hashes before and after processing.
-
 The two original source files remain stored locally at:
-
 - `data/raw/zenodo_19602891/ALG-Ph_HA-Ph_rheology_data.zip`
 - `data/raw/zenodo_19602891/image_index.csv`
 
 The Phase 1 checkpoint inputs remain under:
-
 - `data/metadata/zenodo_source_audit/`
 
 The Phase 2 generated outputs are written locally to:
-
 - `data/metadata/schema_and_quality_control/`
 
 ### Browser upload procedure
@@ -803,11 +812,8 @@ The Phase 2 generated outputs are written locally to:
 6. Keep the raw rheology ZIP, `image_index.csv`, publication files, working prompt and source-derived local prototype tables out of the public upload unless their reuse and redistribution terms have been reviewed and support publication.
 7. If selected Phase 2 metadata exports are later approved for publication, preserve the generated filenames and place them together under `data/metadata/schema_and_quality_control/`. Upload outputs from the same verified notebook run rather than reconstructing them manually.
 8. After upload, verify that Phase 0 and Phase 1 links still resolve and that no earlier repository files were renamed or removed unintentionally.
-
 Suggested commit messages: `Update README with Phase 2 schema and QC results`, `Add Phase 2 schema and quality-control notebook`, and `Add Phase 2 schema and QC HTML report`.
-
 Upload reference: [GitHub documentation — adding a file to a repository](https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).
-
 
 ## GitHub publication: Phase 3 checkpoint
 
@@ -818,19 +824,14 @@ Upload reference: [GitHub documentation — adding a file to a repository](https
 | Updated project README | `README.md` at repository root | [Open README](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md) |
 | Executable standardisation-and-QC notebook | `notebooks/03_standardisation_and_quality_checks.ipynb` | [Open notebook](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/notebooks/03_standardisation_and_quality_checks.ipynb) |
 | Matching HTML report | `reports/03_standardisation_and_quality_checks.html` | [Open HTML export](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/03_standardisation_and_quality_checks.html) · [View rendered HTML in browser](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/03_standardisation_and_quality_checks.html) |
-
 For the Phase 3 public checkpoint, these three files are sufficient: the updated `README.md`, the executable `.ipynb`, and the matching HTML report. Existing Phase 0, Phase 1 and Phase 2 files remain in their current repository locations.
-
 Browser-download suffixes such as `(1)` or `(2)` should be removed from the published filenames. The canonical public Phase 3 filenames are exactly `03_standardisation_and_quality_checks.ipynb` and `03_standardisation_and_quality_checks.html`. The notebook is the editable and rerunnable source; the HTML file is the matching read-only report. A separate `.py` file is not required because the notebook already contains the executable Python cells.
-
 The 13 Phase 3 CSV outputs and `standardisation_run_manifest.json` are reproducible local outputs. Several contain source-derived measurement, image-index or provenance content. Because dataset-specific redistribution remains unresolved, they should **not** all be committed automatically merely because the notebook generated them successfully. The raw rheology ZIP, `image_index.csv`, Phase 1/2 source-derived tables, publication PDF, supplementary document, working prompt, image archives, model archives and installed environment folders also remain local unless their redistribution is separately justified.
 
 ### Phase 3 execution environment
 
 The executed Phase 3 report records Python 3.12.15, pandas 2.2.3, NumPy 1.26.4, openpyxl 3.1.5 and IPython 9.17.1. No package installation, network connection or API key is required during the scientific Phase 3 run.
-
 The notebook is designed to be run with **Restart Kernel and Run All** and to remain reproducible after Jupyter is closed and reopened. It resolves protected inputs by content hashes recorded in the Phase 1/2 manifests. Browser-added filename suffixes are accepted only when the file bytes match the expected checkpoint.
-
 A separate Phase 3 `requirements.txt` is not required for this checkpoint. If the repository's existing `environment.yml` already represents the project kernel and has not changed, it does not need to be re-uploaded simply for Phase 3. If the environment file is missing from the repository or later changes, update it as a separate reproducibility task.
 
 ### Browser upload procedure
@@ -843,11 +844,47 @@ A separate Phase 3 `requirements.txt` is not required for this checkpoint. If th
 6. Keep the 13 Phase 3 CSV outputs and `standardisation_run_manifest.json` local for now unless selected outputs are separately reviewed for publication and source terms permit redistribution.
 7. Keep the raw rheology ZIP, `image_index.csv`, publication files, supplementary material, working prompt and other third-party/source-derived files out of the public Phase 3 upload unless their reuse and redistribution terms have been reviewed and support publication.
 8. Verify that Phase 0, Phase 1 and Phase 2 links still resolve and that no earlier files were accidentally renamed or removed.
-
 Suggested commit messages: `Update README with Phase 3 standardisation and QC results`, `Add Phase 3 standardisation and quality-control notebook`, and `Add Phase 3 standardisation and QC HTML report`.
-
 Upload reference: [GitHub documentation — adding a file to a repository](https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).
 
+## GitHub publication: Phase 4 checkpoint
+
+### Core publication files
+
+| File | Repository destination | Direct link |
+|---|---|---|
+| Updated project README | `README.md` at repository root | [Open README](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md) |
+| Executable record-linkage notebook | `notebooks/04_record_linkage_and_analysis_ready_evidence_layer.ipynb` | [Open notebook](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/notebooks/04_record_linkage_and_analysis_ready_evidence_layer.ipynb) |
+| Matching HTML report | `reports/04_record_linkage_and_analysis_ready_evidence_layer.html` | [Open HTML export](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/04_record_linkage_and_analysis_ready_evidence_layer.html) · [View rendered HTML in browser](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/04_record_linkage_and_analysis_ready_evidence_layer.html) |
+
+For the Phase 4 public checkpoint, these three files are sufficient: the updated `README.md`, the executable `.ipynb`, and the matching HTML report. Existing Phase 0, Phase 1, Phase 2 and Phase 3 files remain in their current repository locations.
+
+Browser-download suffixes such as `(1)`, `(2)`, `(5)` or `(6)` should be removed from the published filenames. The canonical public Phase 4 filenames are exactly `04_record_linkage_and_analysis_ready_evidence_layer.ipynb` and `04_record_linkage_and_analysis_ready_evidence_layer.html`. The notebook is the editable and rerunnable source; the HTML file is the matching read-only report. A separate `.py` file is not required because the notebook already contains the executable Python cells.
+
+The ten Phase 4 CSV outputs, `phase4_readme_summary.md` and `phase4_run_manifest.json` are reproducible local outputs. Several contain source-derived measurement, image-index or provenance content. Because dataset-specific redistribution remains unresolved, they should **not** all be committed automatically merely because the notebook generated them successfully. The raw rheology ZIP, `image_index.csv`, Phase 1/2/3 source-derived tables, publication files, working prompts, image archives, model archives and installed environment folders remain local unless their redistribution is separately justified.
+
+### Phase 4 execution environment
+
+The executed Phase 4 manifest records Python 3.12.14 and pandas 2.2.3 on Linux. No package installation, network connection or API key is required during the scientific Phase 4 run.
+
+The notebook is designed to be run with **Restart Kernel and Run All** and to remain reproducible after Jupyter is closed and reopened. It resolves canonical input roles even when uploaded filenames contain browser suffixes, records the actual selected filenames and hashes in `phase4_input_file_resolution.csv`, and writes declared outputs only within `data/processed/record_linkage_and_analysis_ready_evidence_layer/`.
+
+The Phase 4 run expects the verified Phase 3 outputs, the Phase 2 linkage evidence files, and the two raw source files to be available locally. Optional archives `images.zip`, `models.zip` and `csv_data_files_generation.zip` are not required for Phase 4.
+
+### Browser upload procedure
+
+1. Open [the project repository](https://github.com/tehsongxuan/hydrogel-bioink-data-curation) and select the intended branch, normally `main`.
+2. At the repository root, use **Add file → Upload files** and upload the updated README using the exact repository filename `README.md`. Commit the change.
+3. Open `notebooks/` and upload the Phase 4 notebook using the exact filename `04_record_linkage_and_analysis_ready_evidence_layer.ipynb`. Remove any browser suffix before or during the upload.
+4. Open `reports/` and upload the matching report using the exact filename `04_record_linkage_and_analysis_ready_evidence_layer.html`.
+5. Open the updated README and test the new Phase 4 quick-navigation links. The notebook link should open the executable notebook, the HTML-export link should open the stored HTML file, and the **View HTML report in browser** link should render that same report through HTML Preview.
+6. Keep the generated Phase 4 CSV/JSON/Markdown outputs local for now unless selected outputs are separately reviewed for publication and source terms permit redistribution.
+7. Keep `images.zip`, `models.zip` and `csv_data_files_generation.zip` local until Optional Phase 6 or Optional Phase 7 is deliberately started.
+8. Verify that Phase 0, Phase 1, Phase 2 and Phase 3 links still resolve and that no earlier files were accidentally renamed or removed.
+
+Suggested commit messages: `Update README with Phase 4 record-linkage results`, `Add Phase 4 record-linkage notebook`, and `Add Phase 4 record-linkage HTML report`.
+
+Upload reference: [GitHub documentation — adding a file to a repository](https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).
 
 ## Sources and technical documentation
 
@@ -886,5 +923,4 @@ Upload reference: [GitHub documentation — adding a file to a repository](https
 - [Citrine Python data-model overview](https://citrineinformatics.github.io/citrine-python/getting_started/data_model.html)
 - [gemd-python source repository](https://github.com/CitrineInformatics/gemd-python)
 - [Citrination](https://citrination.com/) — included as a platform reference; dataset availability and access will be verified before use.
-
 
