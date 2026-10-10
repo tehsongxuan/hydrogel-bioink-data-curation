@@ -90,18 +90,22 @@ Phase 1 source-audit execution is complete for the rheology archive and image-in
 
 ### Phase 5 — Hydrogel rheology and printing-context exploratory analysis
 
-- [Jupyter notebook — Phase 5 exploratory analysis](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/notebooks/05_hydrogel_rheology_and_printing_context_analysis.ipynb)
-- [HTML export — Phase 5 exploratory analysis](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/05_hydrogel_rheology_and_printing_context_analysis.html)
-- [View HTML report in browser — Phase 5](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/05_hydrogel_rheology_and_printing_context_analysis.html)
-- [Standalone gallery — all 25 scientific visualisations](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_figure_gallery.html)
-- [Figure folder — 25 PNG exports](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/tree/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures)
-- [CSV analysis folder — 20 tables](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/tree/main/data/processed/hydrogel_rheology_and_printing_context_analysis)
+**Browser-ready HTML views** (select these links to read the rendered pages rather than the HTML source code):
+
+- **[View Phase 5 scientific analysis report and embedded graphs in browser](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/05_hydrogel_rheology_and_printing_context_analysis.html)** — executed notebook HTML with scientific explanations, tables and four inline figure previews.
+- **[View Phase 5 complete figure catalogue in browser](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_figure_gallery.html)** — organised descriptions of all 25 figures. The replacement *index-only* HTML must be uploaded first; the 25 images themselves are not displayed while their publication rights are under review.
+
+**Source files and project documentation:**
+
+- [Phase 5 executable Jupyter notebook](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/notebooks/05_hydrogel_rheology_and_printing_context_analysis.ipynb)
+- [Phase 5 HTML analysis report — stored file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/05_hydrogel_rheology_and_printing_context_analysis.html)
+- [Phase 5 figure index HTML — stored file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_figure_gallery.html)
 - [Phase 5 workflow and methodology](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#phase-5--explore-rheology-and-printing-context)
 - [Phase 5 verified results and scientific interpretation](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#phase-5-verified-results-and-scientific-interpretation)
-- [Complete Phase 5 output inventory — 52 linked deliverables](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#phase-5-complete-linked-file-inventory)
-- [Phase 5 files and publication procedure](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#github-publication-phase-5-checkpoint)
+- [Phase 5 Python environment and reproducibility](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#phase-5-python-environment-and-reproducibility)
+- [Phase 5 publication status and local output inventory](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#github-publication-phase-5-checkpoint)
 
-The notebook and HTML export links above point to the canonical files stored in the repository. GitHub may display an HTML file as source text or offer it for download rather than render it as a webpage. The separate **View HTML report in browser** links use HTML Preview to render the same repository HTML files directly in a browser.
+The notebook and HTML report files use canonical repository paths. GitHub often shows HTML as source text; the **View in browser** links use HTML Preview to render the published HTML as a webpage. The Phase 5 analysis report contains **four embedded preview graphs**. The **25-figure catalogue** is a descriptive index, not a public 25-graph image gallery: the PNGs remain local until publication permissions are clarified. The links become usable after the corresponding files have been committed to the indicated paths; please check them after uploading.
 
 ## Project overview
 
@@ -629,9 +633,20 @@ The executed notebook writes its local scientific outputs to:
 
 `data/processed/hydrogel_rheology_and_printing_context_analysis/`
 
-Within that folder, `figures/` holds 25 PNG files, `phase5_figure_gallery.html` indexes those PNGs by relative path, 20 CSVs preserve tabular analyses, `phase5_run_manifest.json` stores run provenance and validation context, and `phase5_readme_summary.md` provides a shorter handoff summary. The generated gallery is not a substitute for the full executed notebook report.
+In the **local analysis directory**, `figures/` contains 25 generated PNG files and the 20 CSV files preserve the exploratory tables. The notebook additionally produces `phase5_run_manifest.json` and `phase5_readme_summary.md`. These outputs were generated locally; their creation does not mean they have been published to GitHub. The public-facing `phase5_figure_gallery.html` is now a **figure catalogue without embedded images or missing-image URLs**, so its figure names and scientific context can be browsed while the PNG publication review is pending. It is not a substitute for the executed notebook HTML report.
 
 The computational and scientific handoff to a later readiness review includes: documented populations, QC eligibility rules, point/worksheet hierarchy, safe interpretation boundaries and pending sample-linkage questions. Optional Phase 6 can audit actual construct images; Optional Phase 7 can examine the source authors’ model artefacts. Neither extension should reinterpret filename candidates as verified specimen IDs or assume that Phase 5 has produced a supervised training set.
+
+### Phase 5 visualisations — how to open the HTML in a browser
+
+The README provides two **browser-rendered HTML views** consistent with the earlier Phase 0–4 report links. Both use [HTML Preview](https://htmlpreview.github.io/) to display a GitHub-hosted HTML file as a webpage instead of showing its markup.
+
+| Browser view | What the visitor can see | Public availability |
+|---|---|---|
+| [**Phase 5 executed analysis report — open in browser**](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/05_hydrogel_rheology_and_printing_context_analysis.html) | Data-science and polymer-science explanation, analysis tables, code and four embedded scientific plots | Link targets the existing `reports/` HTML file; confirm browser rendering after commit |
+| [**Phase 5 figure catalogue — open in browser**](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_figure_gallery.html) | Titles, scientific purposes and filenames of all 25 generated figures, grouped by topic | Requires replacing the current `phase5_figure_gallery.html` with the accompanying index-only HTML; the 25 scientific PNGs are **not** shown |
+
+**Complete 25-graph gallery:** a separate, fully embedded HTML gallery was generated for local review. It should not be described as public, or linked as if publicly available, until the source dataset's redistribution terms have been checked and the approved gallery has been uploaded. Merely changing the README link does not embed PNGs into the HTML file. Keep the locally generated original plots and outputs intact for reproducible future publication where permitted.
 
 ### Phase 5 figure categories
 
@@ -644,7 +659,7 @@ The computational and scientific handoff to a later readiness review includes: d
 | Printing/image metadata | Shape, ink type, intensity token, cross-tabulation, annotation missingness and date coverage | Describes index fields, not image pixels, print fidelity or validated quality. |
 | Quality control | QC prevalence, measurement field completeness and plot-eligibility diagnostics | Keeps exclusions and scientific uncertainty visible and reproducible. |
 
-The **complete filename-by-filename linked inventory of all 52 Phase 5 publication deliverables** is provided in [GitHub publication: Phase 5 checkpoint](#github-publication-phase-5-checkpoint). These links use proposed canonical repository paths; they only resolve publicly after the respective files are committed. Publication of outputs derived from the third-party dataset is conditional on a separate redistribution/licence review.
+The [Phase 5 publication checkpoint and local-output register](#github-publication-phase-5-checkpoint) preserve the complete original file inventory and descriptions without giving broken links to unpublished data. The earlier **52-item plan** is retained as planning history: the stand-alone `requirements-phase5.txt` item has been withdrawn because dependencies are documented in this README. Publication of source-derived outputs remains conditional on a separate reuse-rights review.
 
 ### Phase 6 — Audit image files as a bioink-specific extension
 
@@ -818,7 +833,7 @@ A finding that the source data are not yet ready for hydrogel machine learning c
 
 ## Current status and next step
 
-**Current checkpoint:** Phase 5 rheology and printing-context exploratory analysis is complete for the verified Phase 4 data. The executed notebook generated 25 scientific figures and 20 CSV analysis tables; preserved the 4,600-point measurement hierarchy and 1,031 image-index records; carried forward 25 QC findings and 11 unresolved linkage-review entries; and recorded 86 passed validation checks with 0 critical failures. The Phase 5 outputs are descriptive only. The existing unresolved `mPas` unit, sample linkage and image-to-rheology identity boundaries remain. The next step is to review public-release permissions and the completed Phase 5 figure atlas, then decide whether to begin Optional Phase 6 image-file auditing or Optional Phase 7 authors’ model/workflow auditing.
+**Current checkpoint:** Phase 5 rheology and printing-context exploratory analysis is complete for the verified Phase 4 data. The executed notebook generated 25 scientific figures and 20 CSV analysis tables; preserved the 4,600-point measurement hierarchy and 1,031 image-index records; carried forward 25 QC findings and 11 unresolved linkage-review entries; and recorded 86 passed validation checks with 0 critical failures. The Phase 5 outputs are descriptive only. The existing unresolved `mPas` unit, sample linkage and image-to-rheology identity boundaries remain. The next step is to review public-release permissions for the locally saved Phase 5 figure atlas and CSV outputs, verify that the published HTML figure index shows all 25 names without broken images, and then consider Optional Phase 6 image-file auditing or Optional Phase 7 authors’ model/workflow auditing.
 <details>
 <summary>Previous Phase 4 checkpoint — retained for project history</summary>
 **Current checkpoint:** Phase 4 record-linkage-and-analysis-ready evidence-layer execution is complete. The run resolved 21 controlled inputs, preserved 39,100 source measurement-cell records, 4,600 measurement-point records and 1,031 image-index records, created a 62-row candidate rheology-image linkage table, retained 25 QC findings, exported 11 unresolved linkage-review rows and recorded 0 critical validation failures. It does not assert physical-sample, formulation, replicate, printing-run or rheology-to-image links. The next step is Phase 5: exploratory rheology and printing-context analysis using the Phase 4 evidence layer while keeping candidate-only relationships clearly labelled.
@@ -1007,42 +1022,36 @@ Upload reference: [GitHub documentation — adding a file to a repository](https
 
 ## GitHub publication: Phase 5 checkpoint
 
-### Publication scope and the 52-file count
+### Public files, local outputs and the original 52-item plan
 
-The Phase 5 notebook and matching HTML report form the central public research explanation, consistent with the Phase 0–4 convention. The full **52-file Phase 5 deliverable index** below expands this checkpoint with 25 PNG figures, 20 generated CSV tables, an offline HTML figure gallery, a JSON run manifest, the generated Phase 5 Markdown summary, a Python dependency file and this updated repository README.
+The Phase 5 publication follows the established Phase 0–4 convention: a version-controlled Jupyter notebook, an executed HTML report and a detailed README. The additional **figure index** is a lightweight HTML page that lists 25 generated figures and their scientific purposes **without publishing the underlying PNG files**. Its browser-view link is provided alongside the other HTML reports.
 
-**The 52 files are a proposed publication inventory, not a statement that all 52 files have been committed.** Links use canonical intended GitHub paths and will not resolve until the matching file has been uploaded to `main`. Files containing derived source measurement or image-index data must be reviewed for dataset redistribution rights and private local paths before being made public. A source-derived output should remain local if permission is unclear, even when a link is documented as a planned destination.
+The original Phase 5 inventory counted **52 proposed files**: 1 README, 1 executable notebook, 1 HTML report, 25 PNG figures, 20 CSV tables, 1 figure-gallery HTML, 1 manifest, 1 short Markdown summary and 1 requirements file. This remains a historical output/planning count; **it is not a recommendation to publish 52 files now**. The separate `requirements-phase5.txt` file was deliberately removed from the upload plan at the repository owner's request, and its information has been incorporated into this README.
 
-| Deliverable category | Number | Notes |
-|---|---:|---|
-| Jupyter notebook | 1 | Editable, executable Python plus scientific Markdown explanations. |
-| Executed HTML report | 1 | Read-only export of the verified Phase 5 notebook. |
-| Scientific figures | 25 | PNGs generated by the notebook in `figures/`. |
-| CSV analysis tables | 20 | Curated exploratory, QC, coverage and validation outputs. |
-| Figure gallery HTML | 1 | Local HTML index referring to the adjacent `figures/` directory. |
-| Run manifest JSON | 1 | Software, input and output provenance for the executed checkpoint. |
-| Phase 5 summary Markdown | 1 | Concise local generated scientific handoff. |
-| Python dependency file | 1 | Proposed `requirements-phase5.txt` for environment setup. |
-| Updated repository README | 1 | This extended Phase 0–5 project document. |
-| **Total Phase 5 files and documentation** | **52** | Each filename is counted exactly once. |
-
-### Core publication files
-
-| File | Repository destination | Direct link |
+| Publication scope | File or output | Status for this public checkpoint |
 |---|---|---|
-| Updated project README | `README.md` | [Open README](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md) |
-| Executable Phase 5 notebook | `notebooks/05_hydrogel_rheology_and_printing_context_analysis.ipynb` | [Open notebook](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/notebooks/05_hydrogel_rheology_and_printing_context_analysis.ipynb) |
-| Matching Phase 5 HTML report | `reports/05_hydrogel_rheology_and_printing_context_analysis.html` | [Open HTML export](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/05_hydrogel_rheology_and_printing_context_analysis.html) · [View rendered HTML in browser](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/05_hydrogel_rheology_and_printing_context_analysis.html) |
-| Figure gallery containing all 25 images | `data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_figure_gallery.html` | [Open gallery HTML](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_figure_gallery.html) |
-| Run manifest | `data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_run_manifest.json` | [Open manifest](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_run_manifest.json) |
-| Phase 5 generated handoff summary | `data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_readme_summary.md` | [Open Phase 5 summary](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_readme_summary.md) |
-| Python dependency file | `requirements-phase5.txt` | [Open requirements](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/requirements-phase5.txt) |
+| Repository overview | `README.md` | Publish updated README |
+| Executable analysis | `notebooks/05_hydrogel_rheology_and_printing_context_analysis.ipynb` | Existing public Phase 5 notebook; inspect saved cell outputs for paths or embedded source-derived charts |
+| Executed report | `reports/05_hydrogel_rheology_and_printing_context_analysis.html` | Existing public HTML report; similarly review any embedded source-derived content |
+| Figure index | `data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_figure_gallery.html` | Publish the **figure-index-only** version supplied with this README; it lists 25 titles, not the 25 PNGs |
+| Scientific figures | 25 PNG files in local `figures/` | Kept local pending source-rights review; no broken links added |
+| Analysis tables | 20 local CSV files | Kept local pending reuse/privacy review; no broken links added |
+| Manifest and generated Markdown handoff | `phase5_run_manifest.json`, `phase5_readme_summary.md` | Kept local for now; no broken links added |
+| Python dependency manifest | `requirements-phase5.txt` | Not a separate public file; installation and version context documented below |
 
-The executed HTML notebook report and the figure gallery serve different reading needs. The notebook HTML provides code, explanatory Markdown, tables and four selected inline figure previews; the gallery provides all 25 saved figures. The gallery relies on the `figures/` folder retaining its relative location, so it should not be moved to `reports/` without also updating the figure paths. GitHub's file viewer may show the HTML source or offer a download; for reliable integrated display of gallery and PNGs, configure GitHub Pages with a corresponding self-contained directory after publication permission is cleared.
+### Phase 5 quick access — files and browser-readable HTML
 
-### Phase 5 complete linked file inventory
+| Resource | Repository file | Open in browser |
+|---|---|---|
+| Executable Phase 5 notebook | [Open Jupyter notebook](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/notebooks/05_hydrogel_rheology_and_printing_context_analysis.ipynb) | — |
+| Executed Phase 5 HTML report | [Open HTML report](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/05_hydrogel_rheology_and_printing_context_analysis.html) | [View HTML analysis report](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/05_hydrogel_rheology_and_printing_context_analysis.html) |
+| Phase 5 figure **index** (no published PNGs) | [Open figure index HTML](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_figure_gallery.html) | [View figure index as webpage](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_figure_gallery.html) |
 
-Every entry below uses a proposed *canonical repository filename* without browser-added suffixes such as `(3)` or `(4)`. The source of the names is the submitted executed Phase 5 notebook. Direct links are provided for each entry **to be used after the file is committed**.
+> **Figure-viewing note:** The source `phase5_figure_gallery(2).html` supplied for this revision refers to 25 separate files using `figures/*.png`. With those PNGs absent from the public repository, its existing image elements will be broken. The accompanying replacement `phase5_figure_gallery.html` displays a complete 25-entry, figure-description catalogue **without image dependencies**. Upload that replacement to the same repository path before expecting the browser-view link to show a polished public index. To view the actual 25 plotted figures, open the complete local gallery, which remains private pending source-rights review.
+
+### Phase 5 complete output register — original 52-item plan
+
+This register retains the original numbering, exact output filenames and scientific descriptions. Repository links are included **only for the published core files and figure index**; non-public outputs are documented by filename rather than a GitHub link that would return 404.
 
 #### Files 1–3 — README, executable notebook and report
 
@@ -1054,132 +1063,162 @@ Every entry below uses a proposed *canonical repository filename* without browse
 
 #### Files 4–28 — 25 scientific figures
 
-These figures are generated in `data/processed/hydrogel_rheology_and_printing_context_analysis/figures/`. They are organised below in figure-generation order, matching the notebook's progress-log sequence.
+These 25 figures were generated in the **local** folder `data/processed/hydrogel_rheology_and_printing_context_analysis/figures/`. The table retains the original figure order, filenames and scientific explanations. **No PNG links are supplied** because these images have not been approved for public release or uploaded. The browser-view figure index lists all 25 items without pretending that their plots are public.
 
 | No. | Scientific figure | Direct link | What it shows |
 |---:|---|---|---|
-| 4 | `phase5_measurement_family_counts.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_measurement_family_counts.png) | Number of source measurement points by measurement family; does not count independent samples. |
-| 5 | `phase5_viscosity_vs_shear_rate_loglog.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_viscosity_vs_shear_rate_loglog.png) | Log–log steady-shear viscosity versus shear rate, retaining measurement-level grouping. |
-| 6 | `phase5_moduli_vs_strain_loglog.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_moduli_vs_strain_loglog.png) | Oscillatory storage and loss moduli plotted against strain using source-supported axes. |
-| 7 | `phase5_tan_delta_vs_strain.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_tan_delta_vs_strain.png) | Derived tan δ over recorded strain where compatible positive moduli permit calculation. |
-| 8 | `phase5_candidate_source_label_coverage.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_candidate_source_label_coverage.png) | Coverage of filename-derived candidate ALG-Ph/HA-Ph labels; not verified formulations. |
-| 9 | `phase5_image_shape_distribution.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_image_shape_distribution.png) | Distribution of image-index shape labels; not a print-quality assessment. |
-| 10 | `phase5_image_intensity_distribution.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_image_intensity_distribution.png) | Source intensity-token counts without unverified unit interpretation. |
-| 11 | `phase5_worksheet_point_counts.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_worksheet_point_counts.png) | Measurement-point counts per worksheet, illustrating nesting of curve points. |
-| 12 | `phase5_measurement_field_completeness_heatmap.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_measurement_field_completeness_heatmap.png) | Completeness of scientific measurement fields by rheology family. |
-| 13 | `phase5_viscosity_quality_and_exclusion_counts.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_viscosity_quality_and_exclusion_counts.png) | Log-scale eligibility and documented exclusions for viscosity curves. |
-| 14 | `phase5_viscosity_slope_distribution_and_coverage.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_viscosity_slope_distribution_and_coverage.png) | Exploratory log–log slope distribution and fitting coverage by worksheet. |
-| 15 | `phase5_viscosity_example_curve_small_multiples.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_viscosity_example_curve_small_multiples.png) | Selected individual steady-shear curves to expose between-worksheet variation. |
-| 16 | `phase5_shear_stress_vs_shear_rate.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_shear_stress_vs_shear_rate.png) | Exploratory source-recorded shear stress versus shear rate. |
-| 17 | `phase5_storage_vs_loss_modulus_scatter.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_storage_vs_loss_modulus_scatter.png) | G′ versus G″ relationship for recorded oscillatory points, without independence assumptions. |
-| 18 | `phase5_modulus_balance_counts.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_modulus_balance_counts.png) | Counts of data points with G′ larger or smaller than G″. |
-| 19 | `phase5_tan_delta_worksheet_medians.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_tan_delta_worksheet_medians.png) | Per-worksheet median tan δ to avoid equating each point with an independent sample. |
-| 20 | `phase5_oscillatory_example_curve_small_multiples.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_oscillatory_example_curve_small_multiples.png) | Selected oscillatory curves visualised within their measured strain context. |
-| 21 | `phase5_qc_flag_rate_by_family.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_qc_flag_rate_by_family.png) | Proportion of source measurement points with propagated QC context by family. |
-| 22 | `phase5_filename_linkage_status_counts.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_filename_linkage_status_counts.png) | Candidate filename-linkage status; not validated physical-sample identity. |
-| 23 | `phase5_data_hierarchy_counts.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_data_hierarchy_counts.png) | Distinct evidence tiers (source cells, measurement points, worksheets, image metadata). |
-| 24 | `phase5_candidate_label_presence_counts.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_candidate_label_presence_counts.png) | Presence/absence of extractable filename-derived material-label tokens. |
-| 25 | `phase5_image_ink_type_top15.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_image_ink_type_top15.png) | Most common image-index ink-type strings; metadata only. |
-| 26 | `phase5_image_shape_intensity_heatmap.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_image_shape_intensity_heatmap.png) | Image shape labels cross-tabulated with reported irradiation-intensity tokens. |
-| 27 | `phase5_image_metadata_missingness_stacked.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_image_metadata_missingness_stacked.png) | Recorded versus blank image-index annotations; blanks are not negative outcomes. |
-| 28 | `phase5_image_metadata_date_coverage.png` | [View PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/figures/phase5_image_metadata_date_coverage.png) | Coverage of source date strings; not assumed printing or measurement dates. |
+| 4 | `phase5_measurement_family_counts.png` | Locally generated; publication pending | Number of source measurement points by measurement family; does not count independent samples. |
+| 5 | `phase5_viscosity_vs_shear_rate_loglog.png` | Locally generated; publication pending | Log–log steady-shear viscosity versus shear rate, retaining measurement-level grouping. |
+| 6 | `phase5_moduli_vs_strain_loglog.png` | Locally generated; publication pending | Oscillatory storage and loss moduli plotted against strain using source-supported axes. |
+| 7 | `phase5_tan_delta_vs_strain.png` | Locally generated; publication pending | Derived tan δ over recorded strain where compatible positive moduli permit calculation. |
+| 8 | `phase5_candidate_source_label_coverage.png` | Locally generated; publication pending | Coverage of filename-derived candidate ALG-Ph/HA-Ph labels; not verified formulations. |
+| 9 | `phase5_image_shape_distribution.png` | Locally generated; publication pending | Distribution of image-index shape labels; not a print-quality assessment. |
+| 10 | `phase5_image_intensity_distribution.png` | Locally generated; publication pending | Source intensity-token counts without unverified unit interpretation. |
+| 11 | `phase5_worksheet_point_counts.png` | Locally generated; publication pending | Measurement-point counts per worksheet, illustrating nesting of curve points. |
+| 12 | `phase5_measurement_field_completeness_heatmap.png` | Locally generated; publication pending | Completeness of scientific measurement fields by rheology family. |
+| 13 | `phase5_viscosity_quality_and_exclusion_counts.png` | Locally generated; publication pending | Log-scale eligibility and documented exclusions for viscosity curves. |
+| 14 | `phase5_viscosity_slope_distribution_and_coverage.png` | Locally generated; publication pending | Exploratory log–log slope distribution and fitting coverage by worksheet. |
+| 15 | `phase5_viscosity_example_curve_small_multiples.png` | Locally generated; publication pending | Selected individual steady-shear curves to expose between-worksheet variation. |
+| 16 | `phase5_shear_stress_vs_shear_rate.png` | Locally generated; publication pending | Exploratory source-recorded shear stress versus shear rate. |
+| 17 | `phase5_storage_vs_loss_modulus_scatter.png` | Locally generated; publication pending | G′ versus G″ relationship for recorded oscillatory points, without independence assumptions. |
+| 18 | `phase5_modulus_balance_counts.png` | Locally generated; publication pending | Counts of data points with G′ larger or smaller than G″. |
+| 19 | `phase5_tan_delta_worksheet_medians.png` | Locally generated; publication pending | Per-worksheet median tan δ to avoid equating each point with an independent sample. |
+| 20 | `phase5_oscillatory_example_curve_small_multiples.png` | Locally generated; publication pending | Selected oscillatory curves visualised within their measured strain context. |
+| 21 | `phase5_qc_flag_rate_by_family.png` | Locally generated; publication pending | Proportion of source measurement points with propagated QC context by family. |
+| 22 | `phase5_filename_linkage_status_counts.png` | Locally generated; publication pending | Candidate filename-linkage status; not validated physical-sample identity. |
+| 23 | `phase5_data_hierarchy_counts.png` | Locally generated; publication pending | Distinct evidence tiers (source cells, measurement points, worksheets, image metadata). |
+| 24 | `phase5_candidate_label_presence_counts.png` | Locally generated; publication pending | Presence/absence of extractable filename-derived material-label tokens. |
+| 25 | `phase5_image_ink_type_top15.png` | Locally generated; publication pending | Most common image-index ink-type strings; metadata only. |
+| 26 | `phase5_image_shape_intensity_heatmap.png` | Locally generated; publication pending | Image shape labels cross-tabulated with reported irradiation-intensity tokens. |
+| 27 | `phase5_image_metadata_missingness_stacked.png` | Locally generated; publication pending | Recorded versus blank image-index annotations; blanks are not negative outcomes. |
+| 28 | `phase5_image_metadata_date_coverage.png` | Locally generated; publication pending | Coverage of source date strings; not assumed printing or measurement dates. |
 
 #### Files 29–48 — 20 CSV analysis tables
 
-These CSV exports are generated under `data/processed/hydrogel_rheology_and_printing_context_analysis/`. Numerical summaries are descriptive, source-dependent outputs. They should not be committed publicly before confirming dataset redistribution terms and inspecting for sensitive or unnecessary local-path columns.
+These CSV exports are generated **locally** under `data/processed/hydrogel_rheology_and_printing_context_analysis/`. The names and purposes are retained for a complete scientific audit trail, but **no inaccessible GitHub file links appear below**. They should not be committed before dataset reuse terms and local-path exposure have been reviewed.
 
 | No. | CSV output | Direct link | Evidence and intended use |
 |---:|---|---|---|
-| 29 | `phase5_analysis_boundary_table.csv` | [Open CSV](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_analysis_boundary_table.csv) | Allowed and prohibited interpretations for the analysis populations. |
-| 30 | `phase5_candidate_formulation_label_summary.csv` | [Open CSV](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_candidate_formulation_label_summary.csv) | Counts of combinations of candidate ALG-Ph and HA-Ph filename labels. |
-| 31 | `phase5_candidate_label_presence.csv` | [Open CSV](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_candidate_label_presence.csv) | Counts of whether extractable candidate label tokens occur. |
-| 32 | `phase5_candidate_source_label_descriptors.csv` | [Open CSV](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_candidate_source_label_descriptors.csv) | Filename-stem descriptors for manual review; not verified formulations. |
-| 33 | `phase5_data_dictionary.csv` | [Open CSV](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_data_dictionary.csv) | Output file definitions and documentation of Phase 5 exports. |
-| 34 | `phase5_field_completeness_by_family.csv` | [Open CSV](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_field_completeness_by_family.csv) | Non-missing measurement-field coverage by rheology family. |
-| 35 | `phase5_image_metadata_descriptive_summary.csv` | [Open CSV](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_image_metadata_descriptive_summary.csv) | Categorical and numeric summaries of image-index metadata. |
-| 36 | `phase5_image_metadata_field_missingness.csv` | [Open CSV](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_image_metadata_field_missingness.csv) | Image metadata completeness and blank-value counts. |
-| 37 | `phase5_image_shape_by_intensity_token.csv` | [Open CSV](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_image_shape_by_intensity_token.csv) | Cross-tabulation of source shape labels and intensity tokens. |
-| 38 | `phase5_input_file_resolution.csv` | [Open CSV](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_input_file_resolution.csv) | Paths, roles and hashes for 10 required Phase 4 inputs. |
-| 39 | `phase5_measurement_family_summary.csv` | [Open CSV](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_measurement_family_summary.csv) | Rheology family counts, worksheet coverage and source-label coverage. |
-| 40 | `phase5_moduli_curve_screening_summary.csv` | [Open CSV](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_moduli_curve_screening_summary.csv) | Exploratory oscillatory G′/G″ and loss-tangent measures by worksheet. |
-| 41 | `phase5_observation_level_hierarchy.csv` | [Open CSV](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_observation_level_hierarchy.csv) | Counts at each evidence level; repeated curve points are not samples. |
-| 42 | `phase5_oscillatory_worksheet_statistics.csv` | [Open CSV](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_oscillatory_worksheet_statistics.csv) | Per-worksheet oscillatory descriptive and balance statistics. |
-| 43 | `phase5_qc_and_boundary_summary.csv` | [Open CSV](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_qc_and_boundary_summary.csv) | Phase 4 QC findings, unresolved issues and scientific constraints. |
-| 44 | `phase5_qc_prevalence_by_rheology_family.csv` | [Open CSV](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_qc_prevalence_by_rheology_family.csv) | Measurement-point QC prevalence by rheology family. |
-| 45 | `phase5_validation_summary.csv` | [Open CSV](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_validation_summary.csv) | Phase 5 input/output validation ledger and critical-failure status. |
-| 46 | `phase5_viscosity_curve_screening_summary.csv` | [Open CSV](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_viscosity_curve_screening_summary.csv) | Per-worksheet exploratory viscosity trends and log–log slope screening. |
-| 47 | `phase5_viscosity_quality_screen.csv` | [Open CSV](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_viscosity_quality_screen.csv) | Eligibility and exclusions for log-scale viscosity analyses. |
-| 48 | `phase5_worksheet_level_evidence_summary.csv` | [Open CSV](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_worksheet_level_evidence_summary.csv) | Worksheet-level record counts and grouping structure. |
+| 29 | `phase5_analysis_boundary_table.csv` | Locally generated; publication pending | Allowed and prohibited interpretations for the analysis populations. |
+| 30 | `phase5_candidate_formulation_label_summary.csv` | Locally generated; publication pending | Counts of combinations of candidate ALG-Ph and HA-Ph filename labels. |
+| 31 | `phase5_candidate_label_presence.csv` | Locally generated; publication pending | Counts of whether extractable candidate label tokens occur. |
+| 32 | `phase5_candidate_source_label_descriptors.csv` | Locally generated; publication pending | Filename-stem descriptors for manual review; not verified formulations. |
+| 33 | `phase5_data_dictionary.csv` | Locally generated; publication pending | Output file definitions and documentation of Phase 5 exports. |
+| 34 | `phase5_field_completeness_by_family.csv` | Locally generated; publication pending | Non-missing measurement-field coverage by rheology family. |
+| 35 | `phase5_image_metadata_descriptive_summary.csv` | Locally generated; publication pending | Categorical and numeric summaries of image-index metadata. |
+| 36 | `phase5_image_metadata_field_missingness.csv` | Locally generated; publication pending | Image metadata completeness and blank-value counts. |
+| 37 | `phase5_image_shape_by_intensity_token.csv` | Locally generated; publication pending | Cross-tabulation of source shape labels and intensity tokens. |
+| 38 | `phase5_input_file_resolution.csv` | Locally generated; publication pending | Paths, roles and hashes for 10 required Phase 4 inputs. |
+| 39 | `phase5_measurement_family_summary.csv` | Locally generated; publication pending | Rheology family counts, worksheet coverage and source-label coverage. |
+| 40 | `phase5_moduli_curve_screening_summary.csv` | Locally generated; publication pending | Exploratory oscillatory G′/G″ and loss-tangent measures by worksheet. |
+| 41 | `phase5_observation_level_hierarchy.csv` | Locally generated; publication pending | Counts at each evidence level; repeated curve points are not samples. |
+| 42 | `phase5_oscillatory_worksheet_statistics.csv` | Locally generated; publication pending | Per-worksheet oscillatory descriptive and balance statistics. |
+| 43 | `phase5_qc_and_boundary_summary.csv` | Locally generated; publication pending | Phase 4 QC findings, unresolved issues and scientific constraints. |
+| 44 | `phase5_qc_prevalence_by_rheology_family.csv` | Locally generated; publication pending | Measurement-point QC prevalence by rheology family. |
+| 45 | `phase5_validation_summary.csv` | Locally generated; publication pending | Phase 5 input/output validation ledger and critical-failure status. |
+| 46 | `phase5_viscosity_curve_screening_summary.csv` | Locally generated; publication pending | Per-worksheet exploratory viscosity trends and log–log slope screening. |
+| 47 | `phase5_viscosity_quality_screen.csv` | Locally generated; publication pending | Eligibility and exclusions for log-scale viscosity analyses. |
+| 48 | `phase5_worksheet_level_evidence_summary.csv` | Locally generated; publication pending | Worksheet-level record counts and grouping structure. |
 
-#### Files 49–52 — gallery, run manifest, Phase 5 summary and dependencies
+#### Files 49–52 — gallery, local provenance outputs and withdrawn dependency-file item
 
 | No. | Deliverable | Canonical GitHub path | Direct link | Purpose |
 |---:|---|---|---|---|
-| 49 | Figure gallery HTML | `data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_figure_gallery.html` | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_figure_gallery.html) | Browse all 25 figures; keep adjacent `figures/` relative image paths. |
-| 50 | Run manifest JSON | `data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_run_manifest.json` | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_run_manifest.json) | Execution provenance, input/output paths, hashes, software versions and validation counts. |
-| 51 | Phase 5 summary Markdown | `data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_readme_summary.md` | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_readme_summary.md) | Generated concise review handoff from the notebook. |
-| 52 | Python dependency file | `requirements-phase5.txt` | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/requirements-phase5.txt) | Separate documented dependencies for the `hydrogel-bioink` kernel. |
+| 49 | Figure gallery HTML | `data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_figure_gallery.html` | [Open HTML](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_figure_gallery.html) · [View in browser](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_figure_gallery.html) | Browser-readable figure index; no plotted PNGs are embedded or required. |
+| 50 | Run manifest JSON | `data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_run_manifest.json` | Local only — no link | Execution provenance, input/output paths, hashes, software versions and validation counts. |
+| 51 | Phase 5 summary Markdown | `data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_readme_summary.md` | Local only — no link | Generated concise review handoff from the notebook. |
+| 52 | Python dependency file | `requirements-phase5.txt` | Not uploaded — documented in README | Original item withdrawn: dependency instructions now appear in this README. |
 
 ### Adopted Phase 5 repository layout
+
+The public repository is organised as follows for the current Phase 5 release. Existing Phase 0–4 files remain in their established locations.
 
 ```text
 hydrogel-bioink-data-curation/
 ├── README.md
-├── requirements-phase5.txt
 ├── notebooks/
+│   ├── 00_scope_and_source_registry.ipynb                 # earlier phases retained
+│   ├── ...
 │   └── 05_hydrogel_rheology_and_printing_context_analysis.ipynb
 ├── reports/
+│   ├── 00_scope_and_source_registry.html                  # earlier phases retained
+│   ├── ...
 │   └── 05_hydrogel_rheology_and_printing_context_analysis.html
 └── data/
     └── processed/
-        ├── record_linkage_and_analysis_ready_evidence_layer/  # Phase 4 inputs; may remain local
         └── hydrogel_rheology_and_printing_context_analysis/
-            ├── figures/                        # 25 named PNGs
-            ├── phase5_figure_gallery.html
-            ├── phase5_readme_summary.md
-            ├── phase5_run_manifest.json
-            └── phase5_*.csv                    # 20 named CSVs in inventory
+            └── phase5_figure_gallery.html                # captions-only HTML index
 ```
 
-The existing repository already includes older notebooks and HTML reports. The tree above shows only the Phase 5 additions; do not delete or rename the earlier Phase 0–4 materials. A separate `.py` file is not required because the `.ipynb` contains the executable Python code.
+The separate **local** output directory also holds `figures/` (25 PNGs), 20 CSV tables, a JSON manifest, the generated Markdown summary and logs. The local figure directory is not necessarily part of the published repository. This README deliberately contains no links to absent files. No separate `.py` is needed because the notebook contains the Python source cells.
 
-### Phase 5 execution environment and reproducibility
+### Phase 5 Python environment and reproducibility
 
-The uploaded Phase 5 executed notebook reports the selected Windows `Python (hydrogel-bioink)` kernel with Python **3.12.15**, pandas **2.2.3**, NumPy **2.5.3** and Matplotlib **3.11.2**. The environment check prints `Matplotlib found: no package installation required` for that successful run. The notebook contains code that attempts a bounded installation into the **selected Jupyter interpreter** only if Matplotlib is absent. Installation may require network access, and its presence in notebook code is not a guarantee that it can overcome local permissions, network restrictions or incompatible packages.
+A separate dependency text file is **not** required or proposed for GitHub at this checkpoint. The environment and installation instructions are recorded here so that the core source code is accompanied by practical reproduction guidance.
 
-The local Phase 5 run reads these **ten** Phase 4 input files from `data/processed/record_linkage_and_analysis_ready_evidence_layer/`: `linked_measurement_evidence_layer.csv`, `measurement_point_linkage_layer.csv`, `image_metadata_linkage_layer.csv`, `candidate_rheology_image_linkage.csv`, `qc_linkage_summary.csv`, `analysis_readiness_summary.csv`, `unresolved_linkage_review_items.csv`, `phase4_validation_summary.csv`, `phase4_data_dictionary.csv` and `phase4_run_manifest.json`. Readers who wish to rerun the phase must first reproduce or obtain those files within the source's authorised reuse terms.
+| Component | Version reported by the submitted successful Phase 5 run | Purpose |
+|---|---|---|
+| Python | `3.12.15` | Notebook interpreter |
+| Jupyter kernel | `Python (hydrogel-bioink)` | Selected interpreter for execution |
+| NumPy | `2.5.3` | Numeric arrays and finite-value checks |
+| pandas | `2.2.3` | DataFrames, data checks and descriptive summaries |
+| Matplotlib | `3.11.2` | All 25 exported scientific graphs |
+| IPython / Jupyter | Installed in the selected kernel; exact Phase 5 version not established in this README | Notebook execution and rendering |
 
-For a local run:
-1. Put the ten required Phase 4 files in `data/processed/record_linkage_and_analysis_ready_evidence_layer/`.
-2. Install the packages recorded in `requirements-phase5.txt` into the same interpreter used by the `hydrogel-bioink` kernel; one-time package installation is distinct from normal notebook execution.
-3. Open the canonical Phase 5 `.ipynb` in JupyterLab, select `Python (hydrogel-bioink)`, and use **Restart Kernel and Run All**.
-4. Confirm `Dependency and Matplotlib rendering check: PASS`, 25 figure-completion messages, the exported analysis tables, 86 passed checks and zero critical failures in the run's validation summary. A different input dataset or updated code may legitimately produce different counts or reveal a new validation problem.
-5. Open the generated `phase5_figure_gallery.html` alongside its `figures/` folder. Review warning messages and the source-provenance boundaries before interpreting any graph.
+These numbers are **reported execution details**, not a requirement to force every installation to exactly those versions. A different version combination must be tested for compatibility before results are called reproducible. Other standard-library modules may be imported by the notebook and do not normally require separate `pip` installation. The ten controlled Phase 4 input files remain necessary.
 
-The notebook also generates `phase5_matplotlib_install.log` and `phase5_execution_progress.log` when relevant. These are **local troubleshooting files**, not part of the 52-file publication inventory, and should not be added to GitHub. The executed notebook and HTML export may include absolute Windows paths in saved outputs; these should be removed or generalised before public release, together with the earlier pandas `DtypeWarning` where practical. Do not replace source-reported values or missingness solely to suppress a warning.
+**One-time package setup, only if dependencies are missing.** In a Jupyter cell running the chosen project kernel, use:
+
+```python
+%pip install numpy pandas matplotlib ipython
+```
+
+The `%pip` magic installs into the active kernel environment; alternatively, install packages using `python -m pip` with that environment activated. This installation step normally needs internet access. If the scientific notebook's start-up check reports Matplotlib is already present, do not reinstall it just to run the analysis. The notebook contains a bounded one-time attempt to install Matplotlib into the selected interpreter if it is missing; it may be blocked by permissions, connectivity or package incompatibility. For a stable project, set up the environment once and keep a record of actual library versions.
+
+**Controlled Phase 4 inputs.** To rerun Phase 5, first produce or obtain the verified ten Phase 4 files under `data/processed/record_linkage_and_analysis_ready_evidence_layer/`, consistent with source reuse terms:
+
+```text
+linked_measurement_evidence_layer.csv
+measurement_point_linkage_layer.csv
+image_metadata_linkage_layer.csv
+candidate_rheology_image_linkage.csv
+qc_linkage_summary.csv
+analysis_readiness_summary.csv
+unresolved_linkage_review_items.csv
+phase4_validation_summary.csv
+phase4_data_dictionary.csv
+phase4_run_manifest.json
+```
+
+**Restart-kernel and run-all workflow:**
+
+1. Save the notebook, close Jupyter, and reopen it in the correct project directory.
+2. Open `notebooks/05_hydrogel_rheology_and_printing_context_analysis.ipynb` and select **Python (hydrogel-bioink)**.
+3. Confirm the ten input files are present and their manifest checks agree; do not manually manufacture missing checkpoint tables.
+4. Select **Restart Kernel → Run All Cells**. The notebook must not rely on memory or variables from earlier Jupyter sessions.
+5. Check the dependency and rendering tests; in the submitted run, 25 figures, 20 CSV exports, the run manifest and Markdown summary were generated, with **86 passed validation checks and 0 critical failures**.
+6. Inspect the execution log, scientific-boundary statements and figure/CSV inventories; counts can legitimately change for a different dataset or revised notebook version.
+
+Publication of the notebook alone does not distribute its required upstream data. Reproducing the numeric outputs requires access to the *same authorised source snapshot and verified Phase 4 handoff*. A notebook executing in a different environment or without the upstream files is not evidence that the data are globally available.
 
 ### Reuse, privacy and scientific release conditions
 
-The existing Phase 4 README records that dataset-specific redistribution permission was unresolved. This Phase 5 README deliberately maintains that boundary. Producing CSV files and PNG figures does not in itself grant permission to redistribute source-derived measurement tables, image metadata, or reconstructed data from the Zenodo source. Review the dataset record and accompanying licence/terms first; release only the permitted outputs and attribute the source. If release is not permitted or unclear, **retain the 20 CSV tables, source-derived plots and any problematic manifest content locally** and keep publication to authorised code, descriptions, or aggregate figures where permissible.
+The original Zenodo dataset's file-specific reuse permission remains unresolved in the working audit. An original Python-generated graph is not automatically a verbatim copy of an authors' published figure, but publishing detailed reconstructed measurements or images can still require an applicable licence, permission or other legal basis. **Do not infer that public access to the Zenodo record alone grants a redistribution licence.** The current public HTML index lists names and methodological descriptions, not the 25 embedded plots or 20 CSV tables. The source archive and index records should remain local unless release is supported by the licence or other permission.
 
-Check notebook outputs, HTML reports, data dictionaries, manifests and CSV input-resolution tables for unnecessary local Windows usernames, absolute home directories, account information and temporary paths. Avoid committing installation/progress logs, hidden environment directories, `.ipynb_checkpoints`, cached files, private API keys, source archive ZIPs and the original `image_index.csv` without a separate permission check.
+Review public notebook/HTML outputs as well for any embedded source-derived graphics or source values; the fact they have already been posted does not automatically resolve reuse questions. Source attribution should be prominent: [Zenodo bioink record](https://zenodo.org/records/19602891) · [dataset DOI](https://doi.org/10.5281/zenodo.19602891) · [associated research](https://doi.org/10.1080/17452759.2026.2671497).
 
-### Browser upload procedure
+Also inspect notebook outputs, HTML reports, JSON manifests and any CSVs for local Windows usernames, account details, absolute home directories, temporary paths and private credentials. Do not upload raw archives, `image_index.csv`, installation/progress logs, local environment directories, notebook checkpoints or private API keys by default. Their omission is a deliberate publication boundary, not evidence they were unnecessary for computation.
 
-1. Open [the project repository](https://github.com/tehsongxuan/hydrogel-bioink-data-curation) and select the intended branch, normally `main`. Retain all previously published Phase 0–4 files.
-2. Save the updated complete README from this document as the UTF-8 file `README.md` and upload it to the repository root. Because the Phase 5 links are planned paths, some links will not work until their corresponding files are committed.
-3. Open `notebooks/` and upload your **reviewed and path-sanitised** Phase 5 `.ipynb` with the exact filename `05_hydrogel_rheology_and_printing_context_analysis.ipynb`, removing a browser suffix such as `(3)`.
-4. Open `reports/` and upload its matching, reviewed HTML export as `05_hydrogel_rheology_and_printing_context_analysis.html`, removing a suffix such as `(4)`. The report and notebook should represent the **same executed scientific run**.
-5. Upload `requirements-phase5.txt` at the repository root to document the Phase 5 scientific Python dependencies.
-6. If the public-release review permits, open/create `data/processed/hydrogel_rheology_and_printing_context_analysis/` and upload the 20 named CSV files, `phase5_run_manifest.json`, `phase5_readme_summary.md` and `phase5_figure_gallery.html`. Preserve those exact filenames.
-7. If the figure redistribution review permits, upload the **entire** `figures/` subfolder containing all 25 PNG images in that same output folder. Keep it next to `phase5_figure_gallery.html` so its relative links can resolve.
-8. Review the updated README's Phase 5 quick navigation and complete 52-file index, verify any published links, open the notebook, and test the HTML export. For the gallery's embedded images, use a proper served page arrangement such as GitHub Pages after confirming its relative asset paths.
-9. Do not upload `phase5_matplotlib_install.log`, `phase5_execution_progress.log`, earlier failed notebook copies, raw archives, source-derived unapproved data, or private environment folders. Treat unapproved table/figure links as planned documentation, not published data.
-10. Verify that existing links and Phase 0–4 content were not removed by the README update. Record which Phase 5 files were released and which remain local due to permission or privacy boundaries.
+### Browser publication and link-verification procedure
 
-Suggested commit messages: `Update README with Phase 5 hydrogel rheology and printing-context results`, `Add Phase 5 exploratory analysis notebook and HTML report`, `Document Phase 5 Python dependencies`, and, if permitted, `Publish reviewed Phase 5 tables and 25 scientific figures`.
+1. Keep earlier notebooks and reports (Phases 0–4) unchanged; their original navigation is preserved.
+2. Update the existing `data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_figure_gallery.html` with the accompanying **captions-only HTML index**, so the public view does not show 25 broken image icons.
+3. Replace the repository-root `README.md` with this revised Markdown file, preserving all earlier scientific content, and commit it. Save this file in UTF-8 using exactly the GitHub filename `README.md` (not `README_Phase5.txt`).
+4. Open the [Phase 5 figure index HTML](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_figure_gallery.html) and [browser-rendered figure index](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_figure_gallery.html); confirm all 25 figure entries and their explanatory notes appear without needing PNGs.
+5. Open the [Phase 5 executed report](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/05_hydrogel_rheology_and_printing_context_analysis.html) and its [browser view](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/05_hydrogel_rheology_and_printing_context_analysis.html), and check the published notebook link.
+6. Check Phase 0–4 HTML-view links in the README. If the external HTML Preview service does not display a page, use the stored GitHub file link to inspect or download the HTML directly; rendering through the third-party service is not guaranteed. Do not upload the 25 scientific PNGs, the 20 CSVs or the run manifest merely to make a link work; publish additional outputs only after reuse/privacy review.
 
-Upload reference: [GitHub documentation — adding a file to a repository](https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).
+**Suggested commit messages:** `Publish Phase 5 figure index without unpublished PNGs` and `Update Phase 5 README with working links and reproducibility guidance`.
 
 ## Sources and technical documentation
 
@@ -1218,5 +1257,6 @@ Upload reference: [GitHub documentation — adding a file to a repository](https
 - [Citrine Python data-model overview](https://citrineinformatics.github.io/citrine-python/getting_started/data_model.html)
 - [gemd-python source repository](https://github.com/CitrineInformatics/gemd-python)
 - [Citrination](https://citrination.com/) — included as a platform reference; dataset availability and access will be verified before use.
+
 
 
