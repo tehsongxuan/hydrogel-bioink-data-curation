@@ -2,7 +2,14 @@
 
 A reproducible materials-informatics project for curating hydrogel bioink data, preserving experimental context, and deciding whether open records support reliable analysis or machine learning.
 
+Phase 6 image-file audit and computer-vision readiness review is complete for the locally retained `images.zip` archive and the verified Phase 4/5 context. The submitted Jupyter run verified `1,031` image-index records, `1,031` PNG files in the archive, `0` unreadable images, `0` unmatched image-index rows and `0` archive-only image files; produced `20` scientific PNG figures and `25` supporting CSV/JSON/HTML outputs; and recorded `10` passed validation checks with `0` critical failures. The output remains an image-evidence and metadata audit: brightness, contrast, edge density, foreground-area fraction, duplicate cues and unusual-image flags are screening descriptors, not validated hydrogel printability, cell-viability, rheology, tissue-performance or clinical outcomes. The next work is to publish the Phase 6 README, notebook, HTML report, figure gallery and selected supporting outputs after source-image reuse rights and local-path exposure have been reviewed.
+
+<details>
+<summary>Previous Phase 5 checkpoint — retained for project history</summary>
+
 Phase 5 hydrogel rheology and printing-context exploratory analysis is complete for the verified Phase 4 evidence layer. The submitted Jupyter run retained 4,600 rheology measurement points, 39,100 source measurement-cell records and 1,031 image-index metadata records; produced 25 scientific PNG figures and 20 CSV analysis tables; and recorded 86 passed validation checks with 0 critical failures. The output remains strictly descriptive: no physical-sample, formulation or rheology-to-image relationship is confirmed, the `mPas` token remains unresolved, and supervised hydrogel prediction is not claimed. The next work is to review the resulting figures and publication permissions, then consider an optional image-file audit or model-artefact audit.
+
+</details>
 
 <details>
 <summary>Previous Phase 4 checkpoint — retained for project history</summary>
@@ -105,6 +112,24 @@ Phase 1 source-audit execution is complete for the rheology archive and image-in
 - [Phase 5 publication status and local output inventory](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#github-publication-phase-5-checkpoint)
 
 Phase 5 has **two distinct browser-view links**: **View Phase 5 figures in browser** opens the full 25-figure visualisation gallery, while **View HTML report in browser — Phase 5 exploratory analysis** opens the executed scientific notebook report. The individual PNG files need not be uploaded separately because the gallery HTML embeds the images. The gallery has been observed rendering the graphs in a browser; this does **not** establish publication permission for source-derived graphics. Check the underlying data reuse rights, and note that HTML Preview is a third-party viewer.
+
+### Phase 6 — Image-file audit and computer-vision readiness
+
+**Phase 6 figure visualisation**
+
+- **[View Phase 6 figures in browser](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_figure_gallery.html)** — opens the dedicated Phase 6 visualisation gallery with the generated image-audit figures and scientific boundary notes. Source-derived image publication rights still require review before public release.
+
+**Scientific source files and documentation:**
+
+- [Phase 6 executable Jupyter notebook](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/notebooks/06_image_file_audit_optional.ipynb)
+- [Phase 6 executed image-file audit HTML — stored GitHub file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/06_image_file_audit_optional.html)
+- **[View HTML report in browser — Phase 6 image-file audit](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/06_image_file_audit_optional.html)** — opens the executed notebook report with Python analysis, validation tables, visualisations and scientific interpretation.
+- [Phase 6 workflow and methodology](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#phase-6--audit-image-files-as-a-bioink-specific-extension)
+- [Phase 6 verified results and scientific interpretation](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#phase-6-verified-results-and-scientific-interpretation)
+- [Phase 6 Python environment and reproducibility](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#phase-6-python-environment-and-reproducibility)
+- [Phase 6 publication status and output register](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md#github-publication-phase-6-checkpoint)
+
+Phase 6 has **two distinct browser-view links**: **View Phase 6 figures in browser** opens the generated image-audit gallery, while **View HTML report in browser — Phase 6 image-file audit** opens the executed scientific notebook report. The raw `images.zip` archive is deliberately excluded from GitHub because it is a large source archive (`459.76 MiB`) and should remain local or be retrieved from the authorised source record. The Phase 6 CSV/JSON outputs and PNG figures should be uploaded only after checking reuse permission, private local paths and publication intent.
 
 ## Project overview
 
@@ -634,7 +659,7 @@ The executed notebook writes its local scientific outputs to:
 
 In the **local analysis directory**, `figures/` contains 25 generated PNG files and the 20 CSV files preserve the exploratory tables. The notebook additionally produces `phase5_run_manifest.json` and `phase5_readme_summary.md`. The individual PNGs and CSVs are not necessarily separate public repository files. The current public-facing `phase5_figure_gallery.html` **embeds all 25 graphs directly within one browser-viewable HTML page**, as shown in the reviewed browser screenshot; it therefore does not require a separate public `figures/` folder. The figure gallery complements, rather than replaces, the executed notebook HTML report. The inclusion of source-derived plots in a publicly accessible HTML page remains subject to a data-reuse and publication-rights review.
 
-The computational and scientific handoff to a later readiness review includes: documented populations, QC eligibility rules, point/worksheet hierarchy, safe interpretation boundaries and pending sample-linkage questions. Optional Phase 6 can audit actual construct images; Optional Phase 7 can examine the source authors’ model artefacts. Neither extension should reinterpret filename candidates as verified specimen IDs or assume that Phase 5 has produced a supervised training set.
+The computational and scientific handoff to the completed Phase 6 image-file audit includes: documented populations, QC eligibility rules, point/worksheet hierarchy, safe interpretation boundaries and pending sample-linkage questions. Phase 6 audits actual construct image files as an image-evidence layer; Optional Phase 7 can examine the source authors’ model artefacts. Neither extension should reinterpret filename candidates as verified specimen IDs or assume that Phase 5 has produced a supervised training set.
 
 ### Phase 5 visualisations — browser viewing
 
@@ -659,13 +684,181 @@ The [Phase 5 publication checkpoint and local-output register](#github-publicati
 
 ### Phase 6 — Audit image files as a bioink-specific extension
 
-**Question:** Do the physical image files match the curated `image_index.csv` metadata, and are they suitable for later exploratory image analysis?
+**Question:** Do the physical image files match the curated `image_index.csv` metadata, and are they suitable for later exploratory computer-vision analysis?
 
-This optional phase uses `images.zip`, which contains resized 800 x 800 printed-construct images. It checks whether expected files such as `resized_IMG_{image_id}.png` are present, whether filenames match image-index identifiers, whether files are readable, and whether metadata labels such as shape, ink type, concentration, irradiation intensity and SPS status have usable coverage.
+This optional phase uses the locally retained `images.zip` archive rather than repeated large uploads. The archive contains the printed-construct image files used by the source dataset, and the audit checks whether the expected filenames match the image-index records, whether the images are readable, and whether the image metadata has enough coverage for cautious exploratory review.
 
-**Data-science concept:** file-level audit and image-metadata validation must precede computer vision. **Bioink concept:** construct images may support morphology or print-context exploration, but they do not automatically provide print-quality labels or rheology outcomes.
+**Data-science concept:** file-level audit, metadata linkage, image-feature engineering and leakage control must come before computer vision. The notebook treats every image as evidence with provenance, not as an automatic training example.
+
+**Bioink concept:** hydrogel construct images can show visible morphology, shape context and imaging artefacts. They do not by themselves prove material performance, rheology, crosslinking success, printability, cell response or clinical relevance.
 
 **Output and handoff:** image-file inventory, image-index match report, integrity checks, label-distribution summary and optional simple image features. Exit when image files and metadata can be traced without inventing image-to-rheology identity.
+
+#### Phase 6 implementation status
+
+The original Phase 6 scope and handoff statement above are retained. The submitted `06_image_file_audit_optional.ipynb` and matching HTML export document a completed image-file audit using the verified Phase 4/5 context and the local `images.zip` archive. The notebook ran in the selected Windows `Python (hydrogel-bioink)` environment. These results refer to that executed run; they are not an independent verification of physical-sample identity, printability or biological outcome.
+
+The implemented workflow includes:
+- restart-kernel-safe project-root discovery and controlled input verification for the image archive, image-index CSV and available Phase 4/5 context files;
+- direct ZIP integrity testing, file inventory construction and image suffix counting before image decoding;
+- deterministic matching from `image_index.csv` records to archive filenames using documented identifier rules;
+- Pillow-based image readability checks, dimensions, colour mode, hashes and thumbnail-derived descriptors;
+- NumPy-safe image-feature extraction that avoids dependency failure from binary-incompatible `scikit-image` builds under NumPy 2.x;
+- metadata completeness profiling for image ID, date, recorded ink type, recorded shape, irradiation-intensity token, `completeness_sam` and `contain_sps`;
+- simple visual descriptors including brightness, contrast, edge-density cue and foreground-area fraction;
+- duplicate and near-duplicate screening using exact hashes and thumbnail-hash cues;
+- visual review panels grouped by recorded ink type, shape and irradiation intensity, plus panels for missing metadata, duplicate groups and unusual images;
+- a figure register, validation summary, QC findings table, output inventory and run manifest.
+
+## Phase 6 verified results and scientific interpretation
+
+The executed Phase 6 run verified the expected image-evidence layer:
+- `1,031` image-index metadata records were loaded.
+- `1,031` image candidate files were present in `images.zip`, all with `.png` suffix.
+- `0` image files were unreadable.
+- `0` image-index records were unmatched to archive files.
+- `0` archive-only image files were detected.
+- `20` PNG figures and `25` supporting CSV/JSON/HTML outputs were generated.
+- `10` of `10` validation checks passed, with `0` critical failures.
+- `3` review-level QC findings were recorded: `2` duplicate or near-duplicate diagnostic groups, `943` missing `completeness_sam` values and `922` missing `contain_sps` values.
+
+The metadata layer is useful but incomplete. The source image index contains `48` recorded `ink_type_ph` values, `4` recorded shape values and `7` recorded irradiation-intensity tokens. However, the two source annotation fields most suggestive of print completeness or SPS status are mostly blank in this run. Those blanks remain missing evidence, not negative labels and not values to fill by assumption.
+
+### Phase 6 validation ledger
+
+| Check | Status | Severity | Evidence |
+| --- | --- | --- | --- |
+| `images_zip_exists` | passed | critical | data/raw/zenodo_19602891/images.zip |
+| `image_index_loaded` | passed | critical | 1031 records |
+| `zip_integrity_test` | passed | critical | bad_member=None |
+| `archive_has_image_files` | passed | critical | 1031 image files |
+| `image_files_readable` | passed | warning | 0 unreadable image files |
+| `image_index_archive_matching_complete` | passed | review | 0 unmatched; 0 multiple matches |
+| `archive_only_images` | passed | review | 0 archive-only image files |
+| `phase4_supporting_context_available` | passed | warning | data/processed/record_linkage_and_analysis_ready_evidence_layer |
+| `phase5_supporting_context_available` | passed | warning | data/processed/hydrogel_rheology_and_printing_context_analysis |
+| `scientific_boundary_preserved` | passed | critical | Notebook does not infer physical-sample identity, printability success, cell viability, tissue performance, or clinical outcomes from image features. |
+
+### Phase 6 image-index metadata profile
+
+| Field | Records | Present | Missing | Missing fraction | Unique non-missing values | Example values |
+| --- | --- | --- | --- | --- | --- | --- |
+| `image_id` | 1031 | 1031 | 0 | 0.000 | 1031 | 7586; 7587; 7588; 7589; 7590; 7591; 7592; 7593 |
+| `date` | 1031 | 1031 | 0 | 0.000 | 18 | 2025/05/28; 2025/05/29; 2025/06/05; 2025/06/10; 2025/06/12; 2025/06/26; 2025/07/01; 2025/07/02 |
+| `ink_type_ph` | 1031 | 1031 | 0 | 0.000 | 48 | ALG2.0; ALG1.0; ALG3.0; ALG4.0; ALG5.0; ALG1.5; ALG2.5; HA1.0 |
+| `shape` | 1031 | 1031 | 0 | 0.000 | 4 | grid; star; ichou; nose |
+| `intensity` | 1031 | 1031 | 0 | 0.000 | 7 | 1; 50; 100; 0; 75; 25; 10 |
+| `completeness_sam` | 1031 | 88 | 943 | 0.915 | 1 | no |
+| `contain_sps` | 1031 | 109 | 922 | 0.894 | 1 | no |
+
+### Phase 6 QC findings
+
+| Finding | Type | Severity | Evidence | Recommended action | Interpretation |
+| --- | --- | --- | --- | --- | --- |
+| `P6_QC_0001` | duplicate_or_near_duplicate_image_diagnostics | review | 2 duplicate diagnostic groups were detected. | Review exact and thumbnail-hash duplicate groups before any modelling split. | Duplicates can cause data leakage if the same visual evidence appears in both train and test sets. |
+| `P6_QC_0002` | metadata_missing_values | review | Field completeness_sam has 943 missing values. | Retain missingness and avoid inventing labels or concentrations. | Missing metadata is part of the evidence layer and should not be imputed as source fact. |
+| `P6_QC_0003` | metadata_missing_values | review | Field contain_sps has 922 missing values. | Retain missingness and avoid inventing labels or concentrations. | Missing metadata is part of the evidence layer and should not be imputed as source fact. |
+
+### Data-science rationale
+
+Phase 6 treats image files as a new evidence layer. In data-science terms, the notebook first asks whether every row in the metadata table can be traced to an actual file and whether every file can be opened reproducibly. Only after that audit does it compute basic descriptors. This sequence matters because image analysis without file provenance can create attractive but unreliable charts.
+
+The simple descriptors are deliberately conservative:
+- **brightness** and **contrast** summarise pixel intensity and can be affected by lighting, exposure, background and camera settings;
+- **edge density** is a rough cue for boundaries and texture, not a validated measurement of filament quality;
+- **foreground-area fraction** estimates how much of the thumbnail differs from the border-like background, but it is not a calibrated physical area;
+- **duplicate cues** flag possible repeated visual evidence and protect future modelling from train/test leakage;
+- **unusual-image flags** identify records for review before modelling or interpretation.
+
+In simpler terms, the data-science task is to check whether the pictures and labels line up, then produce cautious screen-level summaries. It is not yet training a computer-vision model and it is not claiming a success/failure label.
+
+### Polymer science, hydrogel and image-evidence interpretation
+
+The source project concerns phenol-modified alginate and hyaluronic-acid hydrogel inks. In polymer-science language, recorded ink type, shape and irradiation intensity may relate to formulation, printed geometry and light-driven crosslinking context. Those concepts matter because hydrogel print appearance can depend on polymer concentration, network formation, viscosity, relaxation, strand spreading, collapse, swelling and imaging conditions.
+
+Phase 6 keeps those ideas connected but bounded. A visible grid, star, ichou or nose shape can indicate that a recorded construct image exists and that the metadata label is plausible. It cannot prove that the ink had the desired storage modulus, that viscosity was optimal for extrusion, that the construct remained stable after printing, or that cells survived. The image descriptors therefore act as audit signals: they point to records worth reviewing, but physical interpretation still requires rheology, formulation, processing and biological evidence.
+
+The useful conceptual link is:
+- data science organises and screens the evidence;
+- polymer science explains what the evidence might mean physically;
+- scientific caution defines what the evidence cannot establish.
+
+### Phase 6 interpretation guide
+
+This notebook creates a defensible image evidence layer for the hydrogel bioink project.
+
+Phase 6 supports:
+- checking whether the original image archive is readable;
+- counting image files in the archive;
+- linking image-index metadata to actual files;
+- recording metadata completeness and missingness;
+- computing basic digital image properties such as dimensions, colour mode, brightness, contrast, edge density and foreground-area fraction;
+- reviewing panels by recorded ink type, shape and irradiation intensity;
+- reviewing panels for missing metadata, duplicate cues and unusual images;
+- exporting traceable review items for ambiguous or unusual evidence.
+
+How to read the richer visualisations:
+- **Grouped image grids** show whether metadata labels such as ink type, shape or intensity are connected to plausible source images.
+- **Feature heatmaps** show whether simple image descriptors vary across recorded metadata groups. They are scaled for visual comparison, not physical measurement.
+- **Missing-metadata panels** identify source records where metadata review is needed instead of guessing.
+- **Duplicate panels** protect later modelling from data leakage, where the same or near-same image appears in both training and testing evidence.
+- **Unusual-image panels** collect very bright, dark, low-contrast or feature-outlying images for review before interpretation.
+
+Phase 6 cannot prove by itself:
+- that a printed construct is biologically successful;
+- that one formulation is clinically better than another;
+- that a rheology measurement and an image came from the same physical sample;
+- that a computed image feature is a validated printability metric;
+- that a bright, dark, high-foreground or low-contrast image is automatically a successful or failed hydrogel print;
+- that missing concentrations, dates or labels can be filled in from assumptions.
+
+The central principle is simple: data science organises and screens evidence, while polymer science determines the possible physical meaning and the limits of that evidence. This boundary makes the project more credible, not weaker.
+
+### Phase 6 outputs and handoff
+
+The Phase 6 handoff is an image-evidence audit package. It is appropriate for repository documentation, visual review and later model-readiness decisions, provided that source-image reuse conditions are checked before public release.
+
+The generated output set contains:
+- image-file and ZIP inventories;
+- image-index profile and metadata completeness tables;
+- metadata-to-archive linkage table;
+- image integrity and image-feature tables;
+- duplicate diagnostics and duplicate-image ID table;
+- grouped feature summaries and visual review panel index;
+- missing-metadata, duplicate-group and unusual-image review panels;
+- validation summary, QC findings, data dictionary, output inventory and run manifest;
+- 20 figures, including grouped example grids, heatmaps and review panels.
+
+The next checkpoint can use this layer to decide whether image-derived analysis is scientifically defensible, whether duplicate records require exclusion before modelling splits, and whether metadata gaps block any intended supervised image task.
+
+### Phase 6 visualisations — browser viewing
+
+The generated `phase6_figure_gallery.html` is the safest way to inspect the Phase 6 visual evidence as a coherent set. It keeps figure titles, source populations, methods and limitations with the plots. Individual PNG upload is also reasonable for Phase 6 because several review panels are central evidence artefacts, but the original `images.zip` archive should not be committed to GitHub.
+
+### Phase 6 figure categories
+
+| Figure file | Title | Records analysed | Method | Scientific boundary |
+| --- | --- | --- | --- | --- |
+| `phase6_01_image_file_format_counts.png` | Image archive file-format counts | 1031 image candidate files | ZIP inventory grouped by file suffix | File suffix is a storage format cue, not a scientific measurement. |
+| `phase6_02_image_index_matching_coverage.png` | Image-index to archive matching coverage | 1031 image-index records | Metadata-to-file matching using documented filename rules | File matching does not prove physical-sample identity. |
+| `phase6_03_image_dimensions_scatter.png` | Readable image pixel dimensions | 1031 readable images | Pillow image metadata extraction | Pixel dimensions describe digital files, not physical print dimensions unless calibration metadata is available. |
+| `phase6_04_metadata_missingness_map.png` | Image metadata missingness map | 1031 image-index records | Binary missingness display across selected metadata fields | Missingness records source availability only; missing values are not imputed. |
+| `phase6_05_ink_type_distribution.png` | Ink-type Metadata Distribution | 1031 image-index records | Value counts for image_index.ink_type_ph | Metadata categories describe source labels; they are not automatically standardised experimental variables. |
+| `phase6_06_printed_shape_distribution.png` | Printed-shape Metadata Distribution | 1031 image-index records | Value counts for image_index.shape | Metadata categories describe source labels; they are not automatically standardised experimental variables. |
+| `phase6_07_irradiation_intensity_distribution.png` | Irradiation-intensity Metadata Distribution | 1031 image-index records | Value counts for image_index.intensity | Metadata categories describe source labels; they are not automatically standardised experimental variables. |
+| `phase6_08_brightness_contrast_scatter.png` | Image brightness and contrast screening | 1031 readable images | Thumbnail grayscale intensity summary | Brightness and contrast may reflect imaging conditions as well as printed material appearance. |
+| `phase6_09_foreground_area_by_shape.png` | Foreground-area fraction by recorded shape category | 1031 linked readable images | Border-background thresholding on thumbnail images | Foreground area is a computed descriptor and not a validated printability score. |
+| `phase6_10_example_image_grid.png` | Example source image grid | 12 readable source images | First readable images loaded from the ZIP archive and displayed as thumbnails | The grid supports visual audit only and is not a representative statistical sample unless sampling is defined. |
+| `phase6_11_source_processed_comparison.png` | Source versus processed image comparison | 4 readable source images | Thumbnail display, grayscale conversion, and border-background foreground mask | Preprocessing can change interpretation; the mask is a review tool, not a ground-truth segmentation. |
+| `phase6_12_example_grid_by_ink_type.png` | Example Image Grid by Recorded Ink Type | 18 thumbnails from 6 ink_type_ph groups | Deterministic first-3 sampling from the most frequent linked readable ink_type_ph groups | Thumbnails are examples for audit only; group appearance may be affected by lighting, cropping, scale and source-image selection. |
+| `phase6_13_example_grid_by_shape.png` | Example Image Grid by Recorded Shape | 12 thumbnails from 4 shape groups | Deterministic first-3 sampling from the most frequent linked readable shape groups | Thumbnails are examples for audit only; group appearance may be affected by lighting, cropping, scale and source-image selection. |
+| `phase6_14_example_grid_by_irradiation_intensity.png` | Example Image Grid by Recorded Irradiation Intensity | 18 thumbnails from 6 intensity groups | Deterministic first-3 sampling from the most frequent linked readable intensity groups | Thumbnails are examples for audit only; group appearance may be affected by lighting, cropping, scale and source-image selection. |
+| `phase6_15_feature_heatmap_by_ink_type.png` | Image Feature Heatmap by Recorded Ink Type | 308 linked readable images across 6 ink_type_ph groups | Median image descriptors by metadata group, min-max scaled per descriptor for visual comparison | Scaled heatmap shows descriptor patterns only; it does not establish causality, printability or biological performance. |
+| `phase6_16_feature_heatmap_by_shape.png` | Image Feature Heatmap by Recorded Shape | 1031 linked readable images across 4 shape groups | Median image descriptors by metadata group, min-max scaled per descriptor for visual comparison | Scaled heatmap shows descriptor patterns only; it does not establish causality, printability or biological performance. |
+| `phase6_17_feature_heatmap_by_irradiation_intensity.png` | Image Feature Heatmap by Recorded Irradiation Intensity | 1027 linked readable images across 6 intensity groups | Median image descriptors by metadata group, min-max scaled per descriptor for visual comparison | Scaled heatmap shows descriptor patterns only; it does not establish causality, printability or biological performance. |
+| `phase6_18_missing_metadata_image_review_panel.png` | Image Review Panel for Rows with Missing Metadata | 18 linked readable images with missing metadata | Rows ranked by count of missing selected metadata fields | Missing metadata is source evidence, not a reason to invent labels or drop records automatically. |
+| `phase6_19_duplicate_group_review_panel.png` | Duplicate and Near-duplicate Image Review Panel | 4 images from duplicate diagnostic groups | Exact SHA-256 and thumbnail-hash duplicate cues displayed as thumbnails | Duplicate cues require human review; visual hash matches may be repeated images, similar images or hash collisions. |
+| `phase6_20_unusual_image_review_panel.png` | Unusual-image Review Panel | 18 linked readable images with screening flags or robust feature outliers | Review panel ranked by simple flags and robust outlier scores from thumbnail descriptors | Unusual-image flags are screening cues only; they may reflect imaging conditions rather than hydrogel behaviour. |
 
 ### Phase 7 — Audit authors’ models and generation workflow as a bioink-specific extension
 
@@ -736,7 +929,7 @@ Subject to feasibility, the repository may contain:
 - Record-linkage report with match coverage and unresolved links
 - Reproducible notebooks for audit, validation, and exploratory analysis
 - Figures and summaries based on validated, comparable observations
-- A bioink image-file audit using `images.zip`, if Optional Phase 6 is adopted
+- A completed Phase 6 bioink image-file audit using the local `images.zip` archive
 - An authors’ model and beta-CVAE workflow audit using `models.zip` and `csv_data_files_generation.zip`, if Optional Phase 7 is adopted
 - A bounded Materials Project API-ingestion example
 - A Matbench reproduction with documented protocol and metrics
@@ -816,6 +1009,9 @@ This numbering aligns the executable notebook sequence with the implemented Phas
 - Unit conversions and derived variables will be traceable to original values.
 - Repeated rheology points will not be counted as independent formulations.
 - Rheology and images alone will not be used to infer cell viability, tissue function, or clinical performance.
+- Image brightness, contrast, edge density, foreground area and thumbnail-hash similarity are screening descriptors, not validated material-performance metrics.
+- Duplicate-image cues must be reviewed before any future image-based modelling split.
+- Missing image metadata will remain missing evidence unless the source record supplies a value.
 - Observational patterns will not be described as causal effects of polymer chemistry or concentration.
 - Modelling will proceed only if the target, independent sample size, record linkage, predictors, and evaluation design support it.
 - The project does not claim new polymer synthesis, instrument or sensor development, robotics, or biological testing.
@@ -829,13 +1025,17 @@ A finding that the source data are not yet ready for hydrogel machine learning c
 
 ## Current status and next step
 
-**Current checkpoint:** Phase 5 rheology and printing-context exploratory analysis is complete for the verified Phase 4 data. The executed notebook generated 25 scientific figures and 20 CSV analysis tables; preserved the 4,600-point measurement hierarchy and 1,031 image-index records; carried forward 25 QC findings and 11 unresolved linkage-review entries; and recorded 86 passed validation checks with 0 critical failures. The Phase 5 outputs are descriptive only. The existing unresolved `mPas` unit, sample linkage and image-to-rheology identity boundaries remain. The browser-viewable gallery currently shows the 25 embedded plots, while the separate executed HTML report can also be opened directly in a browser. The next step is to review source-data release permissions for the public gallery and local CSV outputs, then consider Optional Phase 6 image-file auditing or Optional Phase 7 authors’ model/workflow auditing.
+**Current checkpoint:** Phase 6 image-file audit and computer-vision readiness review is complete for the local image archive and verified Phase 4/5 context. The executed notebook verified `1,031` image-index records, `1,031` PNG archive files, `0` unreadable images, `0` unmatched metadata rows and `0` archive-only image files; generated `20` figures and `25` supporting CSV/JSON/HTML outputs; and recorded `10` passed validation checks with `0` critical failures. The Phase 6 outputs are audit and screening evidence only. They do not establish physical-sample identity, printability success, rheology-to-image identity, cell viability, tissue performance or clinical outcomes. The next step is to review source-image reuse rights, remove private local paths where needed, and publish the README, notebook, HTML report, figure gallery, selected figures and selected supporting tables. Optional Phase 7 can then inventory the authors' model and beta-CVAE generation artefacts without treating those derived files as new experimental evidence.
+<details>
+<summary>Previous Phase 5 checkpoint — retained for project history</summary>
+**Current checkpoint:** Phase 5 hydrogel rheology and printing-context exploratory analysis is complete for the verified Phase 4 evidence layer. The submitted Jupyter run retained 4,600 rheology measurement points, 39,100 source measurement-cell records and 1,031 image-index metadata records; produced 25 scientific PNG figures and 20 CSV analysis tables; and recorded 86 passed validation checks with 0 critical failures. The output remains strictly descriptive: no physical-sample, formulation or rheology-to-image relationship is confirmed, the `mPas` token remains unresolved, and supervised hydrogel prediction is not claimed. The next work is to review the resulting figures and publication permissions, then consider an optional image-file audit or model-artefact audit.
+</details>
+
 <details>
 <summary>Previous Phase 4 checkpoint — retained for project history</summary>
 **Current checkpoint:** Phase 4 record-linkage-and-analysis-ready evidence-layer execution is complete. The run resolved 21 controlled inputs, preserved 39,100 source measurement-cell records, 4,600 measurement-point records and 1,031 image-index records, created a 62-row candidate rheology-image linkage table, retained 25 QC findings, exported 11 unresolved linkage-review rows and recorded 0 critical validation failures. It does not assert physical-sample, formulation, replicate, printing-run or rheology-to-image links. The next step is Phase 5: exploratory rheology and printing-context analysis using the Phase 4 evidence layer while keeping candidate-only relationships clearly labelled.
 </details>
 
-Optional Phase 6 can audit the actual image archive in `images.zip`. Optional Phase 7 can inventory or compare the authors’ model and beta-CVAE generation artefacts using `models.zip` and `csv_data_files_generation.zip`. These remain separate from Phase 5 and should not be used to claim model readiness before a target, independent unit and validation design are justified.
 <details>
 <summary>Previous Phase 3 checkpoint — retained for project history</summary>
 **Current checkpoint:** Phase 3 standardisation-and-quality-checks execution is complete for the verified Phase 2 checkpoint. The implemented notebook resolves and verifies the controlled Phase 1/2 inputs by SHA-256, preserves all 39,100 source measurement cells, 4,600 measurement points and 1,031 image-index records, applies only evidence-supported standardisation, retains the unresolved `mPas` viscosity token without conversion, links quality-control findings back to source coordinates, and exports a reproducible Phase 3 handoff. All 674 recorded Phase 3 validation checks passed in the submitted run. Record linkage, rheology interpretation, formulation comparison and modelling remain later work.
@@ -1216,6 +1416,193 @@ Also inspect notebook outputs, HTML reports, JSON manifests and any CSVs for loc
 6. Check Phase 0–4 HTML-view links in the README. If the external HTML Preview service does not display a page, use the stored GitHub file link to inspect or download the HTML directly; rendering through the third-party service is not guaranteed. Do not upload 25 separate PNGs, 20 CSVs or the run manifest merely to make a link work; publication of the embedded HTML figures should also be reconsidered if reuse rights are not established.
 
 **Suggested commit message:** `Update Phase 5 README with browser report link and publication notes`.
+
+## GitHub publication: Phase 6 checkpoint
+
+### Public files, local outputs and the Phase 6 publication plan
+
+Phase 6 adds a computer-vision-readiness layer to the hydrogel bioink repository. The current publication target is to make the executed notebook, HTML report, figure gallery, selected PNG figures and selected supporting tables inspectable without committing the raw image archive.
+
+The raw source archive `data/raw/zenodo_19602891/images.zip` is `459.76 MiB` in the submitted run and should not be uploaded to GitHub. It belongs in the local project folder or should be retrieved from the authorised source record. The repository should document its expected path and source, while the actual ZIP remains outside version control.
+
+### Phase 6 quick access — planned published files
+
+| Item | Canonical GitHub path | Link |
+|---|---|---|
+| README | `README.md` | [Open repository README](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md) |
+| Executable notebook | `notebooks/06_image_file_audit_optional.ipynb` | [Open notebook](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/notebooks/06_image_file_audit_optional.ipynb) |
+| Executed HTML report | `reports/06_image_file_audit_optional.html` | [Open stored HTML](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/06_image_file_audit_optional.html) |
+| Browser-view report | `reports/06_image_file_audit_optional.html` | [View executed report in browser](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/06_image_file_audit_optional.html) |
+| Figure gallery | `data/processed/image_file_audit_optional/phase6_figure_gallery.html` | [View Phase 6 figure gallery](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_figure_gallery.html) |
+| Upload manifest | `data/processed/image_file_audit_optional/phase6_github_upload_manifest.csv` | [Open manifest](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_github_upload_manifest.csv) |
+
+### Phase 6 complete output register — 48-item plan
+
+The Phase 6 repository checkpoint is organised as three documentation/source files plus the 45 outputs listed by the submitted run. The standalone PNG review panels are appropriate supporting evidence for Phase 6 if source-image reuse permission is acceptable. The raw image archive is excluded.
+
+#### Files 1–3 — README, executable notebook and report
+
+| No. | Deliverable | Canonical GitHub path | Direct link | Purpose |
+|---:|---|---|---|---|
+| 1 | Repository README | `README.md` | [Open repository README](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/README.md) | Phase 6 narrative, methodology, interpretation boundaries and publication instructions. |
+| 2 | Phase 6 executable notebook | `notebooks/06_image_file_audit_optional.ipynb` | [Open notebook](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/notebooks/06_image_file_audit_optional.ipynb) | Restart-kernel-safe Python workflow for the image-file audit. |
+| 3 | Phase 6 executed HTML report | `reports/06_image_file_audit_optional.html` | [View report in browser](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/reports/06_image_file_audit_optional.html) | Executed notebook report with validation output, tables and visual interpretation. |
+
+#### Files 4–23 — 20 scientific figures
+
+These 20 figures were generated as local standalone PNG files in `data/processed/image_file_audit_optional/figures/`. They document archive coverage, metadata coverage, image descriptors, grouped examples, feature heatmaps and review panels. They are source-derived visual evidence; publication should follow source reuse review.
+
+| No. | Scientific figure | Direct link after upload | What it shows | Scientific boundary |
+| --- | --- | --- | --- | --- |
+| 4 | `phase6_01_image_file_format_counts.png` | [Open PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/figures/phase6_01_image_file_format_counts.png) | Image archive file-format counts | File suffix is a storage format cue, not a scientific measurement. |
+| 5 | `phase6_02_image_index_matching_coverage.png` | [Open PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/figures/phase6_02_image_index_matching_coverage.png) | Image-index to archive matching coverage | File matching does not prove physical-sample identity. |
+| 6 | `phase6_03_image_dimensions_scatter.png` | [Open PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/figures/phase6_03_image_dimensions_scatter.png) | Readable image pixel dimensions | Pixel dimensions describe digital files, not physical print dimensions unless calibration metadata is available. |
+| 7 | `phase6_04_metadata_missingness_map.png` | [Open PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/figures/phase6_04_metadata_missingness_map.png) | Image metadata missingness map | Missingness records source availability only; missing values are not imputed. |
+| 8 | `phase6_05_ink_type_distribution.png` | [Open PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/figures/phase6_05_ink_type_distribution.png) | Ink-type Metadata Distribution | Metadata categories describe source labels; they are not automatically standardised experimental variables. |
+| 9 | `phase6_06_printed_shape_distribution.png` | [Open PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/figures/phase6_06_printed_shape_distribution.png) | Printed-shape Metadata Distribution | Metadata categories describe source labels; they are not automatically standardised experimental variables. |
+| 10 | `phase6_07_irradiation_intensity_distribution.png` | [Open PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/figures/phase6_07_irradiation_intensity_distribution.png) | Irradiation-intensity Metadata Distribution | Metadata categories describe source labels; they are not automatically standardised experimental variables. |
+| 11 | `phase6_08_brightness_contrast_scatter.png` | [Open PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/figures/phase6_08_brightness_contrast_scatter.png) | Image brightness and contrast screening | Brightness and contrast may reflect imaging conditions as well as printed material appearance. |
+| 12 | `phase6_09_foreground_area_by_shape.png` | [Open PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/figures/phase6_09_foreground_area_by_shape.png) | Foreground-area fraction by recorded shape category | Foreground area is a computed descriptor and not a validated printability score. |
+| 13 | `phase6_10_example_image_grid.png` | [Open PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/figures/phase6_10_example_image_grid.png) | Example source image grid | The grid supports visual audit only and is not a representative statistical sample unless sampling is defined. |
+| 14 | `phase6_11_source_processed_comparison.png` | [Open PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/figures/phase6_11_source_processed_comparison.png) | Source versus processed image comparison | Preprocessing can change interpretation; the mask is a review tool, not a ground-truth segmentation. |
+| 15 | `phase6_12_example_grid_by_ink_type.png` | [Open PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/figures/phase6_12_example_grid_by_ink_type.png) | Example Image Grid by Recorded Ink Type | Thumbnails are examples for audit only; group appearance may be affected by lighting, cropping, scale and source-image selection. |
+| 16 | `phase6_13_example_grid_by_shape.png` | [Open PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/figures/phase6_13_example_grid_by_shape.png) | Example Image Grid by Recorded Shape | Thumbnails are examples for audit only; group appearance may be affected by lighting, cropping, scale and source-image selection. |
+| 17 | `phase6_14_example_grid_by_irradiation_intensity.png` | [Open PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/figures/phase6_14_example_grid_by_irradiation_intensity.png) | Example Image Grid by Recorded Irradiation Intensity | Thumbnails are examples for audit only; group appearance may be affected by lighting, cropping, scale and source-image selection. |
+| 18 | `phase6_15_feature_heatmap_by_ink_type.png` | [Open PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/figures/phase6_15_feature_heatmap_by_ink_type.png) | Image Feature Heatmap by Recorded Ink Type | Scaled heatmap shows descriptor patterns only; it does not establish causality, printability or biological performance. |
+| 19 | `phase6_16_feature_heatmap_by_shape.png` | [Open PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/figures/phase6_16_feature_heatmap_by_shape.png) | Image Feature Heatmap by Recorded Shape | Scaled heatmap shows descriptor patterns only; it does not establish causality, printability or biological performance. |
+| 20 | `phase6_17_feature_heatmap_by_irradiation_intensity.png` | [Open PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/figures/phase6_17_feature_heatmap_by_irradiation_intensity.png) | Image Feature Heatmap by Recorded Irradiation Intensity | Scaled heatmap shows descriptor patterns only; it does not establish causality, printability or biological performance. |
+| 21 | `phase6_18_missing_metadata_image_review_panel.png` | [Open PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/figures/phase6_18_missing_metadata_image_review_panel.png) | Image Review Panel for Rows with Missing Metadata | Missing metadata is source evidence, not a reason to invent labels or drop records automatically. |
+| 22 | `phase6_19_duplicate_group_review_panel.png` | [Open PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/figures/phase6_19_duplicate_group_review_panel.png) | Duplicate and Near-duplicate Image Review Panel | Duplicate cues require human review; visual hash matches may be repeated images, similar images or hash collisions. |
+| 23 | `phase6_20_unusual_image_review_panel.png` | [Open PNG](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/figures/phase6_20_unusual_image_review_panel.png) | Unusual-image Review Panel | Unusual-image flags are screening cues only; they may reflect imaging conditions rather than hydrogel behaviour. |
+
+#### Files 24–48 — 25 supporting CSV, JSON and HTML outputs
+
+These supporting files are generated locally under `data/processed/image_file_audit_optional/`. They preserve provenance, validation checks, output inventories, metadata profiles, feature tables and review-panel indices. Upload only after checking for local Windows paths, private identifiers and source-data redistribution constraints.
+
+| No. | Output file | Size in submitted run | Direct link after upload | Evidence and intended use |
+| --- | --- | --- | --- | --- |
+| 24 | `phase6_archive_only_images.csv` | 180 B | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_archive_only_images.csv) | Archive image files without matching image-index metadata; should remain empty in the submitted run. |
+| 25 | `phase6_data_dictionary.csv` | 2.5 KiB | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_data_dictionary.csv) | Definitions for Phase 6 output fields and tables. |
+| 26 | `phase6_duplicate_group_review_panel.csv` | 4.4 KiB | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_duplicate_group_review_panel.csv) | Records selected for duplicate-group visual review. |
+| 27 | `phase6_duplicate_image_diagnostics.csv` | 485 B | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_duplicate_image_diagnostics.csv) | Exact-hash and thumbnail-hash duplicate or near-duplicate cues. |
+| 28 | `phase6_duplicate_image_ids.csv` | 90 B | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_duplicate_image_ids.csv) | Compact list of image IDs involved in duplicate diagnostics. |
+| 29 | `phase6_figure_gallery.html` | 11.9 KiB | [View gallery](https://htmlpreview.github.io/?https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_figure_gallery.html) | Browser-viewable figure gallery with generated Phase 6 visualisations and captions. |
+| 30 | `phase6_figure_register.csv` | 8.3 KiB | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_figure_register.csv) | Figure filenames, methods, populations and limitations. |
+| 31 | `phase6_image_feature_summary.csv` | 483.8 KiB | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_image_feature_summary.csv) | Image-level computed descriptors for readable images. |
+| 32 | `phase6_image_file_inventory.csv` | 183.4 KiB | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_image_file_inventory.csv) | Image candidate file inventory derived from the archive. |
+| 33 | `phase6_image_index_profile.csv` | 589 B | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_image_index_profile.csv) | Metadata-field completeness and unique-value profile. |
+| 34 | `phase6_image_index_to_archive_linkage.csv` | 268.8 KiB | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_image_index_to_archive_linkage.csv) | Record-level linkage from image-index metadata to archive paths. |
+| 35 | `phase6_image_integrity_properties.csv` | 678.0 KiB | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_image_integrity_properties.csv) | Image readability, dimensions, mode and hash properties. |
+| 36 | `phase6_image_metadata_feature_layer.csv` | 835.6 KiB | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_image_metadata_feature_layer.csv) | Combined metadata, linkage and computed feature evidence layer. |
+| 37 | `phase6_input_verification.csv` | 5.3 KiB | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_input_verification.csv) | Input file existence, roles, hashes and availability. |
+| 38 | `phase6_metadata_completeness.csv` | 1023 B | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_metadata_completeness.csv) | Metadata missingness summary for image-index fields. |
+| 39 | `phase6_metadata_group_feature_summary.csv` | 6.9 KiB | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_metadata_group_feature_summary.csv) | Grouped feature summaries by metadata categories. |
+| 40 | `phase6_missing_metadata_review_panel.csv` | 865.8 KiB | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_missing_metadata_review_panel.csv) | Records selected for missing-metadata image review. |
+| 41 | `phase6_output_inventory.csv` | 5.8 KiB | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_output_inventory.csv) | Complete inventory of generated Phase 6 outputs. |
+| 42 | `phase6_qc_findings.csv` | 971 B | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_qc_findings.csv) | Review-level QC findings and recommended actions. |
+| 43 | `phase6_run_manifest.json` | 21.8 KiB | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_run_manifest.json) | Execution provenance, environment, inputs, counts and output inventory. |
+| 44 | `phase6_unusual_image_review_panel.csv` | 992.8 KiB | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_unusual_image_review_panel.csv) | Records selected for unusual-image review. |
+| 45 | `phase6_validation_summary.csv` | 1.0 KiB | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_validation_summary.csv) | Validation ledger for archive, linkage, readability and scientific boundaries. |
+| 46 | `phase6_visual_group_feature_summary.csv` | 1.9 KiB | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_visual_group_feature_summary.csv) | Grouped visual-descriptor summary for figure heatmaps. |
+| 47 | `phase6_visual_review_panel_index.csv` | 25.6 KiB | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_visual_review_panel_index.csv) | Index of images selected for grouped visual review panels. |
+| 48 | `phase6_zip_file_inventory.csv` | 183.5 KiB | [Open file](https://github.com/tehsongxuan/hydrogel-bioink-data-curation/blob/main/data/processed/image_file_audit_optional/phase6_zip_file_inventory.csv) | Full ZIP member inventory and archive metadata. |
+
+### Adopted Phase 6 repository layout
+
+The public repository can be organised as follows for the Phase 6 release. Existing Phase 0–5 files remain in their established locations.
+
+```text
+hydrogel-bioink-data-curation/
+├── README.md
+├── notebooks/
+│   ├── 00_scope_and_source_registry.ipynb
+│   ├── ...
+│   └── 06_image_file_audit_optional.ipynb
+├── reports/
+│   ├── 00_scope_and_source_registry.html
+│   ├── ...
+│   └── 06_image_file_audit_optional.html
+└── data/
+    └── processed/
+        └── image_file_audit_optional/
+            ├── phase6_figure_gallery.html
+            ├── phase6_github_upload_manifest.csv
+            ├── phase6_validation_summary.csv
+            ├── phase6_run_manifest.json
+            ├── phase6_qc_findings.csv
+            ├── phase6_output_inventory.csv
+            └── figures/
+                ├── phase6_01_image_file_format_counts.png
+                ├── ...
+                └── phase6_20_unusual_image_review_panel.png
+```
+
+The separate **local** raw-data directory should contain `data/raw/zenodo_19602891/images.zip`, but that ZIP is not part of the public repository. The notebook is designed to read it locally, which is safer than repeatedly uploading a `459.76 MiB` archive.
+
+### Phase 6 Python environment and reproducibility
+
+| Component | Version reported by the submitted successful Phase 6 run | Purpose |
+|---|---|---|
+| Python | `3.12.15` | Notebook interpreter |
+| Jupyter kernel | `Python (hydrogel-bioink)` | Selected interpreter for execution |
+| NumPy | `2.5.3` | Numeric arrays, thresholding, descriptors and NumPy-safe fallbacks |
+| pandas | `2.2.3` | Tables, inventories, validation ledgers and CSV exports |
+| Matplotlib | `3.11.2` | Scientific figures and review panels |
+| Pillow | `12.3.0` | Image opening, metadata extraction, thumbnail creation and format checks |
+| scikit-image | Skipped in the submitted run | Optional dependency avoided because binary compatibility can fail under NumPy 2.x |
+
+These numbers are reported execution details, not a rule that every installation must force identical versions. A different environment must be tested before results are called reproducible. The important reproducibility principle is that the notebook starts from file paths, hashes, validation checks and clean variables after a kernel restart.
+
+**One-time package setup, only if dependencies are missing.** In a Jupyter cell running the chosen project kernel, use:
+
+```python
+%pip install numpy pandas matplotlib pillow ipython
+```
+
+The notebook intentionally uses NumPy/Pillow methods for image descriptors so that a broken `scikit-image` wheel does not stop Phase 6. If `scikit-image` is unavailable or binary-incompatible with the active NumPy version, the notebook records that fact and continues with NumPy-safe feature methods.
+
+**Controlled inputs.** To rerun Phase 6, keep the following files in the project structure:
+
+```text
+data/raw/zenodo_19602891/images.zip
+data/raw/zenodo_19602891/image_index.csv
+data/processed/record_linkage_and_analysis_ready_evidence_layer/phase4_validation_summary.csv
+data/processed/record_linkage_and_analysis_ready_evidence_layer/phase4_run_manifest.json
+data/processed/record_linkage_and_analysis_ready_evidence_layer/qc_linkage_summary.csv
+data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_validation_summary.csv
+data/processed/hydrogel_rheology_and_printing_context_analysis/phase5_run_manifest.json
+```
+
+The Phase 4 and Phase 5 context files are supporting evidence. The core Phase 6 audit needs the image archive and image-index CSV; the context files preserve project lineage and scientific boundaries.
+
+**Restart-kernel and run-all workflow:**
+
+1. Keep `images.zip` on the local laptop at `hydrogel-bioink/data/raw/zenodo_19602891/images.zip`.
+2. Open `notebooks/06_image_file_audit_optional.ipynb` in the project directory and select **Python (hydrogel-bioink)**.
+3. Select **Restart Kernel → Run All Cells**. The notebook should not rely on variables from a previous Jupyter session.
+4. Confirm that the input-verification table marks `images_zip` and `image_index_csv` as available.
+5. Check `phase6_validation_summary.csv`; in the submitted run, all 10 validation checks passed and there were 0 critical failures.
+6. Review `phase6_qc_findings.csv`, especially duplicate cues and missing metadata fields, before using any image-derived evidence in later modelling.
+7. Inspect `phase6_figure_gallery.html` and the 20 PNG figures for publication suitability and source-image reuse conditions.
+
+### Reuse, privacy and scientific release conditions
+
+The source image archive is large and source-derived. Do not upload `images.zip`, raw source images, private local environment folders, notebook checkpoints, cache folders or credentials. Also inspect notebook outputs, HTML reports, JSON manifests and CSVs for local Windows usernames, absolute home directories and private paths before publication.
+
+The Phase 6 images and review panels are scientific audit artefacts, not new experimental results. Public display should credit the source dataset and should respect the source record's reuse terms: [Zenodo bioink record](https://zenodo.org/records/19602891) · [dataset DOI](https://doi.org/10.5281/zenodo.19602891) · [associated research](https://doi.org/10.1080/17452759.2026.2671497).
+
+### Browser publication and link-verification procedure
+
+1. Keep earlier notebooks and reports (Phases 0–5) unchanged; their original navigation is preserved.
+2. Replace the repository-root `README.md` with this revised Markdown file, saved as UTF-8.
+3. Upload `notebooks/06_image_file_audit_optional.ipynb` and `reports/06_image_file_audit_optional.html`.
+4. Upload `data/processed/image_file_audit_optional/phase6_figure_gallery.html`, the selected Phase 6 CSV/JSON outputs and the `figures/` directory if image reuse review permits public display.
+5. Do not upload `data/raw/zenodo_19602891/images.zip`; document the local path and source record instead.
+6. Click **View Phase 6 figures in browser** and **View HTML report in browser — Phase 6 image-file audit** in [Quick navigation](#quick-navigation). If HTML Preview does not display a page, inspect the stored GitHub HTML file directly.
+7. Check every Phase 6 PNG and CSV link in the output register. Remove or mark any link for a file that has not actually been uploaded.
+8. Review local paths and source-derived content before committing.
+
+**Suggested commit message:** `Add Phase 6 image-file audit README and outputs`.
 
 ## Sources and technical documentation
 
