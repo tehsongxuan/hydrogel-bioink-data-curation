@@ -1,0 +1,3 @@
+duplicate_type,duplicate_key,duplicate_count,archive_paths,interpretation
+thumbnail_dhash_duplicate_or_near_duplicate,004896333307cc08,2,images/resized_IMG_8429.png | images/resized_IMG_8664.png,Small-thumbnail visual hash collision or near duplicate; use only as a review cue.
+thumbnail_dhash_duplicate_or_near_duplicate,02489633330fcc28,2,images/resized_IMG_8444.png | images/resized_IMG_8636.png,Small-thumbnail visual hash collision or near duplicate; use only as a review cue.
