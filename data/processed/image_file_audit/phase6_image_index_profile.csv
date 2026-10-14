@@ -1,0 +1,8 @@
+field,records,present,missing,missing_fraction,unique_non_missing_values,example_values
+image_id,1031,1031,0,0.0,1031,7586; 7587; 7588; 7589; 7590; 7591; 7592; 7593
+date,1031,1031,0,0.0,18,2025/05/28; 2025/05/29; 2025/06/05; 2025/06/10; 2025/06/12; 2025/06/26; 2025/07/01; 2025/07/02
+ink_type_ph,1031,1031,0,0.0,48,ALG2.0; ALG1.0; ALG3.0; ALG4.0; ALG5.0; ALG1.5; ALG2.5; HA1.0
+shape,1031,1031,0,0.0,4,grid; star; ichou; nose
+intensity,1031,1031,0,0.0,7,1; 50; 100; 0; 75; 25; 10
+completeness_sam,1031,88,943,0.9146459747817652,1,no
+contain_sps,1031,109,922,0.8942774005819593,1,no

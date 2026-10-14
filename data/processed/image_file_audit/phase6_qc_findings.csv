@@ -1,0 +1,4 @@
+finding_id,finding_type,severity,source_table,evidence,recommended_action,phase6_interpretation
+P6_QC_0001,duplicate_or_near_duplicate_image_diagnostics,review,phase6_duplicate_image_diagnostics.csv,2 duplicate diagnostic groups were detected.,Review exact and thumbnail-hash duplicate groups before any modelling split.,Duplicates can cause data leakage if the same visual evidence appears in both train and test sets.
+P6_QC_0002,metadata_missing_values,review,phase6_metadata_completeness.csv,Field completeness_sam has 943 missing values.,Retain missingness and avoid inventing labels or concentrations.,Missing metadata is part of the evidence layer and should not be imputed as source fact.
+P6_QC_0003,metadata_missing_values,review,phase6_metadata_completeness.csv,Field contain_sps has 922 missing values.,Retain missingness and avoid inventing labels or concentrations.,Missing metadata is part of the evidence layer and should not be imputed as source fact.

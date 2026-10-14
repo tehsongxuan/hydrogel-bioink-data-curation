@@ -1,0 +1,11 @@
+check,status,severity,evidence
+images_zip_exists,passed,critical,C:\Users\sufer\Documents\hydrogel-bioink\data\raw\zenodo_19602891\images.zip
+image_index_loaded,passed,critical,1031 records
+zip_integrity_test,passed,critical,bad_member=None
+archive_has_image_files,passed,critical,1031 image files
+image_files_readable,passed,warning,0 unreadable image files
+image_index_archive_matching_complete,passed,review,0 unmatched; 0 multiple matches
+archive_only_images,passed,review,0 archive-only image files
+phase4_supporting_context_available,passed,warning,C:\Users\sufer\Documents\hydrogel-bioink\data\processed\record_linkage_and_analysis_ready_evidence_layer
+phase5_supporting_context_available,passed,warning,C:\Users\sufer\Documents\hydrogel-bioink\data\processed\hydrogel_rheology_and_printing_context_analysis
+scientific_boundary_preserved,passed,critical,"Notebook does not infer physical-sample identity, printability success, cell viability, tissue performance, or clinical outcomes from image features."

@@ -1,0 +1,25 @@
+output_file,output_type,description
+phase6_input_verification.csv,CSV,"Input file availability, size and checksum where appropriate."
+phase6_image_index_profile.csv,CSV,Field-level profile of image_index.csv.
+phase6_duplicate_image_ids.csv,CSV,"Duplicate image_id rows from image_index.csv, if present."
+phase6_zip_file_inventory.csv,CSV,All ZIP archive members and basic ZIP metadata.
+phase6_image_file_inventory.csv,CSV,Archive members that look like image files.
+phase6_image_index_to_archive_linkage.csv,CSV,Traceable linkage between image_index records and archive image files.
+phase6_archive_only_images.csv,CSV,Image files present in the archive but not linked to image_index records.
+phase6_image_integrity_properties.csv,CSV,"Image readability, dimensions, modes and computed descriptors."
+phase6_image_feature_summary.csv,CSV,Compact table of computed exploratory image features.
+phase6_duplicate_image_diagnostics.csv,CSV,Exact SHA-256 and thumbnail-hash duplicate review cues.
+phase6_image_metadata_feature_layer.csv,CSV,Metadata linked to primary archive files and computed features where available.
+phase6_metadata_completeness.csv,CSV,Metadata completeness and missingness interpretation.
+phase6_metadata_group_feature_summary.csv,CSV,Descriptive feature summaries by selected metadata fields.
+phase6_visual_group_feature_summary.csv,CSV,Second-round median image descriptors by selected metadata groups for visual review.
+phase6_visual_review_panel_index.csv,CSV,Index of images included in second-round visual review panels and the reason each image was selected.
+phase6_missing_metadata_review_panel.csv,CSV,"Rows with missing selected image metadata fields, retained for source review."
+phase6_duplicate_group_review_panel.csv,CSV,Images selected from duplicate or near-duplicate diagnostic groups for manual review.
+phase6_unusual_image_review_panel.csv,CSV,Images selected by simple flags or robust thumbnail-feature outlier scores for manual review.
+phase6_qc_findings.csv,CSV,Traceable QC findings and review items.
+phase6_validation_summary.csv,CSV,"Validation checks with passed, warning, review or failed statuses."
+phase6_figure_register.csv,CSV,"Figure files, methods, records analysed and interpretation limits."
+phase6_data_dictionary.csv,CSV,Descriptions of Phase 6 output files.
+phase6_run_manifest.json,JSON,"Run timestamp, environment, input paths, counts and output inventory."
+phase6_figure_gallery.html,HTML,Browser-viewable Phase 6 figure gallery.
