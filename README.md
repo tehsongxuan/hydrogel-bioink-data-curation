@@ -58,9 +58,9 @@ The "view" links render the executed notebooks through HTML Preview, a third-par
 
 ## Reproducing the workflow
 
-1. Download `ALG-Ph_HA-Ph_rheology_data.zip`, `image_index.csv` and `images.zip` from the [Zenodo record](https://zenodo.org/records/19602891) into `data/raw/zenodo_19602891/`. The raw archives are not committed (`images.zip` alone is 460 MiB).
-2. Create a Python 3.12 environment with pandas, NumPy, openpyxl, Matplotlib, Pillow and Jupyter. The versions each run used are recorded in its run manifest and in the phase docs.
-3. Run the notebooks in order, using **Restart Kernel → Run All** for each. Each notebook checks that its inputs are present and consistent before running; Phases 2–4 also verify them by SHA-256 hash against the previous phase's manifest.
+1. **Set up Python 3.12 with the pinned packages.** Either `conda env create -f environment.yml` then `conda activate hydrogel-bioink`, or `pip install -r requirements.txt`. Register the kernel with `python -m ipykernel install --user --name hydrogel-bioink --display-name "Python (hydrogel-bioink)"`.
+2. **Download the source data.** From the repository root, run `python scripts/download_data.py`. Add `--images` to include `images.zip` (460 MiB, Phase 06 only). The script saves the files to `data/raw/zenodo_19602891/` and checks each one against its MD5 checksum. Raw files are not committed.
+3. **Run the notebooks in order** (00 → 06), using **Kernel → Restart Kernel and Run All Cells** for each. Phase 00 confirms the environment and that the source files are identical to the audited versions; if any check fails, it stops and names the file and the problem.
 
 Outputs from Phases 5 and 6 are committed under [`data/processed/`](data/processed/). Phases 1–4 regenerate their tables locally and are not committed, because the dataset's redistribution terms are still under review.
 
@@ -68,6 +68,8 @@ Outputs from Phases 5 and 6 are committed under [`data/processed/`](data/process
 
 ```text
 notebooks/        Executable notebooks, one per phase (00–06)
+scripts/          download_data.py — fetches and verifies the Zenodo source files
+environment.yml   Pinned Python environment (requirements.txt for pip)
 reports/          Executed HTML exports of each notebook
 data/processed/   Committed Phase 5 and 6 outputs: figure galleries, figures, CSV tables, run manifests
 docs/phases/      Full method, results and output inventory for each phase

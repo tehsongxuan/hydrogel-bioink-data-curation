@@ -1,0 +1,24 @@
+# Python environment for all notebooks in this repository (Phases 00-06).
+#
+# Create it once:   conda env create -f environment.yml
+# Activate it:      conda activate hydrogel-bioink
+# Register kernel:  python -m ipykernel install --user --name hydrogel-bioink --display-name "Python (hydrogel-bioink)"
+#
+# The pinned versions match the Phase 6 run and were tested together on Python 3.12.
+# scikit-image is deliberately not included: Phase 6 uses NumPy/Pillow methods
+# instead, because some scikit-image builds fail to import under NumPy 2.x.
+name: hydrogel-bioink
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - numpy==2.5.3
+      - pandas==2.2.3
+      - openpyxl==3.1.5
+      - matplotlib==3.11.2
+      - pillow==12.3.0
+      - ipykernel==7.4.0
+      - jupyterlab==4.6.6
+      - nbconvert==7.17.2
